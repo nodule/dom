@@ -1,0 +1,21 @@
+{
+  "name": "querySelector",
+  "ns": "dom",
+  "title": "querySelector",
+  "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
+  "expose": ["document"],
+  "ports": {
+    "input": {
+      "selector": {
+        "title": "Selector",
+        "type": "string",
+        "required": "true"
+      }
+    },
+    "output": {
+      "selection": {
+        "type": "object"
+      }
+    }
+  }
+}

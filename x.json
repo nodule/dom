@@ -1,0 +1,116 @@
+{
+  "name": "dom",
+  "description": "DOM components for Chiχ",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodule/dom.git"
+  },
+  "nodes": [
+    {
+      "ports": {
+        "input": {
+          "message": {
+            "title": "Message",
+            "type": "string",
+            "required": "true"
+          }
+        }
+      },
+      "description": "Alert",
+      "title": "Alert",
+      "ns": "dom",
+      "name": "alert",
+      "fn": "alert(input.message);\n"
+    },
+    {
+      "ports": {
+        "output": {
+          "document": {
+            "type": "object"
+          }
+        }
+      },
+      "expose": [
+        "window"
+      ],
+      "description": "dom document",
+      "ns": "dom",
+      "name": "document",
+      "fn": "output = { document: window.document }\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "id": {
+            "title": "ID",
+            "type": "string",
+            "required": "true"
+          }
+        },
+        "output": {
+          "element": {
+            "type": "object"
+          }
+        }
+      },
+      "expose": [
+        "document"
+      ],
+      "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
+      "title": "getElementById",
+      "ns": "dom",
+      "name": "getElementById",
+      "fn": "output = { element: document.getElementById(input.id) }\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "selector": {
+            "title": "Selector",
+            "type": "string",
+            "required": "true"
+          }
+        },
+        "output": {
+          "selection": {
+            "type": "object"
+          }
+        }
+      },
+      "expose": [
+        "document"
+      ],
+      "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
+      "title": "querySelector",
+      "ns": "dom",
+      "name": "querySelector",
+      "fn": "output = { selection: document.querySelector(input.selector) }\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "selector": {
+            "title": "Selector",
+            "type": "string",
+            "required": true
+          }
+        },
+        "output": {
+          "selection": {
+            "type": "object"
+          }
+        }
+      },
+      "expose": [
+        "document"
+      ],
+      "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
+      "title": "querySelectorAll",
+      "ns": "dom",
+      "name": "querySelector",
+      "fn": "output = { selection: document.querySelectorAll(input.selector) }\n"
+    }
+  ],
+  "twigs": []
+}

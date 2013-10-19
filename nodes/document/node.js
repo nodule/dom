@@ -1,0 +1,1 @@
+output = { document: window.document }

@@ -1,0 +1,15 @@
+{
+  "name": "alert",
+  "ns": "dom",
+  "title": "Alert",
+  "description": "Alert",
+  "ports": {
+    "input": {
+      "message": {
+        "title": "Message",
+        "type": "string",
+        "required": "true"
+      }
+    }
+  }
+}

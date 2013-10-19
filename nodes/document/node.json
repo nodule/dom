@@ -1,0 +1,13 @@
+{
+  "name": "document",
+  "ns": "dom",
+  "description": "dom document",
+  "expose": ["window"],
+  "ports": {
+    "output": {
+      "document": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "querySelector",
+  "ns": "dom",
+  "title": "querySelectorAll", 
+  "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
+  "expose": ["document"],
+  "ports": {
+    "input": {
+      "selector": {
+        "title": "Selector",
+        "type": "string",
+        "required": true
+      }
+    },
+    "output": {
+      "selection": {
+        "type": "object"
+      }
+    }
+  }
+}
