@@ -4,7 +4,6 @@
   "description": "dom document",
   "expose": ["window"],
   "ports": {
-    "input": {},
     "output": {
       "document": {
         "type": "object"

@@ -12,7 +12,7 @@
         "input": {
           "message": {
             "title": "Message",
-            "type": "string",
+            "type": "any",
             "required": "true"
           }
         }
@@ -37,11 +37,16 @@
       "description": "dom document",
       "ns": "dom",
       "name": "document",
-      "fn": "output = { document: window.document }\n"
+      "fn": "output = { document: win.document }\n"
     },
     {
       "ports": {
         "input": {
+          "document": {
+            "title": "Dom Document",
+            "type": "object",
+            "required": "true"
+          },
           "id": {
             "title": "ID",
             "type": "string",
@@ -54,18 +59,20 @@
           }
         }
       },
-      "expose": [
-        "document"
-      ],
       "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
       "title": "getElementById",
       "ns": "dom",
       "name": "getElementById",
-      "fn": "output = { element: document.getElementById(input.id) }\n"
+      "fn": "output = { element: input.document.getElementById(input.id) }\n"
     },
     {
       "ports": {
         "input": {
+          "document": {
+            "title": "Dom Document",
+            "type": "any",
+            "required": "true"
+          },
           "selector": {
             "title": "Selector",
             "type": "string",
@@ -78,18 +85,20 @@
           }
         }
       },
-      "expose": [
-        "document"
-      ],
       "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "output = { selection: document.querySelector(input.selector) }\n"
+      "fn": "console.log(input.document);\noutput = { selection: input.document.querySelector(input.selector) }\n"
     },
     {
       "ports": {
         "input": {
+          "document": {
+            "title": "Dom Document",
+            "type": "any",
+            "required": true
+          },
           "selector": {
             "title": "Selector",
             "type": "string",
@@ -102,14 +111,11 @@
           }
         }
       },
-      "expose": [
-        "document"
-      ],
       "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
       "title": "querySelectorAll",
       "ns": "dom",
-      "name": "querySelector",
-      "fn": "output = { selection: document.querySelectorAll(input.selector) }\n"
+      "name": "querySelectorAll",
+      "fn": "output = { selection: input.document.querySelectorAll(input.selector) }\n"
     }
   ],
   "twigs": []

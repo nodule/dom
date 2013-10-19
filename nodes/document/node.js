@@ -1,1 +1,1 @@
-output = { document: window.document }
+output = { document: win.document }

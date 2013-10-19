@@ -7,7 +7,7 @@
     "input": {
       "message": {
         "title": "Message",
-        "type": "string",
+        "type": "any",
         "required": "true"
       }
     }

@@ -1,1 +1,1 @@
-output = { selection: document.querySelectorAll(input.selector) }
+output = { selection: input.document.querySelectorAll(input.selector) }

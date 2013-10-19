@@ -1,1 +1,1 @@
-output = { element: document.getElementById(input.id) }
+output = { element: input.document.getElementById(input.id) }

@@ -3,9 +3,13 @@
   "ns": "dom",
   "title": "querySelector",
   "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
-  "expose": ["document"],
   "ports": {
     "input": {
+      "document": {
+        "title": "Dom Document",
+        "type": "any",
+        "required": "true"
+      },
       "selector": {
         "title": "Selector",
         "type": "string",

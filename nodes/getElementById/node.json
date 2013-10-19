@@ -3,9 +3,13 @@
   "ns": "dom",
   "title": "getElementById",
   "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
-  "expose": ["document"],
   "ports": {
     "input": {
+      "document": {
+        "title": "Dom Document",
+        "type": "object",
+        "required": "true"
+      },
       "id": {
         "title": "ID",
         "type": "string",

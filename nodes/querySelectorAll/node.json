@@ -1,11 +1,15 @@
 {
-  "name": "querySelector",
+  "name": "querySelectorAll",
   "ns": "dom",
   "title": "querySelectorAll", 
   "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
-  "expose": ["document"],
   "ports": {
     "input": {
+      "document": {
+        "title": "Dom Document",
+        "type": "any",
+        "required": true
+      },
       "selector": {
         "title": "Selector",
         "type": "string",
