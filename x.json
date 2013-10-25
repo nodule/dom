@@ -89,7 +89,7 @@
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "console.log(input.document);\noutput = { selection: input.document.querySelector(input.selector) }\n"
+      "fn": "console.log('input document', input.document);\noutput = { selection: input.document.querySelector(input.selector) }\n"
     },
     {
       "ports": {

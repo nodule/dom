@@ -19,6 +19,7 @@
     "chit": "0.x.x"
   },
   "chix": {
-    "name": "dom"
+    "name": "dom",
+    "color": "rgb(35,116,136)"
   }
 }
