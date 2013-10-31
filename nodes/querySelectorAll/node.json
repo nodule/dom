@@ -3,6 +3,9 @@
   "ns": "dom",
   "title": "querySelectorAll", 
   "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
+  "phrases": {
+    "active": "Gathering all elements matching criteria: {{input.selector}}"
+  },
   "ports": {
     "input": {
       "document": {

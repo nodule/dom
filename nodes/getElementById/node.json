@@ -3,6 +3,9 @@
   "ns": "dom",
   "title": "getElementById",
   "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
+  "phrases": {
+    "active": "Getting element with id: {{input.id}}"
+  },
   "ports": {
     "input": {
       "document": {

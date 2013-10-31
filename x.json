@@ -17,6 +17,9 @@
           }
         }
       },
+      "phrases": {
+        "active": "Showing alert"
+      },
       "description": "Alert",
       "title": "Alert",
       "ns": "dom",
@@ -30,6 +33,9 @@
             "type": "object"
           }
         }
+      },
+      "phrases": {
+        "active": "Providing the dom document of the current window"
       },
       "expose": [
         "window"
@@ -59,6 +65,9 @@
           }
         }
       },
+      "phrases": {
+        "active": "Getting element with id: {{input.id}}"
+      },
       "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
       "title": "getElementById",
       "ns": "dom",
@@ -85,6 +94,9 @@
           }
         }
       },
+      "phrases": {
+        "active": "Gathering elements matching criteria: {{input.selector}}"
+      },
       "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
       "title": "querySelector",
       "ns": "dom",
@@ -110,6 +122,9 @@
             "type": "object"
           }
         }
+      },
+      "phrases": {
+        "active": "Gathering all elements matching criteria: {{input.selector}}"
       },
       "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
       "title": "querySelectorAll",

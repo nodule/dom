@@ -3,6 +3,9 @@
   "ns": "dom",
   "title": "Alert",
   "description": "Alert",
+  "phrases": {
+    "active": "Showing alert"
+  },
   "ports": {
     "input": {
       "message": {

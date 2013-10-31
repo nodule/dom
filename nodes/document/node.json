@@ -3,6 +3,9 @@
   "ns": "dom",
   "description": "dom document",
   "expose": ["window"],
+  "phrases": {
+    "active": "Providing the dom document of the current window"
+  },
   "ports": {
     "output": {
       "document": {
