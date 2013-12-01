@@ -28,6 +28,13 @@
     },
     {
       "ports": {
+        "input": {
+          "window": {
+            "type": "function",
+            "Title": "Window",
+            "required": false
+          }
+        },
         "output": {
           "document": {
             "type": "object"
@@ -43,7 +50,7 @@
       "description": "dom document",
       "ns": "dom",
       "name": "document",
-      "fn": "output = { document: win.document }\n"
+      "fn": "win = input.window || win;\noutput = {\n  document: win.document\n}\n"
     },
     {
       "ports": {
@@ -79,13 +86,11 @@
         "input": {
           "document": {
             "title": "Dom Document",
-            "type": "any",
-            "required": "true"
+            "type": "function"
           },
           "selector": {
             "title": "Selector",
-            "type": "string",
-            "required": "true"
+            "type": "string"
           }
         },
         "output": {

@@ -1,1 +1,4 @@
-output = { document: win.document }
+win = input.window || win;
+output = {
+  document: win.document
+}

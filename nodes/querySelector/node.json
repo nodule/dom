@@ -10,13 +10,11 @@
     "input": {
       "document": {
         "title": "Dom Document",
-        "type": "any",
-        "required": "true"
+        "type": "function"
       },
       "selector": {
         "title": "Selector",
-        "type": "string",
-        "required": "true"
+        "type": "string"
       }
     },
     "output": {

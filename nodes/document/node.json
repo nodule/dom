@@ -7,6 +7,13 @@
     "active": "Providing the dom document of the current window"
   },
   "ports": {
+    "input": {
+      "window": {
+        "type": "function",
+        "Title": "Window",
+        "required": false
+      }
+    },
     "output": {
       "document": {
         "type": "object"
