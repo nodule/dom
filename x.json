@@ -17,6 +17,77 @@
           "event": {
             "type": "string",
             "enum": [
+              "select",
+              "change",
+              "submit",
+              "reset",
+              "focus",
+              "blur"
+            ],
+            "Title": "Dom Event"
+          }
+        },
+        "output": {
+          "event": {
+            "type": "object",
+            "Title": "Event"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
+      "description": "Add Form Event Listener",
+      "ns": "dom",
+      "name": "addFormEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "event": {
+            "type": "string",
+            "enum": [
+              "keydown",
+              "keypress",
+              "keyup"
+            ],
+            "Title": "Dom Event"
+          }
+        },
+        "output": {
+          "event": {
+            "type": "object",
+            "Title": "Event"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
+      "description": "Add Keyboard Event Listener",
+      "ns": "dom",
+      "name": "addKeyboardEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "preventDefault": {
+            "type": "boolean",
+            "Title": "Prevent Default Event"
+          },
+          "event": {
+            "type": "string",
+            "enum": [
               "click",
               "dblclick",
               "mousedown",
@@ -39,6 +110,10 @@
           "event": {
             "type": "object",
             "Title": "Event"
+          },
+          "element": {
+            "type": "any",
+            "Title": "Element"
           }
         }
       },
@@ -48,6 +123,148 @@
       "description": "Add Mouse Event Listener",
       "ns": "dom",
       "name": "addMouseEvent",
+      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "event": {
+            "type": "string",
+            "enum": [
+              "DOMSubtreeModified",
+              "DOMNodeInserted",
+              "DOMNodeRemoved",
+              "DOMNodeRemovedFromDocument",
+              "DOMNodeInsertedIntoDocument",
+              "DOMAttrModified",
+              "DOMCharacterDataModified"
+            ],
+            "Title": "Dom Event"
+          }
+        },
+        "output": {
+          "event": {
+            "type": "object",
+            "Title": "Event"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
+      "description": "Add Mutation Event Listener",
+      "ns": "dom",
+      "name": "addMutationEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "event": {
+            "type": "string",
+            "enum": [
+              "pointerdown",
+              "pointerup",
+              "pointercancel",
+              "pointermove",
+              "pointerover",
+              "pointerout",
+              "pointerenter",
+              "pointerleave",
+              "gotpointercapture",
+              "lostpointercapture"
+            ],
+            "Title": "Pointer Event"
+          }
+        },
+        "output": {
+          "event": {
+            "type": "object",
+            "Title": "Event"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
+      "description": "Add Pointer Event Listener",
+      "ns": "dom",
+      "name": "addPointerEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "event": {
+            "type": "string",
+            "enum": [
+              "touchstart",
+              "touchend",
+              "touchmove",
+              "touchenter",
+              "touchleave",
+              "touchcancel"
+            ],
+            "Title": "Touch Event"
+          }
+        },
+        "output": {
+          "event": {
+            "type": "object",
+            "Title": "Event"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
+      "description": "Add Touch Event Listener",
+      "ns": "dom",
+      "name": "addTouchEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "event": {
+            "type": "string",
+            "enum": [
+              "focusin",
+              "focusout",
+              "DOMActivate"
+            ],
+            "Title": "Dom Event"
+          }
+        },
+        "output": {
+          "event": {
+            "type": "object",
+            "Title": "Event"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
+      "description": "Add UI Event Listener",
+      "ns": "dom",
+      "name": "addUIEvent",
       "fn": "output = [input.element, 'addEventListener', input.event];\n"
     },
     {

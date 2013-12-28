@@ -1,0 +1,34 @@
+{
+  "name": "addTouchEvent",
+  "ns": "dom",
+  "description": "Add Touch Event Listener",
+  "phrases": {
+    "active": "Adding {{input.event}} handler"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      },
+      "event": {
+        "type": "string",
+        "enum": [
+          "touchstart",
+          "touchend",
+          "touchmove",
+          "touchenter",
+          "touchleave",
+          "touchcancel"
+        ],
+        "Title": "Touch Event"
+      }
+    },
+    "output": {
+      "event": {
+        "type": "object",
+        "Title": "Event"
+      }
+    }
+  }
+}

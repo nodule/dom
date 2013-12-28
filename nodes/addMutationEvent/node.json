@@ -1,0 +1,35 @@
+{
+  "name": "addMutationEvent",
+  "ns": "dom",
+  "description": "Add Mutation Event Listener",
+  "phrases": {
+    "active": "Adding {{input.event}} handler"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      },
+      "event": {
+        "type": "string",
+        "enum": [
+          "DOMSubtreeModified",
+          "DOMNodeInserted",
+          "DOMNodeRemoved",
+          "DOMNodeRemovedFromDocument",
+          "DOMNodeInsertedIntoDocument",
+          "DOMAttrModified",
+          "DOMCharacterDataModified"
+        ],
+        "Title": "Dom Event"
+      }
+    },
+    "output": {
+      "event": {
+        "type": "object",
+        "Title": "Event"
+      }
+    }
+  }
+}

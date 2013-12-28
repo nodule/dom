@@ -11,6 +11,10 @@
         "type": "any",
         "Title": "Dom Element"
       },
+      "preventDefault": {
+        "type": "boolean",
+        "Title": "Prevent Default Event"
+      },
       "event": {
         "type": "string",
         "enum": [
@@ -36,6 +40,10 @@
       "event": {
         "type": "object",
         "Title": "Event"
+      },
+      "element": {
+        "type": "any",
+        "Title": "Element"
       }
     }
   }

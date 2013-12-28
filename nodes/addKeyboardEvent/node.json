@@ -1,0 +1,31 @@
+{
+  "name": "addKeyboardEvent",
+  "ns": "dom",
+  "description": "Add Keyboard Event Listener",
+  "phrases": {
+    "active": "Adding {{input.event}} handler"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      },
+      "event": {
+        "type": "string",
+        "enum": [
+          "keydown",
+          "keypress",
+          "keyup"
+        ],
+        "Title": "Dom Event"
+      }
+    },
+    "output": {
+      "event": {
+        "type": "object",
+        "Title": "Event"
+      }
+    }
+  }
+}

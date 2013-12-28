@@ -1,0 +1,38 @@
+{
+  "name": "addPointerEvent",
+  "ns": "dom",
+  "description": "Add Pointer Event Listener",
+  "phrases": {
+    "active": "Adding {{input.event}} handler"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      },
+      "event": {
+        "type": "string",
+        "enum": [
+          "pointerdown",
+          "pointerup",
+          "pointercancel",
+          "pointermove",
+          "pointerover",
+          "pointerout",
+          "pointerenter",
+          "pointerleave",
+          "gotpointercapture",
+          "lostpointercapture"
+        ],
+        "Title": "Pointer Event"
+      }
+    },
+    "output": {
+      "event": {
+        "type": "object",
+        "Title": "Event"
+      }
+    }
+  }
+}

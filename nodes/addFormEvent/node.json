@@ -1,0 +1,34 @@
+{
+  "name": "addFormEvent",
+  "ns": "dom",
+  "description": "Add Form Event Listener",
+  "phrases": {
+    "active": "Adding {{input.event}} handler"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      },
+      "event": {
+        "type": "string",
+        "enum": [
+          "select",
+          "change",
+          "submit",
+          "reset",
+          "focus",
+          "blur"
+        ],
+        "Title": "Dom Event"
+      }
+    },
+    "output": {
+      "event": {
+        "type": "object",
+        "Title": "Event"
+      }
+    }
+  }
+}
