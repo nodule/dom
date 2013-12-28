@@ -1,0 +1,22 @@
+{
+  "name": "width",
+  "ns": "dom",
+  "description": "dom width",
+  "phrases": {
+    "active": "Calculating width"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    },
+    "output": {
+      "width": {
+        "type": "number",
+        "Title": "Width"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "setText",
+  "ns": "dom",
+  "description": "dom setText",
+  "phrases": {
+    "active": "Adding text"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      },
+      "text": {
+        "type": "string",
+        "Title": "text"
+      }
+    },
+    "output": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    }
+  }
+}

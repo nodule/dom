@@ -1,0 +1,22 @@
+{
+  "name": "height",
+  "ns": "dom",
+  "description": "dom height",
+  "phrases": {
+    "active": "Calculating height"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    },
+    "output": {
+      "height": {
+        "type": "number",
+        "Title": "Height"
+      }
+    }
+  }
+}

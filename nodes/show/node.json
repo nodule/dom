@@ -1,0 +1,22 @@
+{
+  "name": "show",
+  "ns": "dom",
+  "description": "dom show",
+  "phrases": {
+    "active": "Showing"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    },
+    "output": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    }
+  }
+}

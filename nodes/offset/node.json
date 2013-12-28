@@ -1,0 +1,38 @@
+{
+  "name": "offset",
+  "ns": "dom",
+  "description": "dom offset",
+  "phrases": {
+    "active": "Calculating offset"
+  },
+  "ports": {
+    "input": {
+      "window": {
+        "type": "any",
+        "Title": "Window"
+      },
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    },
+    "output": {
+      "top": {
+        "type": "number",
+        "Title": "Top"
+      },
+      "left": {
+        "type": "number",
+        "Title": "Left"
+      },
+      "width": {
+        "type": "number",
+        "Title": "Width"
+      },
+      "height": {
+        "type": "number",
+        "Title": "Height"
+      }
+    }
+  }
+}

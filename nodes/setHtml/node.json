@@ -1,0 +1,27 @@
+{
+  "name": "setHtml",
+  "ns": "dom",
+  "description": "dom setHtml",
+  "phrases": {
+    "active": "Adding html"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      },
+      "html": {
+        "type": "string",
+        "format": "html",
+        "Title": "html"
+      }
+    },
+    "output": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    }
+  }
+}

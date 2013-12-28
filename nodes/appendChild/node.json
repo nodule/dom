@@ -1,0 +1,25 @@
+{
+  "name": "appendChild",
+  "ns": "dom",
+  "description": "dom appendChild",
+  "phrases": {
+    "active": "Adding child node"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      },
+      "child": {
+        "type": "any",
+        "Title": "Child Element"
+      }
+    },
+    "output": {
+      "document": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "getHtml",
+  "ns": "dom",
+  "description": "dom getHtml",
+  "phrases": {
+    "active": "Getting html"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    },
+    "output": {
+      "html": {
+        "type": "string",
+        "Title": "HTML"
+      }
+    }
+  }
+}

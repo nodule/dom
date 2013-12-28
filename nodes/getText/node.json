@@ -1,0 +1,22 @@
+{
+  "name": "getText",
+  "ns": "dom",
+  "description": "dom getText",
+  "phrases": {
+    "active": "Getting text"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    },
+    "output": {
+      "text": {
+        "type": "string",
+        "Title": "Text"
+      }
+    }
+  }
+}

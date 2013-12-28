@@ -1,0 +1,22 @@
+{
+  "name": "hide",
+  "ns": "dom",
+  "description": "dom hide",
+  "phrases": {
+    "active": "Hiding"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    },
+    "output": {
+      "element": {
+        "type": "any",
+        "Title": "Dom Element"
+      }
+    }
+  }
+}

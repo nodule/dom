@@ -29,6 +29,32 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "child": {
+            "type": "any",
+            "Title": "Child Element"
+          }
+        },
+        "output": {
+          "document": {
+            "type": "object"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding child node"
+      },
+      "description": "dom appendChild",
+      "ns": "dom",
+      "name": "appendChild",
+      "fn": "input.element.appendChild(input.child)\n"
+    },
+    {
+      "ports": {
+        "input": {
           "window": {
             "type": "function",
             "Title": "Window",
@@ -80,6 +106,137 @@
       "ns": "dom",
       "name": "getElementById",
       "fn": "output = { element: input.document.getElementById(input.id) }\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        },
+        "output": {
+          "html": {
+            "type": "string",
+            "Title": "HTML"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Getting html"
+      },
+      "description": "dom getHtml",
+      "ns": "dom",
+      "name": "getHtml",
+      "fn": "output = { html: input.element.innerHTML };\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        },
+        "output": {
+          "text": {
+            "type": "string",
+            "Title": "Text"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Getting text"
+      },
+      "description": "dom getText",
+      "ns": "dom",
+      "name": "getText",
+      "fn": "output = { text: input.element.innerText };\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        },
+        "output": {
+          "height": {
+            "type": "number",
+            "Title": "Height"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Calculating height"
+      },
+      "description": "dom height",
+      "ns": "dom",
+      "name": "height",
+      "fn": "output = {\n  height: input.element.getBoundingClientRect().height\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        },
+        "output": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Hiding"
+      },
+      "description": "dom hide",
+      "ns": "dom",
+      "name": "hide",
+      "fn": "input.element.style.display = 'none';\n\noutput = { element: input.element };\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "window": {
+            "type": "any",
+            "Title": "Window"
+          },
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        },
+        "output": {
+          "top": {
+            "type": "number",
+            "Title": "Top"
+          },
+          "left": {
+            "type": "number",
+            "Title": "Left"
+          },
+          "width": {
+            "type": "number",
+            "Title": "Width"
+          },
+          "height": {
+            "type": "number",
+            "Title": "Height"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Calculating offset"
+      },
+      "description": "dom offset",
+      "ns": "dom",
+      "name": "offset",
+      "fn": "var rect = input.element.getBoundingClientRect();\noutput = {\n  left: rect.left + input.win.pageXOffset,\n  top: rect.top + input.win.pageYOffset,\n  width: rect.width,\n  height: rect.height\n};\n"
     },
     {
       "ports": {
@@ -140,6 +297,84 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "html": {
+            "type": "string",
+            "format": "html",
+            "Title": "html"
+          }
+        },
+        "output": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding html"
+      },
+      "description": "dom setHtml",
+      "ns": "dom",
+      "name": "setHtml",
+      "fn": "input.element.innerHTML = input.html;\noutput = { element: input.element };\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "text": {
+            "type": "string",
+            "Title": "text"
+          }
+        },
+        "output": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding text"
+      },
+      "description": "dom setText",
+      "ns": "dom",
+      "name": "setText",
+      "fn": "input.element.innerText = input.text;\noutput = { element: input.element };\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        },
+        "output": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Showing"
+      },
+      "description": "dom show",
+      "ns": "dom",
+      "name": "show",
+      "fn": "input.element.style.display = 'block';\n\noutput = { element: input.element };\n"
+    },
+    {
+      "ports": {
+        "input": {
           "selector": {
             "type": "string",
             "Title": "Frame Selector",
@@ -165,6 +400,29 @@
       "ns": "dom",
       "name": "warp",
       "fn": "output = {\n  window: document.querySelector(input.selector).contentWindow\n}\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          }
+        },
+        "output": {
+          "width": {
+            "type": "number",
+            "Title": "Width"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Calculating width"
+      },
+      "description": "dom width",
+      "ns": "dom",
+      "name": "width",
+      "fn": "output = {\n  width: input.element.getBoundingClientRect().width\n};\n"
     }
   ],
   "twigs": []
