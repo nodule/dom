@@ -10,6 +10,49 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "type": "any",
+            "Title": "Dom Element"
+          },
+          "event": {
+            "type": "string",
+            "enum": [
+              "click",
+              "dblclick",
+              "mousedown",
+              "mouseup",
+              "mouseover",
+              "mousemove",
+              "mouseout",
+              "dragstart",
+              "drag",
+              "dragenter",
+              "dragleave",
+              "dragover",
+              "drop",
+              "dragend"
+            ],
+            "Title": "Dom Event"
+          }
+        },
+        "output": {
+          "event": {
+            "type": "object",
+            "Title": "Event"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
+      "description": "Add Mouse Event Listener",
+      "ns": "dom",
+      "name": "addMouseEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
+      "ports": {
+        "input": {
           "message": {
             "title": "Message",
             "type": "any",
