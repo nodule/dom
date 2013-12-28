@@ -1,0 +1,25 @@
+{
+  "name": "warp",
+  "ns": "dom",
+  "description": "dom warp",
+  "expose": ["window","document"],
+  "phrases": {
+    "active": "Warping to frame {{input.selector}}"
+  },
+  "ports": {
+    "input": {
+      "selector": {
+        "type": "string",
+        "Title": "Frame Selector",
+        "required": true
+      }
+    },
+    "output": {
+      "window": {
+        "type": "function",
+        "Title": "Window",
+        "required": false
+      }
+    }
+  }
+}

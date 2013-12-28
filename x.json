@@ -136,6 +136,35 @@
       "ns": "dom",
       "name": "querySelectorAll",
       "fn": "output = { selection: input.document.querySelectorAll(input.selector) }\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "selector": {
+            "type": "string",
+            "Title": "Frame Selector",
+            "required": true
+          }
+        },
+        "output": {
+          "window": {
+            "type": "function",
+            "Title": "Window",
+            "required": false
+          }
+        }
+      },
+      "phrases": {
+        "active": "Warping to frame {{input.selector}}"
+      },
+      "expose": [
+        "window",
+        "document"
+      ],
+      "description": "dom warp",
+      "ns": "dom",
+      "name": "warp",
+      "fn": "output = {\n  window: document.querySelector(input.selector).contentWindow\n}\n"
     }
   ],
   "twigs": []
