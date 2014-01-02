@@ -9,18 +9,18 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       },
       "html": {
         "type": "string",
         "format": "html",
-        "Title": "html"
+        "title": "html"
       }
     },
     "output": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       }
     }
   }

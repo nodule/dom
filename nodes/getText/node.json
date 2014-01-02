@@ -9,13 +9,13 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       }
     },
     "output": {
       "text": {
         "type": "string",
-        "Title": "Text"
+        "title": "Text"
       }
     }
   }

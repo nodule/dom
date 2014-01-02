@@ -9,29 +9,29 @@
     "input": {
       "window": {
         "type": "any",
-        "Title": "Window"
+        "title": "Window"
       },
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       }
     },
     "output": {
       "top": {
         "type": "number",
-        "Title": "Top"
+        "title": "Top"
       },
       "left": {
         "type": "number",
-        "Title": "Left"
+        "title": "Left"
       },
       "width": {
         "type": "number",
-        "Title": "Width"
+        "title": "Width"
       },
       "height": {
         "type": "number",
-        "Title": "Height"
+        "title": "Height"
       }
     }
   }

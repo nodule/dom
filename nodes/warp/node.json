@@ -10,14 +10,14 @@
     "input": {
       "selector": {
         "type": "string",
-        "Title": "Frame Selector",
+        "title": "Frame Selector",
         "required": true
       }
     },
     "output": {
       "window": {
         "type": "function",
-        "Title": "Window",
+        "title": "Window",
         "required": false
       }
     }

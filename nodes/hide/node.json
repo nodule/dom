@@ -9,17 +9,17 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       },
       ":start": {
         "type": "any",
-        "Title": "Start"
+        "title": "Start"
       }
     },
     "output": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       }
     }
   }

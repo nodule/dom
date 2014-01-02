@@ -9,13 +9,13 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       }
     },
     "output": {
       "height": {
         "type": "number",
-        "Title": "Height"
+        "title": "Height"
       }
     }
   }

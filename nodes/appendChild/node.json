@@ -9,11 +9,11 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       },
       "child": {
         "type": "any",
-        "Title": "Child Element"
+        "title": "Child Element"
       }
     },
     "output": {

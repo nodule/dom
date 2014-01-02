@@ -9,11 +9,11 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       },
       "preventDefault": {
         "type": "boolean",
-        "Title": "Prevent Default Event"
+        "title": "Prevent Default Event"
       },
       "event": {
         "type": "string",
@@ -33,17 +33,17 @@
           "drop",
           "dragend"
         ],
-        "Title": "Dom Event"
+        "title": "Dom Event"
       }
     },
     "output": {
       "event": {
         "type": "object",
-        "Title": "Event"
+        "title": "Event"
       },
       "element": {
         "type": "any",
-        "Title": "Element"
+        "title": "Element"
       }
     }
   }

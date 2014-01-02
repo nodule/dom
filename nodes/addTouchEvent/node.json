@@ -9,7 +9,7 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       },
       "event": {
         "type": "string",
@@ -21,13 +21,13 @@
           "touchleave",
           "touchcancel"
         ],
-        "Title": "Touch Event"
+        "title": "Touch Event"
       }
     },
     "output": {
       "event": {
         "type": "object",
-        "Title": "Event"
+        "title": "Event"
       }
     }
   }

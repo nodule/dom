@@ -10,7 +10,7 @@
     "input": {
       "window": {
         "type": "function",
-        "Title": "Window",
+        "title": "Window",
         "required": false
       }
     },

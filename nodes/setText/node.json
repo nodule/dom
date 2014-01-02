@@ -9,17 +9,17 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       },
       "text": {
         "type": "string",
-        "Title": "text"
+        "title": "text"
       }
     },
     "output": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       }
     }
   }

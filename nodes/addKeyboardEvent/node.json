@@ -9,7 +9,7 @@
     "input": {
       "element": {
         "type": "any",
-        "Title": "Dom Element"
+        "title": "Dom Element"
       },
       "event": {
         "type": "string",
@@ -18,13 +18,13 @@
           "keypress",
           "keyup"
         ],
-        "Title": "Dom Event"
+        "title": "Dom Event"
       }
     },
     "output": {
       "event": {
         "type": "object",
-        "Title": "Event"
+        "title": "Event"
       }
     }
   }
