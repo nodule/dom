@@ -21,5 +21,8 @@
   "chix": {
     "name": "dom",
     "color": "rgb(35,116,136)"
+  },
+  "dependencies": {
+    "keyboard": "0.x.x"
   }
 }

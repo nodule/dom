@@ -6,14 +6,11 @@
     "type": "git",
     "url": "https://github.com/nodule/dom.git"
   },
+  "dependencies": {
+    "keyboard": "0.x.x"
+  },
   "nodes": [
     {
-      "name": "addFormEvent",
-      "ns": "dom",
-      "description": "Add Form Event Listener",
-      "phrases": {
-        "active": "Adding {{input.event}} handler"
-      },
       "ports": {
         "input": {
           "element": {
@@ -40,15 +37,15 @@
           }
         }
       },
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
-    },
-    {
-      "name": "addKeyboardEvent",
-      "ns": "dom",
-      "description": "Add Keyboard Event Listener",
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "description": "Add Form Event Listener",
+      "ns": "dom",
+      "name": "addFormEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
       "ports": {
         "input": {
           "element": {
@@ -72,15 +69,15 @@
           }
         }
       },
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
-    },
-    {
-      "name": "addMouseEvent",
-      "ns": "dom",
-      "description": "Add Mouse Event Listener",
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "description": "Add Keyboard Event Listener",
+      "ns": "dom",
+      "name": "addKeyboardEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
       "ports": {
         "input": {
           "element": {
@@ -123,15 +120,15 @@
           }
         }
       },
-      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
-    },
-    {
-      "name": "addMutationEvent",
-      "ns": "dom",
-      "description": "Add Mutation Event Listener",
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "description": "Add Mouse Event Listener",
+      "ns": "dom",
+      "name": "addMouseEvent",
+      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+    },
+    {
       "ports": {
         "input": {
           "element": {
@@ -159,15 +156,15 @@
           }
         }
       },
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
-    },
-    {
-      "name": "addPointerEvent",
-      "ns": "dom",
-      "description": "Add Pointer Event Listener",
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "description": "Add Mutation Event Listener",
+      "ns": "dom",
+      "name": "addMutationEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
       "ports": {
         "input": {
           "element": {
@@ -198,15 +195,15 @@
           }
         }
       },
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
-    },
-    {
-      "name": "addTouchEvent",
-      "ns": "dom",
-      "description": "Add Touch Event Listener",
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "description": "Add Pointer Event Listener",
+      "ns": "dom",
+      "name": "addPointerEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
       "ports": {
         "input": {
           "element": {
@@ -233,15 +230,15 @@
           }
         }
       },
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
-    },
-    {
-      "name": "addUIEvent",
-      "ns": "dom",
-      "description": "Add UI Event Listener",
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "description": "Add Touch Event Listener",
+      "ns": "dom",
+      "name": "addTouchEvent",
+      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+    },
+    {
       "ports": {
         "input": {
           "element": {
@@ -265,16 +262,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
+      "description": "Add UI Event Listener",
+      "ns": "dom",
+      "name": "addUIEvent",
       "fn": "output = [input.element, 'addEventListener', input.event];\n"
     },
     {
-      "name": "alert",
-      "ns": "dom",
-      "title": "Alert",
-      "description": "Alert",
-      "phrases": {
-        "active": "Showing alert"
-      },
       "ports": {
         "input": {
           "message": {
@@ -284,15 +280,16 @@
           }
         }
       },
+      "phrases": {
+        "active": "Showing alert"
+      },
+      "description": "Alert",
+      "title": "Alert",
+      "ns": "dom",
+      "name": "alert",
       "fn": "alert(input.message);\n"
     },
     {
-      "name": "appendChild",
-      "ns": "dom",
-      "description": "dom appendChild",
-      "phrases": {
-        "active": "Adding child node"
-      },
       "ports": {
         "input": {
           "element": {
@@ -310,18 +307,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Adding child node"
+      },
+      "description": "dom appendChild",
+      "ns": "dom",
+      "name": "appendChild",
       "fn": "input.element.appendChild(input.child)\n"
     },
     {
-      "name": "document",
-      "ns": "dom",
-      "description": "dom document",
-      "expose": [
-        "window"
-      ],
-      "phrases": {
-        "active": "Providing the dom document of the current window"
-      },
       "ports": {
         "input": {
           "window": {
@@ -336,16 +330,18 @@
           }
         }
       },
+      "phrases": {
+        "active": "Providing the dom document of the current window"
+      },
+      "expose": [
+        "window"
+      ],
+      "description": "dom document",
+      "ns": "dom",
+      "name": "document",
       "fn": "win = input.window || win;\noutput = {\n  document: win.document\n}\n"
     },
     {
-      "name": "getElementById",
-      "ns": "dom",
-      "title": "getElementById",
-      "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
-      "phrases": {
-        "active": "Getting element with id: {{input.id}}"
-      },
       "ports": {
         "input": {
           "document": {
@@ -365,15 +361,16 @@
           }
         }
       },
+      "phrases": {
+        "active": "Getting element with id: {{input.id}}"
+      },
+      "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
+      "title": "getElementById",
+      "ns": "dom",
+      "name": "getElementById",
       "fn": "output = { element: input.document.getElementById(input.id) }\n"
     },
     {
-      "name": "getHtml",
-      "ns": "dom",
-      "description": "dom getHtml",
-      "phrases": {
-        "active": "Getting html"
-      },
       "ports": {
         "input": {
           "element": {
@@ -388,15 +385,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Getting html"
+      },
+      "description": "dom getHtml",
+      "ns": "dom",
+      "name": "getHtml",
       "fn": "output = { html: input.element.innerHTML };\n"
     },
     {
-      "name": "getText",
-      "ns": "dom",
-      "description": "dom getText",
-      "phrases": {
-        "active": "Getting text"
-      },
       "ports": {
         "input": {
           "element": {
@@ -411,15 +408,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Getting text"
+      },
+      "description": "dom getText",
+      "ns": "dom",
+      "name": "getText",
       "fn": "output = { text: input.element.innerText };\n"
     },
     {
-      "name": "height",
-      "ns": "dom",
-      "description": "dom height",
-      "phrases": {
-        "active": "Calculating height"
-      },
       "ports": {
         "input": {
           "element": {
@@ -434,15 +431,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Calculating height"
+      },
+      "description": "dom height",
+      "ns": "dom",
+      "name": "height",
       "fn": "output = {\n  height: input.element.getBoundingClientRect().height\n};\n"
     },
     {
-      "name": "hide",
-      "ns": "dom",
-      "description": "dom hide",
-      "phrases": {
-        "active": "Hiding"
-      },
       "ports": {
         "input": {
           "element": {
@@ -461,15 +458,57 @@
           }
         }
       },
+      "phrases": {
+        "active": "Hiding"
+      },
+      "description": "dom hide",
+      "ns": "dom",
+      "name": "hide",
       "fn": "input.element.style.display = 'none';\n\noutput = { element: input.element };\n"
     },
     {
-      "name": "offset",
-      "ns": "dom",
-      "description": "dom offset",
-      "phrases": {
-        "active": "Calculating offset"
+      "ports": {
+        "input": {
+          "in": {
+            "type": "string",
+            "title": "Key(s)",
+            "description": "a string that can be any key name or a combination of key names separated by '+' or '->'. The '+' combinator requires the keys be held together, '->' requires they be pressed in a specific sequence."
+          },
+          "filter": {
+            "type": "string",
+            "enum": [
+              "activate",
+              "release",
+              "repeat",
+              "press"
+            ],
+            "title": "Filter",
+            "default": null
+          },
+          "element": {
+            "type": "any",
+            "title": "Dom Element"
+          }
+        },
+        "output": {
+          "out": {
+            "type": "any",
+            "title": "Keyboard event(s)"
+          }
+        }
       },
+      "require": {
+        "keyboard": "0.x.x"
+      },
+      "phrases": {
+        "active": "Handling keyboard"
+      },
+      "description": "Gives the keyboard a first class identity, normalizes keyboard events across browsers, and allows binding to multiple keys.",
+      "ns": "dom",
+      "name": "keyboard",
+      "fn": "var kb = new keyboard(input.element);\n\n// todo: should be async, output is mixed now. see the docs.\noutput = [kb, 'on', input.in, input.filter];\n"
+    },
+    {
       "ports": {
         "input": {
           "window": {
@@ -500,16 +539,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Calculating offset"
+      },
+      "description": "dom offset",
+      "ns": "dom",
+      "name": "offset",
       "fn": "var rect = input.element.getBoundingClientRect();\noutput = {\n  left: rect.left + input.win.pageXOffset,\n  top: rect.top + input.win.pageYOffset,\n  width: rect.width,\n  height: rect.height\n};\n"
     },
     {
-      "name": "querySelector",
-      "ns": "dom",
-      "title": "querySelector",
-      "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
-      "phrases": {
-        "active": "Gathering elements matching criteria: {{input.selector}}"
-      },
       "ports": {
         "input": {
           "document": {
@@ -527,16 +565,16 @@
           }
         }
       },
+      "phrases": {
+        "active": "Gathering elements matching criteria: {{input.selector}}"
+      },
+      "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
+      "title": "querySelector",
+      "ns": "dom",
+      "name": "querySelector",
       "fn": "console.log('input document', input.document);\noutput = { selection: input.document.querySelector(input.selector) }\n"
     },
     {
-      "name": "querySelectorAll",
-      "ns": "dom",
-      "title": "querySelectorAll",
-      "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
-      "phrases": {
-        "active": "Gathering all elements matching criteria: {{input.selector}}"
-      },
       "ports": {
         "input": {
           "document": {
@@ -556,15 +594,16 @@
           }
         }
       },
+      "phrases": {
+        "active": "Gathering all elements matching criteria: {{input.selector}}"
+      },
+      "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
+      "title": "querySelectorAll",
+      "ns": "dom",
+      "name": "querySelectorAll",
       "fn": "output = { selection: input.document.querySelectorAll(input.selector) }\n"
     },
     {
-      "name": "setHtml",
-      "ns": "dom",
-      "description": "dom setHtml",
-      "phrases": {
-        "active": "Adding html"
-      },
       "ports": {
         "input": {
           "element": {
@@ -584,15 +623,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Adding html"
+      },
+      "description": "dom setHtml",
+      "ns": "dom",
+      "name": "setHtml",
       "fn": "input.element.innerHTML = input.html;\noutput = { element: input.element };\n"
     },
     {
-      "name": "setText",
-      "ns": "dom",
-      "description": "dom setText",
-      "phrases": {
-        "active": "Adding text"
-      },
       "ports": {
         "input": {
           "element": {
@@ -611,15 +650,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Adding text"
+      },
+      "description": "dom setText",
+      "ns": "dom",
+      "name": "setText",
       "fn": "input.element.innerText = input.text;\noutput = { element: input.element };\n"
     },
     {
-      "name": "show",
-      "ns": "dom",
-      "description": "dom show",
-      "phrases": {
-        "active": "Showing"
-      },
       "ports": {
         "input": {
           "element": {
@@ -638,19 +677,15 @@
           }
         }
       },
+      "phrases": {
+        "active": "Showing"
+      },
+      "description": "dom show",
+      "ns": "dom",
+      "name": "show",
       "fn": "input.element.style.display = 'block';\n\noutput = { element: input.element };\n"
     },
     {
-      "name": "warp",
-      "ns": "dom",
-      "description": "dom warp",
-      "expose": [
-        "window",
-        "document"
-      ],
-      "phrases": {
-        "active": "Warping to frame {{input.selector}}"
-      },
       "ports": {
         "input": {
           "selector": {
@@ -667,15 +702,19 @@
           }
         }
       },
+      "phrases": {
+        "active": "Warping to frame {{input.selector}}"
+      },
+      "expose": [
+        "window",
+        "document"
+      ],
+      "description": "dom warp",
+      "ns": "dom",
+      "name": "warp",
       "fn": "output = {\n  window: document.querySelector(input.selector).contentWindow\n}\n"
     },
     {
-      "name": "width",
-      "ns": "dom",
-      "description": "dom width",
-      "phrases": {
-        "active": "Calculating width"
-      },
       "ports": {
         "input": {
           "element": {
@@ -690,6 +729,12 @@
           }
         }
       },
+      "phrases": {
+        "active": "Calculating width"
+      },
+      "description": "dom width",
+      "ns": "dom",
+      "name": "width",
       "fn": "output = {\n  width: input.element.getBoundingClientRect().width\n};\n"
     }
   ],

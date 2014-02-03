@@ -1,0 +1,36 @@
+{
+  "name": "keyboard",
+  "ns": "dom",
+  "description": "Gives the keyboard a first class identity, normalizes keyboard events across browsers, and allows binding to multiple keys.",
+  "phrases": {
+    "active": "Handling keyboard"
+  },
+  "require": {
+    "keyboard": "0.x.x"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "type": "string",
+        "title": "Key(s)",
+        "description": "a string that can be any key name or a combination of key names separated by '+' or '->'. The '+' combinator requires the keys be held together, '->' requires they be pressed in a specific sequence."
+      },
+      "filter": {
+        "type": "string",
+        "enum": ["activate","release","repeat","press"],
+        "title": "Filter",
+        "default": null
+      },
+      "element": {
+        "type": "any",
+        "title": "Dom Element"
+      }
+    },
+    "output": {
+      "out": {
+        "type": "any",
+        "title": "Keyboard event(s)"
+      }
+    }
+  }
+}
