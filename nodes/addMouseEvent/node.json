@@ -13,7 +13,8 @@
       },
       "preventDefault": {
         "type": "boolean",
-        "title": "Prevent Default Event"
+        "title": "Prevent Default Event",
+        "default": true
       },
       "event": {
         "type": "string",
