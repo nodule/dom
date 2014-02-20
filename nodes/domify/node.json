@@ -1,0 +1,28 @@
+{
+  "name": "domify",
+  "ns": "dom",
+  "title": "Domify",
+  "description": "Turn HTML into DOM elements x-browser",
+  "require": {
+    "domify": "0.x.x"
+  },
+  "phrases": {
+    "active": "Domifying HTML"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "title": "Html",
+        "type": "string",
+        "required": "true"
+      }
+    },
+    "output": {
+      "out": {
+        "title": "Dom Elements",
+        "type": "function",
+        "required": "true"
+      }
+    }
+  }
+}

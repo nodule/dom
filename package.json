@@ -23,6 +23,7 @@
     "color": "rgb(35,116,136)"
   },
   "dependencies": {
-    "keyboard": "0.x.x"
+    "keyboard": "0.x.x",
+    "domify": "1.x.x"
   }
 }

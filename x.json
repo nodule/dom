@@ -7,7 +7,8 @@
     "url": "https://github.com/nodule/dom.git"
   },
   "dependencies": {
-    "keyboard": "0.x.x"
+    "keyboard": "0.x.x",
+    "domify": "1.x.x"
   },
   "nodes": [
     {
@@ -86,7 +87,8 @@
           },
           "preventDefault": {
             "type": "boolean",
-            "title": "Prevent Default Event"
+            "title": "Prevent Default Event",
+            "default": true
           },
           "event": {
             "type": "string",
@@ -340,6 +342,35 @@
       "ns": "dom",
       "name": "document",
       "fn": "win = input.window || win;\noutput = {\n  document: win.document\n}\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "in": {
+            "title": "Html",
+            "type": "string",
+            "required": "true"
+          }
+        },
+        "output": {
+          "out": {
+            "title": "Dom Elements",
+            "type": "function",
+            "required": "true"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Domifying HTML"
+      },
+      "require": {
+        "domify": "0.x.x"
+      },
+      "description": "Turn HTML into DOM elements x-browser",
+      "title": "Domify",
+      "ns": "dom",
+      "name": "domify",
+      "fn": "output.out = domify(input.in);\n"
     },
     {
       "ports": {
