@@ -16,9 +16,9 @@
       },
       "document": {
         "title": "Dom Document",
-        "type": "object"
+        "type": "object",
         "default": null
-      },
+      }
     },
     "output": {
       "element": {

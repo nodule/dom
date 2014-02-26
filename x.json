@@ -375,15 +375,15 @@
     {
       "ports": {
         "input": {
-          "document": {
-            "title": "Dom Document",
-            "type": "object",
-            "required": "true"
-          },
           "id": {
             "title": "ID",
             "type": "string",
             "required": "true"
+          },
+          "document": {
+            "title": "Dom Document",
+            "type": "object",
+            "default": null
           }
         },
         "output": {
@@ -395,11 +395,15 @@
       "phrases": {
         "active": "Getting element with id: {{input.id}}"
       },
+      "expose": [
+        "window",
+        "document"
+      ],
       "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
       "title": "getElementById",
       "ns": "dom",
       "name": "getElementById",
-      "fn": "output = { element: input.document.getElementById(input.id) }\n"
+      "fn": "var doc = input.document ? input.document : document;\noutput = { element: doc.getElementById(input.id) }\n"
     },
     {
       "ports": {
@@ -581,13 +585,14 @@
     {
       "ports": {
         "input": {
-          "document": {
-            "title": "Dom Document",
-            "type": "function"
-          },
           "selector": {
             "title": "Selector",
             "type": "string"
+          },
+          "document": {
+            "title": "Dom Document",
+            "type": "function",
+            "default": null
           }
         },
         "output": {
@@ -599,24 +604,28 @@
       "phrases": {
         "active": "Gathering elements matching criteria: {{input.selector}}"
       },
+      "expose": [
+        "window",
+        "document"
+      ],
       "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "console.log('input document', input.document);\noutput = { selection: input.document.querySelector(input.selector) }\n"
+      "fn": "var doc = input.document ? input.document : document;\noutput = { selection: doc.querySelector(input.selector) }\n"
     },
     {
       "ports": {
         "input": {
-          "document": {
-            "title": "Dom Document",
-            "type": "any",
-            "required": true
-          },
           "selector": {
             "title": "Selector",
             "type": "string",
             "required": true
+          },
+          "document": {
+            "title": "Dom Document",
+            "type": "any",
+            "default": null
           }
         },
         "output": {
@@ -629,10 +638,14 @@
         "active": "Gathering all elements matching criteria: {{input.selector}}"
       },
       "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
+      "expose": [
+        "window",
+        "document"
+      ],
       "title": "querySelectorAll",
       "ns": "dom",
       "name": "querySelectorAll",
-      "fn": "output = { selection: input.document.querySelectorAll(input.selector) }\n"
+      "fn": "var doc = input.document ? input.document : document;\noutput = { selection: doc.querySelectorAll(input.selector) }\n"
     },
     {
       "ports": {
