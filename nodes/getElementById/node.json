@@ -3,21 +3,22 @@
   "ns": "dom",
   "title": "getElementById",
   "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
+  "expose": ["window","document"],
   "phrases": {
     "active": "Getting element with id: {{input.id}}"
   },
   "ports": {
     "input": {
-      "document": {
-        "title": "Dom Document",
-        "type": "object",
-        "required": "true"
-      },
       "id": {
         "title": "ID",
         "type": "string",
         "required": "true"
-      }
+      },
+      "document": {
+        "title": "Dom Document",
+        "type": "object"
+        "default": null
+      },
     },
     "output": {
       "element": {

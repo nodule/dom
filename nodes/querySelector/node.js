@@ -1,2 +1,2 @@
-console.log('input document', input.document);
-output = { selection: input.document.querySelector(input.selector) }
+var doc = input.document ? input.document : document;
+output = { selection: doc.querySelector(input.selector) }

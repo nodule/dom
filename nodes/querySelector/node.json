@@ -3,18 +3,20 @@
   "ns": "dom",
   "title": "querySelector",
   "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
+  "expose": ["window","document"],
   "phrases": {
     "active": "Gathering elements matching criteria: {{input.selector}}"
   },
   "ports": {
     "input": {
-      "document": {
-        "title": "Dom Document",
-        "type": "function"
-      },
       "selector": {
         "title": "Selector",
         "type": "string"
+      },
+      "document": {
+        "title": "Dom Document",
+        "type": "function",
+        "default": null
       }
     },
     "output": {

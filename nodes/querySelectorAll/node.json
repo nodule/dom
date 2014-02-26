@@ -1,22 +1,23 @@
 {
   "name": "querySelectorAll",
   "ns": "dom",
-  "title": "querySelectorAll", 
+  "title": "querySelectorAll",
+  "expose": ["window","document"],
   "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
   "phrases": {
     "active": "Gathering all elements matching criteria: {{input.selector}}"
   },
   "ports": {
     "input": {
-      "document": {
-        "title": "Dom Document",
-        "type": "any",
-        "required": true
-      },
       "selector": {
         "title": "Selector",
         "type": "string",
         "required": true
+      },
+      "document": {
+        "title": "Dom Document",
+        "type": "any",
+        "default": null
       }
     },
     "output": {
