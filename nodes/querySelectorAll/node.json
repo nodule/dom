@@ -13,11 +13,6 @@
         "title": "Selector",
         "type": "string",
         "required": true
-      },
-      "document": {
-        "title": "Dom Document",
-        "type": "any",
-        "default": null
       }
     },
     "output": {

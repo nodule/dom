@@ -3,7 +3,7 @@
   "ns": "dom",
   "title": "querySelector",
   "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
-  "expose": ["window","document"],
+  "expose": ["document"],
   "phrases": {
     "active": "Gathering elements matching criteria: {{input.selector}}"
   },
@@ -12,15 +12,10 @@
       "selector": {
         "title": "Selector",
         "type": "string"
-      },
-      "document": {
-        "title": "Dom Document",
-        "type": "function",
-        "default": null
       }
     },
     "output": {
-      "selection": {
+      "out": {
         "type": "object"
       }
     }

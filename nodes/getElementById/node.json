@@ -3,7 +3,7 @@
   "ns": "dom",
   "title": "getElementById",
   "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
-  "expose": ["window","document"],
+  "expose": ["document"],
   "phrases": {
     "active": "Getting element with id: {{input.id}}"
   },
@@ -13,11 +13,6 @@
         "title": "ID",
         "type": "string",
         "required": "true"
-      },
-      "document": {
-        "title": "Dom Document",
-        "type": "object",
-        "default": null
       }
     },
     "output": {

@@ -379,11 +379,6 @@
             "title": "ID",
             "type": "string",
             "required": "true"
-          },
-          "document": {
-            "title": "Dom Document",
-            "type": "object",
-            "default": null
           }
         },
         "output": {
@@ -396,14 +391,13 @@
         "active": "Getting element with id: {{input.id}}"
       },
       "expose": [
-        "window",
         "document"
       ],
       "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
       "title": "getElementById",
       "ns": "dom",
       "name": "getElementById",
-      "fn": "var doc = input.document ? input.document : document;\noutput = { element: doc.getElementById(input.id) }\n"
+      "fn": "output = { element: document.getElementById(input.id) }\n"
     },
     {
       "ports": {
@@ -588,15 +582,10 @@
           "selector": {
             "title": "Selector",
             "type": "string"
-          },
-          "document": {
-            "title": "Dom Document",
-            "type": "function",
-            "default": null
           }
         },
         "output": {
-          "selection": {
+          "out": {
             "type": "object"
           }
         }
@@ -605,14 +594,13 @@
         "active": "Gathering elements matching criteria: {{input.selector}}"
       },
       "expose": [
-        "window",
         "document"
       ],
       "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "var doc = input.document ? input.document : document;\noutput = { selection: doc.querySelector(input.selector) }\n"
+      "fn": "output = { out: document.querySelector(input.selector) }\n"
     },
     {
       "ports": {
@@ -621,11 +609,6 @@
             "title": "Selector",
             "type": "string",
             "required": true
-          },
-          "document": {
-            "title": "Dom Document",
-            "type": "any",
-            "default": null
           }
         },
         "output": {
@@ -645,7 +628,7 @@
       "title": "querySelectorAll",
       "ns": "dom",
       "name": "querySelectorAll",
-      "fn": "var doc = input.document ? input.document : document;\noutput = { selection: doc.querySelectorAll(input.selector) }\n"
+      "fn": "output = { out: document.querySelectorAll(input.selector) }\n"
     },
     {
       "ports": {
