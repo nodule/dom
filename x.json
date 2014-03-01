@@ -320,6 +320,29 @@
     {
       "ports": {
         "input": {
+          "in": {
+            "type": "string",
+            "title": "Tagname",
+            "default": "div"
+          }
+        },
+        "output": {
+          "element": {
+            "type": "object"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Creating element"
+      },
+      "description": "dom createElement",
+      "ns": "dom",
+      "name": "createElement",
+      "fn": "output.out = document.createElement(input.in)\n"
+    },
+    {
+      "ports": {
+        "input": {
           "window": {
             "type": "function",
             "title": "Window",

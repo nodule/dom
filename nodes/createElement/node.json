@@ -1,0 +1,22 @@
+{
+  "name": "createElement",
+  "ns": "dom",
+  "description": "dom createElement",
+  "phrases": {
+    "active": "Creating element"
+  },
+  "ports": {
+    "input": {
+      "in": {
+        "type": "string",
+        "title": "Tagname",
+        "default": "div"
+      }
+    },
+    "output": {
+      "element": {
+        "type": "object"
+      }
+    }
+  }
+}
