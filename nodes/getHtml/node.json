@@ -1,6 +1,7 @@
 {
   "name": "getHtml",
   "ns": "dom",
+  "async": true,
   "description": "dom getHtml",
   "phrases": {
     "active": "Getting html"
@@ -9,6 +10,7 @@
     "input": {
       "element": {
         "type": "any",
+        "async": true,
         "title": "Dom Element"
       }
     },

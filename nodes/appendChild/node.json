@@ -2,6 +2,7 @@
   "name": "appendChild",
   "ns": "dom",
   "description": "dom appendChild",
+  "async": true,
   "phrases": {
     "active": "Adding child node"
   },
@@ -13,11 +14,12 @@
       },
       "child": {
         "type": "any",
+        "async": true,
         "title": "Child Element"
       }
     },
     "output": {
-      "document": {
+      "out": {
         "type": "object"
       }
     }

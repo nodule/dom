@@ -340,11 +340,12 @@
           },
           "child": {
             "type": "any",
+            "async": true,
             "title": "Child Element"
           }
         },
         "output": {
-          "document": {
+          "out": {
             "type": "object"
           }
         }
@@ -352,10 +353,11 @@
       "phrases": {
         "active": "Adding child node"
       },
+      "async": true,
       "description": "dom appendChild",
       "ns": "dom",
       "name": "appendChild",
-      "fn": "input.element.appendChild(input.child)\n"
+      "fn": "input.on.child = function() {\n\n  output( { out: input.element.appendChild(data) } );\n\n}\n"
     },
     {
       "ports": {
@@ -363,11 +365,12 @@
           "in": {
             "type": "string",
             "title": "Tagname",
+            "async": true,
             "default": "div"
           }
         },
         "output": {
-          "element": {
+          "out": {
             "type": "object"
           }
         }
@@ -376,9 +379,10 @@
         "active": "Creating element"
       },
       "description": "dom createElement",
+      "async": true,
       "ns": "dom",
       "name": "createElement",
-      "fn": "output.out = document.createElement(input.in)\n"
+      "fn": "on.input.in = function() {\n  output( { out: document.createElement(data) });\n}\n"
     },
     {
       "ports": {
@@ -441,6 +445,7 @@
           "id": {
             "title": "ID",
             "type": "string",
+            "async": true,
             "required": "true"
           }
         },
@@ -457,16 +462,18 @@
         "document"
       ],
       "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
+      "async": true,
       "title": "getElementById",
       "ns": "dom",
       "name": "getElementById",
-      "fn": "output = { element: document.getElementById(input.id) }\n"
+      "fn": "on.input.id = function() {\n  output( { out: document.getElementById(data) } );\n}\n"
     },
     {
       "ports": {
         "input": {
           "element": {
             "type": "any",
+            "async": true,
             "title": "Dom Element"
           }
         },
@@ -481,15 +488,17 @@
         "active": "Getting html"
       },
       "description": "dom getHtml",
+      "async": true,
       "ns": "dom",
       "name": "getHtml",
-      "fn": "output = { html: input.element.innerHTML };\n"
+      "fn": "on.input.element = function() {\n  output( { html: data.innerHTML } );\n}\n"
     },
     {
       "ports": {
         "input": {
           "element": {
             "type": "any",
+            "async": true,
             "title": "Dom Element"
           }
         },
@@ -504,9 +513,10 @@
         "active": "Getting text"
       },
       "description": "dom getText",
+      "async": true,
       "ns": "dom",
       "name": "getText",
-      "fn": "output = { text: input.element.innerText };\n"
+      "fn": "on.input.element = function() {\n  output( { text: data.innerText } );\n}\n"
     },
     {
       "ports": {

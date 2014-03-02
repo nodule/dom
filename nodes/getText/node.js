@@ -1,1 +1,3 @@
-output = { text: input.element.innerText };
+on.input.element = function() {
+  output( { text: data.innerText } );
+}

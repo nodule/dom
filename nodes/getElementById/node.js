@@ -1,1 +1,3 @@
-output = { element: document.getElementById(input.id) }
+on.input.id = function() {
+  output( { out: document.getElementById(data) } );
+}

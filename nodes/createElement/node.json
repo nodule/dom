@@ -1,6 +1,7 @@
 {
   "name": "createElement",
   "ns": "dom",
+  "async": true,
   "description": "dom createElement",
   "phrases": {
     "active": "Creating element"
@@ -10,11 +11,12 @@
       "in": {
         "type": "string",
         "title": "Tagname",
+        "async": true,
         "default": "div"
       }
     },
     "output": {
-      "element": {
+      "out": {
         "type": "object"
       }
     }
