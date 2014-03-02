@@ -217,7 +217,7 @@
         "output": {}
       },
       "require": {
-        "active": "Loading {input.url}"
+        "load-script": "0.x.x"
       },
       "phrases": {
         "active": "Attaching script {input.url}"
@@ -226,6 +226,24 @@
       "ns": "dom",
       "name": "addScript",
       "fn": "on.input.url = function() {\n  load_script.load(data, function() {\n\n  });\n}\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "url": {
+            "type": "string",
+            "title": "Script Url"
+          }
+        },
+        "output": {}
+      },
+      "phrases": {
+        "active": "Attaching script {input.url}"
+      },
+      "description": "Adds a stylesheet to the head of the HTML page",
+      "ns": "dom",
+      "name": "addStylesheet",
+      "fn": "on.input.url = function() {\n\n  var head = document.head || document.getElementsByTagName('head')[0];\n  var script = document.createElement('link');\n\n  script.rel  = 'stylesheet';\n  script.type = 'text/css';\n  script.href = data;\n  head.appendChild(script);\n\n};\n"
     },
     {
       "ports": {

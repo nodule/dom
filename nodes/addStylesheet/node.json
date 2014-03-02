@@ -1,12 +1,9 @@
 {
-  "name": "addScript",
+  "name": "addStylesheet",
   "ns": "dom",
-  "description": "Adds a script to the head of the HTML page",
+  "description": "Adds a stylesheet to the head of the HTML page",
   "phrases": {
     "active": "Attaching script {input.url}"
-  },
-  "require": {
-    "load-script": "0.x.x"
   },
   "ports": {
     "input": {
