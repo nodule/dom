@@ -1,0 +1,21 @@
+{
+  "name": "addScript",
+  "ns": "dom",
+  "description": "Adds a script to the head of the HTML page",
+  "phrases": {
+    "active": "Attaching script {input.url}"
+  },
+  "require": {
+    "active": "Loading {input.url}"
+  },
+  "ports": {
+    "input": {
+      "url": {
+        "type": "string",
+        "title": "Script Url"
+      }
+    },
+    "output": {
+    }
+  }
+}
