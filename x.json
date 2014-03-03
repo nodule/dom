@@ -466,7 +466,7 @@
       "title": "getElementById",
       "ns": "dom",
       "name": "getElementById",
-      "fn": "on.input.id = function() {\n  output( { out: document.getElementById(data) } );\n}\n"
+      "fn": "on.input.id = function() {\n  output( { element: document.getElementById(data) } );\n}\n"
     },
     {
       "ports": {
