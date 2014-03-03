@@ -357,7 +357,7 @@
       "description": "dom appendChild",
       "ns": "dom",
       "name": "appendChild",
-      "fn": "input.on.child = function() {\n\n  output( { out: input.element.appendChild(data) } );\n\n}\n"
+      "fn": "on.input.child = function() {\n\n  output( { out: input.element.appendChild(data) } );\n\n}\n"
     },
     {
       "ports": {
