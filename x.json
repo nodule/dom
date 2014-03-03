@@ -571,6 +571,31 @@
     {
       "ports": {
         "input": {
+          "src": {
+            "type": "string",
+            "async": true,
+            "title": "Source path"
+          }
+        },
+        "output": {
+          "image": {
+            "type": "object",
+            "title": "Image"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Creating Image"
+      },
+      "description": "Create an image",
+      "async": true,
+      "ns": "dom",
+      "name": "image",
+      "fn": "on.input.src = function() {\n  var img = new Image();\n  img.onload = function() {\n    output( { image: img } );\n  };\n  img.src = data;\n}\n"
+    },
+    {
+      "ports": {
+        "input": {
           "in": {
             "type": "string",
             "title": "Key(s)",
