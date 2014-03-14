@@ -677,6 +677,11 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "title": "Element",
+            "type": "HTMLElement",
+            "default": null
+          },
           "selector": {
             "title": "Selector",
             "type": "string"
@@ -698,11 +703,16 @@
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "output = { out: document.querySelector(input.selector) }\n"
+      "fn": "var el = input.element ? input.element : document;\noutput = { out: el.querySelector(input.selector) }\n"
     },
     {
       "ports": {
         "input": {
+          "element": {
+            "title": "Element",
+            "type": "HTMLElement",
+            "default": null
+          },
           "selector": {
             "title": "Selector",
             "type": "string",
@@ -726,7 +736,7 @@
       "title": "querySelectorAll",
       "ns": "dom",
       "name": "querySelectorAll",
-      "fn": "output = { out: document.querySelectorAll(input.selector) }\n"
+      "fn": "var el = input.element ? input.element : document;\noutput = { out: el.querySelectorAll(input.selector) }\n"
     },
     {
       "ports": {

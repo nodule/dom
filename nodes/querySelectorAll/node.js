@@ -1,1 +1,2 @@
-output = { out: document.querySelectorAll(input.selector) }
+var el = input.element ? input.element : document;
+output = { out: el.querySelectorAll(input.selector) }

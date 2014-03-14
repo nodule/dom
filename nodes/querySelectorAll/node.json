@@ -9,6 +9,11 @@
   },
   "ports": {
     "input": {
+      "element": {
+        "title": "Element",
+        "type": "HTMLElement",
+        "default": null
+      },
       "selector": {
         "title": "Selector",
         "type": "string",
