@@ -591,7 +591,7 @@
       "async": true,
       "ns": "dom",
       "name": "image",
-      "fn": "on.input.src = function() {\n  var img = new Image();\n  img.onload = function() {\n    output( { image: img } );\n  };\n  img.src = data;\n}\n"
+      "fn": "on.input.src = function() {\n  var img = new Image();\n  img.onload = function() {\n    output( { image: this } );\n  }.bind(img);\n  img.src = data;\n}\n"
     },
     {
       "ports": {
