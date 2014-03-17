@@ -442,6 +442,38 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "title": "Element",
+            "type": "HTMLElement",
+            "async": true
+          },
+          "attribute": {
+            "title": "Attribute",
+            "type": "string"
+          }
+        },
+        "output": {
+          "element": {
+            "type": "HTMLElement"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Getting attribute: {{input.attribute}}"
+      },
+      "expose": [
+        "document"
+      ],
+      "description": "Get attribute",
+      "async": true,
+      "title": "Get Attribute",
+      "ns": "dom",
+      "name": "getAttribute",
+      "fn": "on.input.element = function() {\n  output( {\n    element: data,\n    attribute: data.getAttribute(input.attribute)\n  });\n}\n"
+    },
+    {
+      "ports": {
+        "input": {
           "id": {
             "title": "ID",
             "type": "string",
@@ -737,6 +769,42 @@
       "ns": "dom",
       "name": "querySelectorAll",
       "fn": "var el = input.element ? input.element : document;\noutput = { out: el.querySelectorAll(input.selector) }\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "title": "Element",
+            "type": "HTMLElement",
+            "async": true
+          },
+          "attribute": {
+            "title": "Attribute",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "output": {
+          "element": {
+            "type": "HTMLElement"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Setting attribute: {{input.attribute}}"
+      },
+      "expose": [
+        "document"
+      ],
+      "description": "Adds a new attribute or changes the value of an existing attribute on the specified element.",
+      "async": true,
+      "title": "Set Attribute",
+      "ns": "dom",
+      "name": "setAttribute",
+      "fn": "on.input.element = function() {\n  data.setAttribute(input.attribute, input.value);\n  output( {\n    element: data\n  });\n}\n"
     },
     {
       "ports": {
