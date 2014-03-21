@@ -8,7 +8,7 @@
   "ports": {
     "input": {
       "element": {
-        "type": "any",
+        "type": "HTMLElement",
         "title": "Dom Element"
       },
       "preventDefault": {
@@ -38,13 +38,13 @@
       }
     },
     "output": {
-      "event": {
-        "type": "object",
-        "title": "Event"
-      },
       "element": {
         "type": "any",
         "title": "Element"
+      },
+      "event": {
+        "type": "object",
+        "title": "Event"
       }
     }
   }

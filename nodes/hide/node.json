@@ -8,7 +8,7 @@
   "ports": {
     "input": {
       "element": {
-        "type": "any",
+        "type": "HTMLElement",
         "title": "Dom Element"
       },
       ":start": {

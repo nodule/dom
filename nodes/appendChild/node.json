@@ -9,16 +9,20 @@
   "ports": {
     "input": {
       "element": {
-        "type": "any",
+        "type": "HTMLElement",
         "title": "Dom Element"
       },
       "child": {
-        "type": "any",
+        "type": "HTMLElement",
         "async": true,
         "title": "Child Element"
       }
     },
     "output": {
+      "element": {
+        "type": "HTMLElement",
+        "title": "Dom Element"
+      },
       "out": {
         "type": "object"
       }

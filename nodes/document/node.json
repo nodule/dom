@@ -9,14 +9,19 @@
   "ports": {
     "input": {
       "window": {
-        "type": "function",
+        "type": "Window",
         "title": "Window",
         "required": false
       }
     },
     "output": {
+      "window": {
+        "type": "Window",
+        "title": "Window",
+        "required": false
+      },
       "document": {
-        "type": "object"
+        "type": "HTMLDocument"
       }
     }
   }

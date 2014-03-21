@@ -1,3 +1,6 @@
 on.input.element = function() {
-  output( { html: data.innerHTML } );
+  output( {
+    element: data,
+    html: data.innerHTML
+  } );
 }

@@ -16,7 +16,7 @@
     },
     "output": {
       "window": {
-        "type": "function",
+        "type": "Window",
         "title": "Window",
         "required": false
       }

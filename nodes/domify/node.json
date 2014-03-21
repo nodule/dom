@@ -14,14 +14,14 @@
       "in": {
         "title": "Html",
         "type": "string",
+        "format": "html",
         "required": "true"
       }
     },
     "output": {
       "out": {
         "title": "Dom Elements",
-        "type": "function",
-        "required": "true"
+        "type": ["HTMLElement","DocumentFragment"]
       }
     }
   }

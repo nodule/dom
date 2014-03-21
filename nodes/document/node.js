@@ -1,4 +1,5 @@
 win = input.window || win;
 output = {
-  document: win.document
+  document: win.document,
+  window: win
 }

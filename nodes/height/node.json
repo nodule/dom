@@ -8,11 +8,15 @@
   "ports": {
     "input": {
       "element": {
-        "type": "any",
+        "type": "HTMLElement",
         "title": "Dom Element"
       }
     },
     "output": {
+      "element": {
+        "type": "HTMLElement",
+        "title": "Dom Element"
+      },
       "height": {
         "type": "number",
         "title": "Height"

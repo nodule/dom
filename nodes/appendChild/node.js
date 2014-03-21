@@ -1,5 +1,8 @@
 on.input.child = function() {
 
-  output( { out: input.element.appendChild(data) } );
+  output( {
+    element: input.element,
+    out: input.element.appendChild(data)
+  } );
 
 }

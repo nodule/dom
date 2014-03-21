@@ -1,2 +1,5 @@
 var el = input.element ? input.element : document;
-output = { out: el.querySelector(input.selector) }
+output = {
+  element: el,
+  out: el.querySelector(input.selector)
+}

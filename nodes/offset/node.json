@@ -8,15 +8,19 @@
   "ports": {
     "input": {
       "window": {
-        "type": "any",
+        "type": "Window",
         "title": "Window"
       },
       "element": {
-        "type": "any",
+        "type": "HTMLElement",
         "title": "Dom Element"
       }
     },
     "output": {
+      "element": {
+        "type": "HTMLElement",
+        "title": "Dom Element"
+      },
       "top": {
         "type": "number",
         "title": "Top"

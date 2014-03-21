@@ -9,6 +9,7 @@
     "input": {
       "url": {
         "type": "string",
+        "format": "url",
         "title": "Script Url"
       }
     },

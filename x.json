@@ -16,7 +16,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "event": {
@@ -33,6 +33,10 @@
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -51,7 +55,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "event": {
@@ -65,6 +69,10 @@
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -83,7 +91,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "preventDefault": {
@@ -113,13 +121,13 @@
           }
         },
         "output": {
-          "event": {
-            "type": "object",
-            "title": "Event"
-          },
           "element": {
             "type": "any",
             "title": "Element"
+          },
+          "event": {
+            "type": "object",
+            "title": "Event"
           }
         }
       },
@@ -135,7 +143,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "event": {
@@ -153,6 +161,10 @@
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -171,7 +183,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "event": {
@@ -192,6 +204,10 @@
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -232,6 +248,7 @@
         "input": {
           "url": {
             "type": "string",
+            "format": "url",
             "title": "Script Url"
           }
         },
@@ -249,7 +266,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "event": {
@@ -266,6 +283,10 @@
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -284,7 +305,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "event": {
@@ -298,6 +319,10 @@
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -335,16 +360,20 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "child": {
-            "type": "any",
+            "type": "HTMLElement",
             "async": true,
             "title": "Child Element"
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "out": {
             "type": "object"
           }
@@ -357,7 +386,7 @@
       "description": "dom appendChild",
       "ns": "dom",
       "name": "appendChild",
-      "fn": "on.input.child = function() {\n\n  output( { out: input.element.appendChild(data) } );\n\n}\n"
+      "fn": "on.input.child = function() {\n\n  output( {\n    element: input.element,\n    out: input.element.appendChild(data)\n  } );\n\n}\n"
     },
     {
       "ports": {
@@ -371,7 +400,7 @@
         },
         "output": {
           "out": {
-            "type": "object"
+            "type": "HTMLElement"
           }
         }
       },
@@ -388,14 +417,19 @@
       "ports": {
         "input": {
           "window": {
-            "type": "function",
+            "type": "Window",
             "title": "Window",
             "required": false
           }
         },
         "output": {
+          "window": {
+            "type": "Window",
+            "title": "Window",
+            "required": false
+          },
           "document": {
-            "type": "object"
+            "type": "HTMLDocument"
           }
         }
       },
@@ -408,7 +442,7 @@
       "description": "dom document",
       "ns": "dom",
       "name": "document",
-      "fn": "win = input.window || win;\noutput = {\n  document: win.document\n}\n"
+      "fn": "win = input.window || win;\noutput = {\n  document: win.document,\n  window: win\n}\n"
     },
     {
       "ports": {
@@ -416,14 +450,17 @@
           "in": {
             "title": "Html",
             "type": "string",
+            "format": "html",
             "required": "true"
           }
         },
         "output": {
           "out": {
             "title": "Dom Elements",
-            "type": "function",
-            "required": "true"
+            "type": [
+              "HTMLElement",
+              "DocumentFragment"
+            ]
           }
         }
       },
@@ -483,7 +520,7 @@
         },
         "output": {
           "element": {
-            "type": "object"
+            "type": "HTMLElement"
           }
         }
       },
@@ -504,14 +541,20 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "async": true,
             "title": "Dom Element"
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "async": true,
+            "title": "Dom Element"
+          },
           "html": {
             "type": "string",
+            "format": "html",
             "title": "HTML"
           }
         }
@@ -523,18 +566,23 @@
       "async": true,
       "ns": "dom",
       "name": "getHtml",
-      "fn": "on.input.element = function() {\n  output( { html: data.innerHTML } );\n}\n"
+      "fn": "on.input.element = function() {\n  output( {\n    element: data,\n    html: data.innerHTML\n  } );\n}\n"
     },
     {
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "async": true,
             "title": "Dom Element"
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "async": true,
+            "title": "Dom Element"
+          },
           "text": {
             "type": "string",
             "title": "Text"
@@ -548,17 +596,21 @@
       "async": true,
       "ns": "dom",
       "name": "getText",
-      "fn": "on.input.element = function() {\n  output( { text: data.innerText } );\n}\n"
+      "fn": "on.input.element = function() {\n  output( {\n    element: data,\n    text: data.innerText\n  } );\n}\n"
     },
     {
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "height": {
             "type": "number",
             "title": "Height"
@@ -571,13 +623,13 @@
       "description": "dom height",
       "ns": "dom",
       "name": "height",
-      "fn": "output = {\n  height: input.element.getBoundingClientRect().height\n};\n"
+      "fn": "output = {\n  element: input.element,\n  height: input.element.getBoundingClientRect().height\n};\n"
     },
     {
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           ":start": {
@@ -628,6 +680,10 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "in": {
             "type": "string",
             "title": "Key(s)",
@@ -643,13 +699,13 @@
             ],
             "title": "Filter",
             "default": null
-          },
-          "element": {
-            "type": "any",
-            "title": "Dom Element"
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "out": {
             "type": "any",
             "title": "Keyboard event(s)"
@@ -671,15 +727,19 @@
       "ports": {
         "input": {
           "window": {
-            "type": "any",
+            "type": "Window",
             "title": "Window"
           },
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "top": {
             "type": "number",
             "title": "Top"
@@ -704,7 +764,7 @@
       "description": "dom offset",
       "ns": "dom",
       "name": "offset",
-      "fn": "var rect = input.element.getBoundingClientRect();\noutput = {\n  left: rect.left + input.win.pageXOffset,\n  top: rect.top + input.win.pageYOffset,\n  width: rect.width,\n  height: rect.height\n};\n"
+      "fn": "var rect = input.element.getBoundingClientRect();\noutput = {\n  element: input.element,\n  left: rect.left + input.win.pageXOffset,\n  top: rect.top + input.win.pageYOffset,\n  width: rect.width,\n  height: rect.height\n};\n"
     },
     {
       "ports": {
@@ -720,6 +780,11 @@
           }
         },
         "output": {
+          "element": {
+            "title": "Element",
+            "type": "HTMLElement",
+            "default": null
+          },
           "out": {
             "type": "object"
           }
@@ -735,7 +800,7 @@
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "var el = input.element ? input.element : document;\noutput = { out: el.querySelector(input.selector) }\n"
+      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el,\n  out: el.querySelector(input.selector)\n}\n"
     },
     {
       "ports": {
@@ -752,6 +817,11 @@
           }
         },
         "output": {
+          "element": {
+            "title": "Element",
+            "type": "HTMLElement",
+            "default": null
+          },
           "selection": {
             "type": "object"
           }
@@ -768,7 +838,7 @@
       "title": "querySelectorAll",
       "ns": "dom",
       "name": "querySelectorAll",
-      "fn": "var el = input.element ? input.element : document;\noutput = { out: el.querySelectorAll(input.selector) }\n"
+      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el,\n  out: el.querySelectorAll(input.selector)\n}\n"
     },
     {
       "ports": {
@@ -810,7 +880,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "html": {
@@ -821,7 +891,7 @@
         },
         "output": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           }
         }
@@ -838,7 +908,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           "text": {
@@ -848,7 +918,7 @@
         },
         "output": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           }
         }
@@ -865,7 +935,7 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           },
           ":start": {
@@ -875,7 +945,7 @@
         },
         "output": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           }
         }
@@ -899,7 +969,7 @@
         },
         "output": {
           "window": {
-            "type": "function",
+            "type": "Window",
             "title": "Window",
             "required": false
           }
@@ -921,11 +991,15 @@
       "ports": {
         "input": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           }
         },
         "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
           "width": {
             "type": "number",
             "title": "Width"
@@ -938,7 +1012,7 @@
       "description": "dom width",
       "ns": "dom",
       "name": "width",
-      "fn": "output = {\n  width: input.element.getBoundingClientRect().width\n};\n"
+      "fn": "output = {\n  element: input.element,\n  width: input.element.getBoundingClientRect().width\n};\n"
     }
   ],
   "twigs": []

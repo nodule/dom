@@ -10,6 +10,10 @@
   },
   "ports": {
     "input": {
+      "element": {
+        "type": "HTMLElement",
+        "title": "Dom Element"
+      },
       "in": {
         "type": "string",
         "title": "Key(s)",
@@ -20,13 +24,13 @@
         "enum": ["activate","release","repeat","press"],
         "title": "Filter",
         "default": null
-      },
-      "element": {
-        "type": "any",
-        "title": "Dom Element"
       }
     },
     "output": {
+      "element": {
+        "type": "HTMLElement",
+        "title": "Dom Element"
+      },
       "out": {
         "type": "any",
         "title": "Keyboard event(s)"

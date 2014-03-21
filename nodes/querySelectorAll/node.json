@@ -21,6 +21,11 @@
       }
     },
     "output": {
+      "element": {
+        "title": "Element",
+        "type": "HTMLElement",
+        "default": null
+      },
       "selection": {
         "type": "object"
       }

@@ -19,7 +19,7 @@
     },
     "output": {
       "element": {
-        "type": "object"
+        "type": "HTMLElement"
       }
     }
   }
