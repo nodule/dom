@@ -228,6 +228,7 @@
         "input": {
           "url": {
             "type": "string",
+            "async": true,
             "format": "url",
             "title": "Script Url"
           }
@@ -247,6 +248,7 @@
         "active": "Attaching script {input.url}"
       },
       "description": "Adds a stylesheet to the head of the HTML page",
+      "async": true,
       "ns": "dom",
       "name": "addStylesheet",
       "fn": "on.input.url = function() {\n\n  var head = document.head || document.getElementsByTagName('head')[0];\n  var link = document.createElement('link');\n\n  link.rel  = 'stylesheet';\n  link.type = 'text/css';\n  link.href = data;\n  head.appendChild(link);\n\n  output({\n    head: head,\n    link: link\n  });\n\n};\n"

@@ -1,6 +1,7 @@
 {
   "name": "addStylesheet",
   "ns": "dom",
+  "async": true,
   "description": "Adds a stylesheet to the head of the HTML page",
   "phrases": {
     "active": "Attaching script {input.url}"
@@ -9,6 +10,7 @@
     "input": {
       "url": {
         "type": "string",
+        "async": true,
         "format": "url",
         "title": "Script Url"
       }
