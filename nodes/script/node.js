@@ -1,5 +1,5 @@
 output = function() {
-  scriptjs([input.url], function() {
+  scriptjs(input.in, function() {
     cb({ out: true });
   });
 };

@@ -854,10 +854,13 @@
     {
       "ports": {
         "input": {
-          "url": {
-            "type": "string",
-            "format": "url",
-            "title": "Script Url"
+          "in": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "url",
+              "title": "Url"
+            }
           }
         },
         "output": {
@@ -876,7 +879,7 @@
       "description": "Asyncronous JavaScript loader and dependency manager",
       "ns": "dom",
       "name": "script",
-      "fn": "output = function() {\n  scriptjs([input.url], function() {\n    cb({ out: true });\n  });\n};\n"
+      "fn": "output = function() {\n  scriptjs(input.in, function() {\n    cb({ out: true });\n  });\n};\n"
     },
     {
       "ports": {
