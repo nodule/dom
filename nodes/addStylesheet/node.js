@@ -1,11 +1,16 @@
 on.input.url = function() {
 
   var head = document.head || document.getElementsByTagName('head')[0];
-  var script = document.createElement('link');
+  var link = document.createElement('link');
 
-  script.rel  = 'stylesheet';
-  script.type = 'text/css';
-  script.href = data;
-  head.appendChild(script);
+  link.rel  = 'stylesheet';
+  link.type = 'text/css';
+  link.href = data;
+  head.appendChild(link);
+
+  output({
+    head: head,
+    link: link
+  });
 
 };

@@ -232,7 +232,16 @@
             "title": "Script Url"
           }
         },
-        "output": {}
+        "output": {
+          "head": {
+            "type": "HTMLElement",
+            "title": "Head"
+          },
+          "link": {
+            "type": "HTMLElement",
+            "title": "Link"
+          }
+        }
       },
       "phrases": {
         "active": "Attaching script {input.url}"
@@ -240,7 +249,7 @@
       "description": "Adds a stylesheet to the head of the HTML page",
       "ns": "dom",
       "name": "addStylesheet",
-      "fn": "on.input.url = function() {\n\n  var head = document.head || document.getElementsByTagName('head')[0];\n  var script = document.createElement('link');\n\n  script.rel  = 'stylesheet';\n  script.type = 'text/css';\n  script.href = data;\n  head.appendChild(script);\n\n};\n"
+      "fn": "on.input.url = function() {\n\n  var head = document.head || document.getElementsByTagName('head')[0];\n  var link = document.createElement('link');\n\n  link.rel  = 'stylesheet';\n  link.type = 'text/css';\n  link.href = data;\n  head.appendChild(link);\n\n  output({\n    head: head,\n    link: link\n  });\n\n};\n"
     },
     {
       "ports": {

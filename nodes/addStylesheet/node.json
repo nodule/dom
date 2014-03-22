@@ -14,6 +14,14 @@
       }
     },
     "output": {
+      "head": {
+        "type": "HTMLElement",
+        "title": "Head"
+      },
+      "link": {
+        "type": "HTMLElement",
+        "title": "Link"
+      }
     }
   }
 }
