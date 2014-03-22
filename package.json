@@ -25,6 +25,7 @@
   "dependencies": {
     "keyboard": "0.x.x",
     "domify": "1.x.x",
-    "load-script": "0.x.x"
+    "load-script": "0.x.x",
+    "domready": "1.x.x"
   }
 }

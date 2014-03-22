@@ -9,7 +9,8 @@
   "dependencies": {
     "keyboard": "0.x.x",
     "domify": "1.x.x",
-    "load-script": "0.x.x"
+    "load-script": "0.x.x",
+    "domready": "1.x.x"
   },
   "nodes": [
     {
@@ -839,6 +840,28 @@
       "ns": "dom",
       "name": "querySelectorAll",
       "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el,\n  out: el.querySelectorAll(input.selector)\n}\n"
+    },
+    {
+      "ports": {
+        "input": {},
+        "output": {
+          "out": {
+            "title": "Ready",
+            "type": "any"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Waiting until dom is ready..."
+      },
+      "require": {
+        "domready": "1.x.x"
+      },
+      "description": "Let's you know when the dom is ready",
+      "title": "Dom Ready",
+      "ns": "dom",
+      "name": "ready",
+      "fn": "output = function() {\n  domready(function() {\n    cb({ out: true });\n  });\n};\n"
     },
     {
       "ports": {

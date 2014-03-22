@@ -1,0 +1,22 @@
+{
+  "name": "ready",
+  "ns": "dom",
+  "title": "Dom Ready",
+  "description": "Let's you know when the dom is ready",
+  "require": {
+    "domready": "1.x.x"
+  },
+  "phrases": {
+    "active": "Waiting until dom is ready..."
+  },
+  "ports": {
+    "input": {
+    },
+    "output": {
+      "out": {
+        "title": "Ready",
+        "type": "any"
+      }
+    }
+  }
+}
