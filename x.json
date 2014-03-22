@@ -867,7 +867,7 @@
       "description": "Asyncronous JavaScript loader and dependency manager",
       "ns": "dom",
       "name": "script",
-      "fn": "output = function() {\n  scriptjs.get(input.url, function() {\n    cb({ out: true });\n  });\n};\n"
+      "fn": "output = function() {\n  scriptjs([input.url], function() {\n    cb({ out: true });\n  });\n};\n"
     },
     {
       "ports": {
