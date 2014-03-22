@@ -1,0 +1,26 @@
+{
+  "name": "script",
+  "ns": "dom",
+  "description": "Asyncronous JavaScript loader and dependency manager",
+  "phrases": {
+    "active": "Loading script(s)"
+  },
+  "require": {
+    "scriptjs": "1.x.x"
+  },
+  "ports": {
+    "input": {
+      "url": {
+        "type": "string",
+        "format": "url",
+        "title": "Script Url"
+      }
+    },
+    "output": {
+      "out": {
+        "title": "Success",
+        "type": "boolean"
+      }
+    }
+  }
+}
