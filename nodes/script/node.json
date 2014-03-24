@@ -12,6 +12,7 @@
     "input": {
       "in": {
         "type": "array",
+        "title": "Url(s)",
         "items": {
           "type": "string",
           "format": "url",
