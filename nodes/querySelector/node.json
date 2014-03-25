@@ -22,8 +22,7 @@
     "output": {
       "element": {
         "title": "Element",
-        "type": "HTMLElement",
-        "default": null
+        "type": "HTMLElement"
       },
       "out": {
         "type": "object"
