@@ -24,8 +24,9 @@
         "title": "Element",
         "type": "HTMLElement"
       },
-      "out": {
-        "type": "object"
+      "selection": {
+        "title": "Selection",
+        "type": "HTMLElement"
       }
     }
   }

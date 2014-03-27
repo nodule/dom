@@ -1,5 +1,5 @@
-var el = input.element ? input.element : document;
+var el = input.element ? input.element : document.body;
 output = {
   element: el,
-  out: el.querySelector(input.selector)
+  selection: el.querySelector(input.selector)
 }

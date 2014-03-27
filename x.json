@@ -775,8 +775,9 @@
             "title": "Element",
             "type": "HTMLElement"
           },
-          "out": {
-            "type": "object"
+          "selection": {
+            "title": "Selection",
+            "type": "HTMLElement"
           }
         }
       },
@@ -790,7 +791,7 @@
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el,\n  out: el.querySelector(input.selector)\n}\n"
+      "fn": "var el = input.element ? input.element : document.body;\noutput = {\n  element: el,\n  selection: el.querySelector(input.selector)\n}\n"
     },
     {
       "ports": {
