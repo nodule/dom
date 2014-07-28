@@ -829,7 +829,7 @@
       "title": "querySelectorAll",
       "ns": "dom",
       "name": "querySelectorAll",
-      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el,\n  out: el.querySelectorAll(input.selector)\n}\n"
+      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el,\n  selection: el.querySelectorAll(input.selector)\n}\n"
     },
     {
       "ports": {
