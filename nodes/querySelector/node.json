@@ -27,6 +27,10 @@
       "selection": {
         "title": "Selection",
         "type": "HTMLElement"
+      },
+      "error": {
+        "title": "Error",
+        "type": "Error"
       }
     }
   }

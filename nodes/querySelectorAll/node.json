@@ -28,6 +28,10 @@
       },
       "selection": {
         "type": "object"
+      },
+      "error": {
+        "type": "Error",
+        "title": "Error"
       }
     }
   }

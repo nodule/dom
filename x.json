@@ -778,6 +778,10 @@
           "selection": {
             "title": "Selection",
             "type": "HTMLElement"
+          },
+          "error": {
+            "title": "Error",
+            "type": "Error"
           }
         }
       },
@@ -791,7 +795,7 @@
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el,\n  selection: el.querySelector(input.selector)\n}\n"
+      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\n\nvar selection = el.querySelector(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n"
     },
     {
       "ports": {
@@ -815,6 +819,10 @@
           },
           "selection": {
             "type": "object"
+          },
+          "error": {
+            "type": "Error",
+            "title": "Error"
           }
         }
       },
@@ -829,7 +837,7 @@
       "title": "querySelectorAll",
       "ns": "dom",
       "name": "querySelectorAll",
-      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el,\n  selection: el.querySelectorAll(input.selector)\n}\n"
+      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\nvar selection = el.querySelectorAll(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n"
     },
     {
       "ports": {
