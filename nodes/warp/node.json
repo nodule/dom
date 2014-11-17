@@ -2,7 +2,10 @@
   "name": "warp",
   "ns": "dom",
   "description": "dom warp",
-  "expose": ["window","document"],
+  "expose": [
+    "window",
+    "document"
+  ],
   "phrases": {
     "active": "Warping to frame {{input.selector}}"
   },

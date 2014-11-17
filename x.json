@@ -436,6 +436,11 @@
       "fn": "win = input.window || win;\noutput = {\n  document: win.document,\n  window: win\n}\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "domify": "0.x.x"
+        }
+      },
       "ports": {
         "input": {
           "in": {
@@ -457,9 +462,6 @@
       },
       "phrases": {
         "active": "Domifying HTML"
-      },
-      "require": {
-        "domify": "0.x.x"
       },
       "description": "Turn HTML into DOM elements x-browser",
       "title": "Domify",
@@ -669,6 +671,11 @@
       "fn": "on.input.src = function() {\n  var img = new Image();\n  img.onload = function() {\n    output( { image: this } );\n  }.bind(img);\n  img.src = data;\n}\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "keyboard": "0.x.x"
+        }
+      },
       "ports": {
         "input": {
           "element": {
@@ -702,9 +709,6 @@
             "title": "Keyboard event(s)"
           }
         }
-      },
-      "require": {
-        "keyboard": "0.x.x"
       },
       "phrases": {
         "active": "Handling keyboard"
@@ -840,6 +844,11 @@
       "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\nvar selection = el.querySelectorAll(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "domready": "1.x.x"
+        }
+      },
       "ports": {
         "input": {},
         "output": {
@@ -852,9 +861,6 @@
       "phrases": {
         "active": "Waiting until dom is ready..."
       },
-      "require": {
-        "domready": "1.x.x"
-      },
       "description": "Let's you know when the dom is ready",
       "title": "Dom Ready",
       "ns": "dom",
@@ -862,6 +868,11 @@
       "fn": "output = function() {\n  domready(function() {\n    cb({ out: true });\n  });\n};\n"
     },
     {
+      "dependencies": {
+        "npm": {
+          "scriptjs": "1.x.x"
+        }
+      },
       "ports": {
         "input": {
           "in": {
@@ -880,9 +891,6 @@
             "type": "boolean"
           }
         }
-      },
-      "require": {
-        "scriptjs": "1.x.x"
       },
       "phrases": {
         "active": "Loading script(s)"

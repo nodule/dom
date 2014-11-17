@@ -2,7 +2,10 @@
   "name": "querySelectorAll",
   "ns": "dom",
   "title": "querySelectorAll",
-  "expose": ["window","document"],
+  "expose": [
+    "window",
+    "document"
+  ],
   "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
   "phrases": {
     "active": "Gathering all elements matching criteria: {{input.selector}}"

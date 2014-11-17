@@ -3,7 +3,9 @@
   "ns": "dom",
   "title": "querySelector",
   "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
-  "expose": ["document"],
+  "expose": [
+    "document"
+  ],
   "phrases": {
     "active": "Gathering elements matching criteria: {{input.selector}}"
   },

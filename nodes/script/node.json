@@ -5,9 +5,6 @@
   "phrases": {
     "active": "Loading script(s)"
   },
-  "require": {
-    "scriptjs": "1.x.x"
-  },
   "ports": {
     "input": {
       "in": {
@@ -25,6 +22,11 @@
         "title": "Success",
         "type": "boolean"
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "scriptjs": "1.x.x"
     }
   }
 }

@@ -3,9 +3,6 @@
   "ns": "dom",
   "title": "Domify",
   "description": "Turn HTML into DOM elements x-browser",
-  "require": {
-    "domify": "0.x.x"
-  },
   "phrases": {
     "active": "Domifying HTML"
   },
@@ -21,8 +18,16 @@
     "output": {
       "out": {
         "title": "Dom Elements",
-        "type": ["HTMLElement","DocumentFragment"]
+        "type": [
+          "HTMLElement",
+          "DocumentFragment"
+        ]
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "domify": "0.x.x"
     }
   }
 }

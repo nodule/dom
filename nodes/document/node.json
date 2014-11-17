@@ -2,7 +2,9 @@
   "name": "document",
   "ns": "dom",
   "description": "dom document",
-  "expose": ["window"],
+  "expose": [
+    "window"
+  ],
   "phrases": {
     "active": "Providing the dom document of the current window"
   },

@@ -4,7 +4,9 @@
   "title": "Set Attribute",
   "async": true,
   "description": "Adds a new attribute or changes the value of an existing attribute on the specified element.",
-  "expose": ["document"],
+  "expose": [
+    "document"
+  ],
   "phrases": {
     "active": "Setting attribute: {{input.attribute}}"
   },

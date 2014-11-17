@@ -5,9 +5,6 @@
   "phrases": {
     "active": "Handling keyboard"
   },
-  "require": {
-    "keyboard": "0.x.x"
-  },
   "ports": {
     "input": {
       "element": {
@@ -21,7 +18,12 @@
       },
       "filter": {
         "type": "string",
-        "enum": ["activate","release","repeat","press"],
+        "enum": [
+          "activate",
+          "release",
+          "repeat",
+          "press"
+        ],
         "title": "Filter",
         "default": null
       }
@@ -35,6 +37,11 @@
         "type": "any",
         "title": "Keyboard event(s)"
       }
+    }
+  },
+  "dependencies": {
+    "npm": {
+      "keyboard": "0.x.x"
     }
   }
 }

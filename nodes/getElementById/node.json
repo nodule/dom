@@ -4,7 +4,9 @@
   "title": "getElementById",
   "async": true,
   "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
-  "expose": ["document"],
+  "expose": [
+    "document"
+  ],
   "phrases": {
     "active": "Getting element with id: {{input.id}}"
   },

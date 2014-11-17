@@ -4,7 +4,9 @@
   "title": "Get Attribute",
   "async": true,
   "description": "Get attribute",
-  "expose": ["document"],
+  "expose": [
+    "document"
+  ],
   "phrases": {
     "active": "Getting attribute: {{input.attribute}}"
   },
