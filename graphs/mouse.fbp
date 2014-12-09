@@ -87,8 +87,26 @@ NodeValues out => vars NodeView
 #MouseClick event -> :start Poll out -> vars ClickMeForQueueUpdate out -> html SetHtml
 MouseMove event -> :start Poll out -> vars IOManagerView out -> html UpdateConnections
 # Poll out -> msg Log
+MouseClick event -> msg Log
 
 KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html SetHtml
+
+# click on the node show full info.
+# so how to actually get our node info ?
+# normally you put it in data and get the attribute
+# however using local storage for all this kind of data is maybe nicer.
+# which means all state is within local storage. not attached to elements.
+# in which case you can also get a nice overview of what data is actually
+# used within the application.
+# So, how do you bind data to an element? You don't.. :-)
+# I can make nodeClick and let all nodes go through that.
+# It will work but is weird. That's why it's better to listen to click in
+# general and filter every click, then determine about what id it is.
+# ok then ofcourse the problem is, detecting where we are in the dom.
+# td, th, tr, thead, div bla.. a bit like jquery.parent('#my-id')
+# which doesn't use bubbling at all, but I don't mind
+# so I want dom/parent
+# closest... \:D/ :-)
 
 # Expose the schema of this output.. :-)
 # MouseClick event:schema [type] ->

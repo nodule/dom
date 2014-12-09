@@ -1,4 +1,4 @@
-<div id="{id}" class="node pull-left">
+<div id="{{id}}" class="node pull-left">
   <table>
     <caption>{{title}}</caption>
     <tbody>

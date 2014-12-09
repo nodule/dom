@@ -419,6 +419,56 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "title": "Element",
+            "description": "will check this elements parents",
+            "type": "HTMLElement",
+            "async": true
+          },
+          "selector": {
+            "title": "Selector",
+            "description": "CSS selector to match parents",
+            "type": "string"
+          },
+          "checkSelf": {
+            "title": "Check Self",
+            "description": "check element. If falsey, will begin with element.parentNode and is synonymous to $.fn.parents. Otherwise, it's $.fn.closest.",
+            "type": "boolean",
+            "default": false
+          },
+          "within": {
+            "title": "Within",
+            "description": "check only within this element. By default, document",
+            "type": "HTMLElement",
+            "required": false
+          }
+        },
+        "output": {
+          "element": {
+            "title": "Element",
+            "type": "HTMLElement"
+          },
+          "selection": {
+            "title": "Selection",
+            "type": "HTMLElement"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Finding closest parent: {{input.selector}}"
+      },
+      "expose": [
+        "document"
+      ],
+      "description": " Finds the closest parent that matches a selector.",
+      "title": "Closest",
+      "ns": "dom",
+      "name": "closest",
+      "fn": "on.input.element = function(data) {\n  output({\n    selection: closest(\n      data, input.selector, input.checkSelf,\n      input.within || document\n    ),\n    element: data\n  });\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
           "in": {
             "type": "string",
             "title": "Tagname",

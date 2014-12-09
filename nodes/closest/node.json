@@ -1,0 +1,49 @@
+{
+  "name": "closest",
+  "ns": "dom",
+  "title": "Closest",
+  "description": " Finds the closest parent that matches a selector.",
+  "expose": [
+    "document"
+  ],
+  "phrases": {
+    "active": "Finding closest parent: {{input.selector}}"
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "title": "Element",
+        "description": "will check this elements parents",
+        "type": "HTMLElement",
+        "async": true
+      },
+      "selector": {
+        "title": "Selector",
+        "description": "CSS selector to match parents",
+        "type": "string"
+      },
+      "checkSelf": {
+        "title": "Check Self",
+        "description": "check element. If falsey, will begin with element.parentNode and is synonymous to $.fn.parents. Otherwise, it's $.fn.closest.",
+        "type": "boolean",
+        "default": false
+      },
+      "within": {
+        "title": "Within",
+        "description": "check only within this element. By default, document",
+        "type": "HTMLElement",
+        "required": false
+      }
+    },
+    "output": {
+      "element": {
+        "title": "Element",
+        "type": "HTMLElement"
+      },
+      "selection": {
+        "title": "Selection",
+        "type": "HTMLElement"
+      }
+    }
+  }
+}
