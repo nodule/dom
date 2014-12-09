@@ -1,30 +1,50 @@
 title: Mouse event example
 
+# if this works... moveing it up, :-o :p
+Actor(core/actor)
+
 MouseMove(dom/addMouseEvent)
 MouseClick(dom/addMouseEvent)
 KeyboardEvent(dom/addKeyboardEvent)
+
 BodyEl(dom/querySelector)
+CanvasEl(dom/querySelector)
+PanelEl(dom/querySelector)
+
 SetHtml(dom/setHtml)
 Log(console/log)
 toString(data/string)
 HandleMe(template/handlebars)
+
+NodeView(template/handlebars)
 IOManagerView(template/handlebars)
 ProcessManagerView(template/handlebars)
-Actor(core/actor)
 
-'body' -> selector BodyEl
+AppendNode(dom/appendChild)
+CreateNode(dom/createElement)
+NodeHtml(dom/setHtml)
+
+
+'body'    -> selector BodyEl
+'#panel'  -> selector PanelEl
+'#canvas' -> selector CanvasEl
 
 'mousemove' -> event MouseMove
 'click'     -> event MouseClick
 'keydown'   -> event KeyboardEvent
 
+'div' -> in CreateNode
+
 BodyEl selection -> element MouseMove
 BodyEl selection -> element MouseClick
 BodyEl selection -> element KeyboardEvent
 
+CanvasEl selection -> element AppendNode
+
 '<div>x: {{x}}, y: {{y}}</div>' -> ^body HandleMe
 #'<p>queue: {{inQueue}}, TODO: queues *should* remove empty ones</div>' -> ^body ClickMeForQueueUpdate
 './views/connections.hb'    ~> ^body IOManagerView
+'./views/node.hb'           ~> ^body NodeView
 './views/processManager.hb' ~> ^body ProcessManagerView
 
 #MouseMove event [y] -> [x] in toString out -> html SetHtml
@@ -32,11 +52,20 @@ BodyEl selection -> element KeyboardEvent
 MouseMove event -> vars HandleMe out -> html SetHtml
 
 'I should be replaced!' -> html SetHtml
-BodyEl selection -> ^element SetHtml
-BodyEl selection -> msg Log
 
-'' -> :start Actor io -> ^in Poll(object/create)
-'' -> :start Actor pm -> ^in PMPoll(object/create)
+PanelEl selection -> ^element SetHtml
+
+'' -> :start Actor
+
+Actor io -> ^in Poll(object/create)
+Actor pm -> ^in PMPoll(object/create)
+
+# setup for this is too late unfortunatly.
+#
+Actor addNode  -> :start CreateNode
+CreateNode out ->                   element NodeHtml
+Actor addNode  -> vars NodeView out -> html NodeHtml
+NodeHtml element -> element AppendNode
 
 #MouseClick event -> :start Poll out -> vars ClickMeForQueueUpdate out -> html SetHtml
 MouseClick event -> :start Poll out -> vars IOManagerView out -> html SetHtml

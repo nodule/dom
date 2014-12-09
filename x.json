@@ -18,7 +18,8 @@
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
+            "title": "Dom Element",
+            "required": false
           },
           "preventDefault": {
             "type": "boolean",
@@ -55,14 +56,15 @@
       "description": "Add Form Event Listener",
       "ns": "dom",
       "name": "addFormEvent",
-      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
+            "title": "Dom Element",
+            "required": false
           },
           "preventDefault": {
             "type": "boolean",
@@ -96,14 +98,15 @@
       "description": "Add Keyboard Event Listener",
       "ns": "dom",
       "name": "addKeyboardEvent",
-      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
+            "title": "Dom Element",
+            "required": false
           },
           "preventDefault": {
             "type": "boolean",
@@ -148,14 +151,15 @@
       "description": "Add Mouse Event Listener",
       "ns": "dom",
       "name": "addMouseEvent",
-      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
+            "title": "Dom Element",
+            "required": false
           },
           "preventDefault": {
             "type": "boolean",
@@ -193,14 +197,15 @@
       "description": "Add Mutation Event Listener",
       "ns": "dom",
       "name": "addMutationEvent",
-      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
+            "title": "Dom Element",
+            "required": false
           },
           "preventDefault": {
             "type": "boolean",
@@ -241,7 +246,7 @@
       "description": "Add Pointer Event Listener",
       "ns": "dom",
       "name": "addPointerEvent",
-      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
@@ -278,7 +283,8 @@
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
+            "title": "Dom Element",
+            "required": false
           },
           "preventDefault": {
             "type": "boolean",
@@ -315,14 +321,15 @@
       "description": "Add Touch Event Listener",
       "ns": "dom",
       "name": "addTouchEvent",
-      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
+            "title": "Dom Element",
+            "required": false
           },
           "preventDefault": {
             "type": "boolean",
@@ -356,7 +363,7 @@
       "description": "Add UI Event Listener",
       "ns": "dom",
       "name": "addUIEvent",
-      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {

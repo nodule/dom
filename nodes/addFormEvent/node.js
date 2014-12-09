@@ -1,11 +1,13 @@
 output = function(cb) {
 
-  input.element.addEventListener(input.event, function(ev) {
+  var el = input.element || document;
+
+  el.addEventListener(input.event, function(ev) {
 
     if(input.preventDefault) ev.preventDefault();
 
     cb({
-      element: input.element,
+      element: el,
       event: ev
     });
 

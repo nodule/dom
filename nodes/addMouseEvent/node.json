@@ -9,7 +9,8 @@
     "input": {
       "element": {
         "type": "HTMLElement",
-        "title": "Dom Element"
+        "title": "Dom Element",
+        "required": false
       },
       "preventDefault": {
         "type": "boolean",
