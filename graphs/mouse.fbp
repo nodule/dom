@@ -43,7 +43,7 @@ NodeHtml(dom/setHtml)
 #BodyEl selection -> element MouseClick
 #BodyEl selection -> element KeyboardEvent
 
-CanvasEl selection -> element AppendNode
+CanvasEl selection -> ^element AppendNode
 
 '<div>x: {{clientX}}, y: {{clientY}}</div>' -> ^body HandleMe
 #'<p>queue: {{inQueue}}, TODO: queues *should* remove empty ones</div>' -> ^body ClickMeForQueueUpdate
@@ -67,10 +67,22 @@ Actor pm -> ^in PMPoll(object/create)
 
 # setup for this is too late unfortunatly.
 #
-Actor addNode  -> :start CreateNode
-CreateNode out ->                   element NodeHtml
-Actor addNode  -> vars NodeView out -> html NodeHtml
-NodeHtml element -> element AppendNode
+#Actor addNode  -> :start CreateNode
+CreateNode out -> element NodeHtml
+#Actor addNode  -> vars NodeView
+
+NodeView out -> html NodeHtml
+NodeHtml element -> child AppendNode
+
+# works, but too much internal knowledge?
+# addNode above doesn't work, if it does there could be a sync problem
+# doesn't happen, but could, it only doesn't happen because I know it won't
+# the system does not prevent it by itself
+
+# should be converted to array.
+Actor pm [processes] -> in NodeValues(object/values)
+NodeValues out => :start CreateNode
+NodeValues out => vars NodeView
 
 #MouseClick event -> :start Poll out -> vars ClickMeForQueueUpdate out -> html SetHtml
 MouseMove event -> :start Poll out -> vars IOManagerView out -> html UpdateConnections
