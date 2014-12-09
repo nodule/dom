@@ -2,6 +2,7 @@
   "name": "setHtml",
   "ns": "dom",
   "description": "dom setHtml",
+  "async": true,
   "phrases": {
     "active": "Adding html"
   },

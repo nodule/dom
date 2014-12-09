@@ -960,6 +960,7 @@
       "phrases": {
         "active": "Adding html"
       },
+      "async": true,
       "description": "dom setHtml",
       "ns": "dom",
       "name": "setHtml",
