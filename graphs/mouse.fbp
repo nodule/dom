@@ -7,6 +7,7 @@ SetHtml(dom/setHtml)
 Log(console/log)
 toString(data/string)
 HandleMe(template/handlebars)
+ClickMeForIOUpdate(template/handlebars)
 Actor(core/actor)
 
 'body' -> selector BodyEl
@@ -18,22 +19,9 @@ BodyEl selection -> element MouseMove
 BodyEl selection -> element MouseClick
 
 '<div>x: {{x}}, y: {{y}}</div>' -> ^body HandleMe
+#'<p>queue: {{inQueue}}, TODO: queues *should* remove empty ones</div>' -> ^body ClickMeForQueueUpdate
+'./connections.hb' ~> ^body ClickMeForIOUpdate
 
-# Ok somehow this doesn't work
-# it should though queue/index etc. bug.
-
-# debug does not seem to report the integer to string error
-# although it takes place.
-# toString fixes this.
-#
-# Another rather fun observation is that html is not async yet it
-# seems to perform ok. there is definitly queing taking place.
-# I did not expect this to perform at all. Maybe it's because
-# Mouse move can still be considered slow data.
-# What I would now like to show on the page is the queue stats.
-# Sync means, we run the node and when the node is finished
-# the next is allowed to do setHtml, I did not expect this to perform at all.
-# ok handlebars, how to make that fast..
 #MouseMove event [y] -> [x] in toString out -> html SetHtml
 #MouseMove event [x] -> msg Log
 MouseMove event -> vars HandleMe out -> html SetHtml
@@ -42,14 +30,15 @@ MouseMove event -> vars HandleMe out -> html SetHtml
 BodyEl selection -> ^element SetHtml
 BodyEl selection -> msg Log
 
-# polling tick
-# ok this is not so funny, something unrelated fails to work when this
-# is added, setHtml gets a still active connection.
-# which is caused by order of things :/
-# will probably be solved is setHtml is just async
-#'' -> :start Actor qm -> ^in Poll(object/create)
+'' -> :start Actor io -> ^in Poll(object/create)
 
-#MouseClick event -> :start Poll out -> msg Log
+#MouseClick event -> :start Poll out -> vars ClickMeForQueueUpdate out -> html SetHtml
+MouseClick event -> :start Poll out -> vars ClickMeForIOUpdate out -> html SetHtml
+Poll out -> msg Log
+
+# Expose the schema of this output.. :-)
+# MouseClick event:schema [type] ->
+# MouseClick event:schema [title] ->
 
 #MouseMove event [clientX] -> msg Log
 #MouseMove event [clientY] -> msg Log
