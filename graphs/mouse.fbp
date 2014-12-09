@@ -2,25 +2,30 @@ title: Mouse event example
 
 MouseMove(dom/addMouseEvent)
 MouseClick(dom/addMouseEvent)
+KeyboardEvent(dom/addKeyboardEvent)
 BodyEl(dom/querySelector)
 SetHtml(dom/setHtml)
 Log(console/log)
 toString(data/string)
 HandleMe(template/handlebars)
-ClickMeForIOUpdate(template/handlebars)
+IOManagerView(template/handlebars)
+ProcessManagerView(template/handlebars)
 Actor(core/actor)
 
 'body' -> selector BodyEl
 
-'mousemove'  -> event MouseMove
-'click' -> event MouseClick
+'mousemove' -> event MouseMove
+'click'     -> event MouseClick
+'keydown'   -> event KeyboardEvent
 
 BodyEl selection -> element MouseMove
 BodyEl selection -> element MouseClick
+BodyEl selection -> element KeyboardEvent
 
 '<div>x: {{x}}, y: {{y}}</div>' -> ^body HandleMe
 #'<p>queue: {{inQueue}}, TODO: queues *should* remove empty ones</div>' -> ^body ClickMeForQueueUpdate
-'./connections.hb' ~> ^body ClickMeForIOUpdate
+'./views/connections.hb'    ~> ^body IOManagerView
+'./views/processManager.hb' ~> ^body ProcessManagerView
 
 #MouseMove event [y] -> [x] in toString out -> html SetHtml
 #MouseMove event [x] -> msg Log
@@ -31,10 +36,13 @@ BodyEl selection -> ^element SetHtml
 BodyEl selection -> msg Log
 
 '' -> :start Actor io -> ^in Poll(object/create)
+'' -> :start Actor pm -> ^in PMPoll(object/create)
 
 #MouseClick event -> :start Poll out -> vars ClickMeForQueueUpdate out -> html SetHtml
-MouseClick event -> :start Poll out -> vars ClickMeForIOUpdate out -> html SetHtml
+MouseClick event -> :start Poll out -> vars IOManagerView out -> html SetHtml
 Poll out -> msg Log
+
+KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html SetHtml
 
 # Expose the schema of this output.. :-)
 # MouseClick event:schema [type] ->
@@ -45,3 +53,11 @@ Poll out -> msg Log
 #MouseMove event [keyCode] -> msg Log
 #MouseMove event [toElement] -> msg Log
 #MouseMove event [fromElement] -> msg Log2(console/log)
+
+# Ok, now what's unique about Actor pm
+# Process Manager is it has access to all processes within the system.
+# this means from any graph, you can pick processes from other graphs
+# if you would like to. you could then truly say, you are programming..
+# within .fbp :-)
+# within graphs the name is unique so call them by name.
+# or just query the processes for properties.

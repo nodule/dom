@@ -9157,7 +9157,7 @@ if (process.on) { // old browserify
  * @public
  *
  */
-function DefaultProcessManager() {
+function ProcessManager() {
 
   this.processes = {};
 
@@ -9165,13 +9165,13 @@ function DefaultProcessManager() {
 
 }
 
-util.inherits(DefaultProcessManager, EventEmitter);
+util.inherits(ProcessManager, EventEmitter);
 
-DefaultProcessManager.prototype.getMainGraph = function() {
+ProcessManager.prototype.getMainGraph = function() {
   return this.getMainGraphs().pop();
 };
 
-DefaultProcessManager.prototype.getMainGraphs = function() {
+ProcessManager.prototype.getMainGraphs = function() {
 
   var main = [];
   var key;
@@ -9190,7 +9190,7 @@ DefaultProcessManager.prototype.getMainGraphs = function() {
 
 };
 
-DefaultProcessManager.prototype.register = function(node) {
+ProcessManager.prototype.register = function(node) {
 
   var self = this;
 
@@ -9247,7 +9247,7 @@ DefaultProcessManager.prototype.register = function(node) {
  * Is already within an error state.
  *
  */
-DefaultProcessManager.prototype.processErrorHandler = function(event) {
+ProcessManager.prototype.processErrorHandler = function(event) {
 
   if (event.node.status !== 'error') {
     console.log('STATUS', event.node.status);
@@ -9259,7 +9259,7 @@ DefaultProcessManager.prototype.processErrorHandler = function(event) {
 
 };
 
-DefaultProcessManager.prototype.changePid = function(from, to) {
+ProcessManager.prototype.changePid = function(from, to) {
 
   if (this.processes.hasOwnProperty(from)) {
     this.processes[to] = this.processes[from];
@@ -9273,7 +9273,7 @@ DefaultProcessManager.prototype.changePid = function(from, to) {
 };
 
 // TODO: improve start, stop, hold, release logic..
-DefaultProcessManager.prototype.start = function(node) {
+ProcessManager.prototype.start = function(node) {
 
   // allow by pid and by node object
   var pid = typeof node === 'object' ? node.pid : node;
@@ -9289,7 +9289,7 @@ DefaultProcessManager.prototype.start = function(node) {
   }
 };
 
-DefaultProcessManager.prototype.stop = function(node, cb) {
+ProcessManager.prototype.stop = function(node, cb) {
 
   // allow by pid and by node object
   var pid = typeof node === 'object' ? node.pid : node;
@@ -9308,7 +9308,7 @@ DefaultProcessManager.prototype.stop = function(node, cb) {
 // TODO: just deleting is not enough.
 // links also contains the pids
 // on remove process those links should also be removed.
-DefaultProcessManager.prototype.unregister = function(node, cb) {
+ProcessManager.prototype.unregister = function(node, cb) {
 
   var self = this;
 
@@ -9353,7 +9353,7 @@ DefaultProcessManager.prototype.unregister = function(node, cb) {
 * Either by id or it's pid.
 *
 */
-DefaultProcessManager.prototype.get = function(pid) {
+ProcessManager.prototype.get = function(pid) {
 
   return this.processes[pid];
 
@@ -9368,7 +9368,7 @@ DefaultProcessManager.prototype.get = function(pid) {
  * Will throw an error if there is a process id conflict.
  *
  */
-DefaultProcessManager.prototype.getById = function(id) {
+ProcessManager.prototype.getById = function(id) {
   var found;
   var process;
   for (process in this.processes) {
@@ -9385,11 +9385,11 @@ DefaultProcessManager.prototype.getById = function(id) {
   return found;
 };
 
-DefaultProcessManager.prototype.filterByStatus = function(status) {
+ProcessManager.prototype.filterByStatus = function(status) {
   return this.filterBy('status', status);
 };
 
-DefaultProcessManager.prototype.filterBy = function(prop, value) {
+ProcessManager.prototype.filterBy = function(prop, value) {
 
   var id;
   var filtered = [];
@@ -9406,7 +9406,7 @@ DefaultProcessManager.prototype.filterBy = function(prop, value) {
 
 };
 
-module.exports = DefaultProcessManager;
+module.exports = ProcessManager;
 
 }).call(this,require("uojqOp"))
 },{"events":2,"uojqOp":5,"util":7,"uuid":43}],21:[function(require,module,exports){
@@ -16041,13 +16041,15 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions[".hbs"] = extension;
 }
 
-},{"../dist/cjs/handlebars":51,"../dist/cjs/handlebars/compiler/printer":60,"../dist/cjs/handlebars/compiler/visitor":61,"fs":1}],"QCA6vm":[function(require,module,exports){
+},{"../dist/cjs/handlebars":51,"../dist/cjs/handlebars/compiler/printer":60,"../dist/cjs/handlebars/compiler/visitor":61,"fs":1}],"mouse":[function(require,module,exports){
+module.exports=require('QCA6vm');
+},{}],"QCA6vm":[function(require,module,exports){
 var Loader = function() {
 
   // will be replaced with the json.
   this.dependencies = {"npm":{"handlebars":"latest","chix-flow":"0.x.x"}};
   //this.nodes = ;
-  this.nodeDefinitions = {"https://serve-chix.rhcloud.com/nodes/{ns}/{name}":{"dom":{"addMouseEvent":{"_id":"52be4f096a14bb6fbd924a28","name":"addMouseEvent","ns":"dom","description":"Add Mouse Event Listener","phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["click","dblclick","mousedown","mouseup","mouseover","mousemove","mouseout","dragstart","drag","dragenter","dragleave","dragover","drop","dragend"],"title":"Dom Event"}},"output":{"element":{"type":"any","title":"Element"},"event":{"type":"object","title":"Event"}}},"fn":"output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"querySelector":{"_id":"527299bb30b8af4b8910216b","name":"querySelector","ns":"dom","title":"querySelector","description":"[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)","expose":["document"],"phrases":{"active":"Gathering elements matching criteria: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","type":"HTMLElement","default":null},"selector":{"title":"Selector","type":"string"}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"},"error":{"title":"Error","type":"Error"}}},"fn":"var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\n\nvar selection = el.querySelector(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"setHtml":{"_id":"52be32d46a14bb6fbd924a24","name":"setHtml","ns":"dom","description":"dom setHtml","async":true,"phrases":{"active":"Adding html"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"html":{"type":"string","format":"html","title":"html","async":true}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"}}},"fn":"on.input.html = function(data) {\n  input.element.innerHTML = data;\n  output({ element: input.element });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"console":{"log":{"_id":"52645993df5da0102500004e","name":"log","ns":"console","description":"Console log","async":true,"phrases":{"active":"Logging to console"},"ports":{"input":{"msg":{"type":"any","title":"Log message","description":"Logs a message to the console","async":true,"required":true}},"output":{"out":{"type":"any","title":"Log message"}}},"fn":"on.input.msg = function() {\n  console.log(data);\n  output( { out: data });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"data":{"string":{"_id":"526b1327b8a561ad0ebfa3b7","name":"string","ns":"data","title":"String","async":true,"description":"String","phrases":{"active":"Creating string {{input.string}}"},"ports":{"input":{"in":{"title":"String","type":"any","async":true,"required":true}},"output":{"out":{"title":"out","type":"string"}}},"fn":"on.input.in = function() {\n  output( { out: typeof data === null ? 'null' : data.toString() });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"template":{"handlebars":{"_id":"52ea878d1905561c7aa3bdbc","name":"handlebars","ns":"template","description":"Handlebars Template engine","phrases":{"active":"Compiling handlebars template"},"ports":{"input":{"body":{"type":"string","format":"html","title":"Template body","description":"The body of the handlebars template","required":true},"vars":{"type":"object","title":"Input variables","description":"the input variables for this template","required":true},"handlebars":{"type":"function","title":"Handlebars","default":null}},"output":{"out":{"title":"HTML","type":"string"}}},"dependencies":{"npm":{"handlebars":"latest"}},"fn":"var hb = input.handlebars || handlebars;\nvar tpl = hb.compile(input.body);\noutput = {\n  out: tpl(input.vars)\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"core":{"actor":{"_id":"5486929dab54be2e930fbd64","name":"actor","ns":"core","title":"Actor","description":"Chix Actor","phrases":{"active":"Exposing Actor"},"ports":{"input":{"actor":{"title":"Actor","type":"Actor","default":null},"loader":{"title":"Loader","type":"Loader","default":null},"io":{"title":"IO Handler","type":"IOMapHandler","default":null},"pm":{"title":"Process Manager","type":"ProcessManager","default":null}},"output":{"actor":{"title":"Actor","type":"Actor"},"addNode":{"title":"Node added","type":"xNode"},"removeNode":{"title":"Node removed","type":"xNode"},"addLink":{"title":"Link added","type":"xLink"},"removeLink":{"title":"Link removed","type":"xLink"},"connect":{"title":"Link connected","type":"xLink"},"disconnect":{"title":"Link disconnected","type":"xLink"},"qm":{"title":"Queue Manager","type":"QueueManager"},"io":{"title":"Io Handler","type":"IOMapHandler"},"error":{"title":"Error","type":"object"}}},"dependencies":{"npm":{"chix-flow":"0.x.x"}},"fn":"output = function (cb) {\n\n  var actor = input.actor || this.getParent();\n\n  // probably should do almost the same as npmlog monitor\n\n  actor.on('inputRequired', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('error', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('addNode', function (event) {\n    cb({\n      addNode: event.node\n    });\n  });\n\n  actor.on('removeNode', function (event) {\n    cb({\n      removeNode: event.node\n    });\n  });\n\n  actor.on('addLink', function (link) {\n    cb({\n      addLink: link\n    });\n  });\n\n  actor.on('removeLink', function (link) {\n    cb({\n      removeLink: link\n    });\n  });\n\n  actor.ioHandler.on('connect', function (link) {\n    cb({\n      connect: link\n    });\n  });\n\n  actor.ioHandler.on('disconnect', function (link) {\n    cb({\n      disconnect: link\n    });\n  });\n\n  cb({\n    qm: actor.ioHandler.queueManager,\n    io: actor.ioHandler\n  });\n\n  // not really useful I guess\n  /*\n  actor.ioHandler.on('data', function (link) {\n    cb({\n      disconnectLink: link\n    });\n  });\n  */\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"object":{"create":{"_id":"52fa908e909495ebbe6ded4c","name":"create","ns":"object","description":"Create an object, if input is a direct object it just returns a copy of the object","phrases":{"active":"Creating object"},"ports":{"input":{"in":{"title":"Object","type":"object"}},"output":{"out":{"title":"out","type":"object"}}},"fn":"output.out = input.in;\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}}};
+  this.nodeDefinitions = {"https://serve-chix.rhcloud.com/nodes/{ns}/{name}":{"dom":{"addMouseEvent":{"_id":"52be4f096a14bb6fbd924a28","name":"addMouseEvent","ns":"dom","description":"Add Mouse Event Listener","phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["click","dblclick","mousedown","mouseup","mouseover","mousemove","mouseout","dragstart","drag","dragenter","dragleave","dragover","drop","dragend"],"title":"Dom Event"}},"output":{"element":{"type":"any","title":"Element"},"event":{"type":"object","title":"Event"}}},"fn":"output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"addKeyboardEvent":{"_id":"52bf38966a14bb6fbd924a2d","name":"addKeyboardEvent","ns":"dom","description":"Add Keyboard Event Listener","phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"event":{"type":"string","enum":["keydown","keypress","keyup"],"title":"Dom Event"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"event":{"type":"object","title":"Event"}}},"fn":"output = [input.element, 'addEventListener', input.event];\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"querySelector":{"_id":"527299bb30b8af4b8910216b","name":"querySelector","ns":"dom","title":"querySelector","description":"[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)","expose":["document"],"phrases":{"active":"Gathering elements matching criteria: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","type":"HTMLElement","default":null},"selector":{"title":"Selector","type":"string"}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"},"error":{"title":"Error","type":"Error"}}},"fn":"var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\n\nvar selection = el.querySelector(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"setHtml":{"_id":"52be32d46a14bb6fbd924a24","name":"setHtml","ns":"dom","description":"dom setHtml","async":true,"phrases":{"active":"Adding html"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"html":{"type":"string","format":"html","title":"html","async":true}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"}}},"fn":"on.input.html = function(data) {\n  input.element.innerHTML = data;\n  output({ element: input.element });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"console":{"log":{"_id":"52645993df5da0102500004e","name":"log","ns":"console","description":"Console log","async":true,"phrases":{"active":"Logging to console"},"ports":{"input":{"msg":{"type":"any","title":"Log message","description":"Logs a message to the console","async":true,"required":true}},"output":{"out":{"type":"any","title":"Log message"}}},"fn":"on.input.msg = function() {\n  console.log(data);\n  output( { out: data });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"data":{"string":{"_id":"526b1327b8a561ad0ebfa3b7","name":"string","ns":"data","title":"String","async":true,"description":"String","phrases":{"active":"Creating string {{input.string}}"},"ports":{"input":{"in":{"title":"String","type":"any","async":true,"required":true}},"output":{"out":{"title":"out","type":"string"}}},"fn":"on.input.in = function() {\n  output( { out: typeof data === null ? 'null' : data.toString() });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"template":{"handlebars":{"_id":"52ea878d1905561c7aa3bdbc","name":"handlebars","ns":"template","description":"Handlebars Template engine","phrases":{"active":"Compiling handlebars template"},"ports":{"input":{"body":{"type":"string","format":"html","title":"Template body","description":"The body of the handlebars template","required":true},"vars":{"type":"object","title":"Input variables","description":"the input variables for this template","required":true},"handlebars":{"type":"function","title":"Handlebars","default":null}},"output":{"out":{"title":"HTML","type":"string"}}},"dependencies":{"npm":{"handlebars":"latest"}},"fn":"var hb = input.handlebars || handlebars;\nvar tpl = hb.compile(input.body);\noutput = {\n  out: tpl(input.vars)\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"core":{"actor":{"_id":"5486929dab54be2e930fbd64","name":"actor","ns":"core","title":"Actor","description":"Chix Actor","phrases":{"active":"Exposing Actor"},"ports":{"input":{"actor":{"title":"Actor","type":"Actor","default":null},"loader":{"title":"Loader","type":"Loader","default":null},"io":{"title":"IO Handler","type":"IOMapHandler","default":null},"pm":{"title":"Process Manager","type":"ProcessManager","default":null}},"output":{"actor":{"title":"Actor","type":"Actor"},"addNode":{"title":"Node added","type":"xNode"},"removeNode":{"title":"Node removed","type":"xNode"},"addLink":{"title":"Link added","type":"xLink"},"removeLink":{"title":"Link removed","type":"xLink"},"connect":{"title":"Link connected","type":"xLink"},"disconnect":{"title":"Link disconnected","type":"xLink"},"qm":{"title":"Queue Manager","type":"QueueManager"},"pm":{"title":"Process Manager","type":"ProcessManager"},"io":{"title":"Io Handler","type":"IOMapHandler"},"error":{"title":"Error","type":"object"}}},"dependencies":{"npm":{"chix-flow":"0.x.x"}},"fn":"output = function (cb) {\n\n  var actor = input.actor || this.getParent();\n\n  // probably should do almost the same as npmlog monitor\n\n  actor.on('inputRequired', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('error', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('addNode', function (event) {\n    cb({\n      addNode: event.node\n    });\n  });\n\n  actor.on('removeNode', function (event) {\n    cb({\n      removeNode: event.node\n    });\n  });\n\n  actor.on('addLink', function (link) {\n    cb({\n      addLink: link\n    });\n  });\n\n  actor.on('removeLink', function (link) {\n    cb({\n      removeLink: link\n    });\n  });\n\n  actor.ioHandler.on('connect', function (link) {\n    cb({\n      connect: link\n    });\n  });\n\n  actor.ioHandler.on('disconnect', function (link) {\n    cb({\n      disconnect: link\n    });\n  });\n\n  cb({\n    qm: actor.ioHandler.queueManager,\n    io: actor.ioHandler,\n    pm: actor.processManager\n  });\n\n  // not really useful I guess\n  /*\n  actor.ioHandler.on('data', function (link) {\n    cb({\n      disconnectLink: link\n    });\n  });\n  */\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"object":{"create":{"_id":"52fa908e909495ebbe6ded4c","name":"create","ns":"object","description":"Create an object, if input is a direct object it just returns a copy of the object","phrases":{"active":"Creating object"},"ports":{"input":{"in":{"title":"Object","type":"object"}},"output":{"out":{"title":"out","type":"object"}}},"fn":"output.out = input.in;\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}}};
 
 };
 
@@ -16070,7 +16072,7 @@ Loader.prototype.getNodeDefinition = function(node) {
 var Flow = require('chix-flow').Flow;
 var loader = new Loader();
 
-var map = {"id":"b166e840-bb5d-4c78-aea6-89f6c6136a1a","type":"flow","links":[{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"MouseMove","port":"element"},"metadata":{"title":"BodyEl selection -> element MouseMove"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"MouseClick","port":"element"},"metadata":{"title":"BodyEl selection -> element MouseClick"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"HandleMe","port":"vars"},"metadata":{"title":"MouseMove event -> vars HandleMe"}},{"source":{"id":"HandleMe","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"HandleMe out -> html SetHtml"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"SetHtml","port":"element","setting":{"persist":true}},"metadata":{"title":"BodyEl selection -> element SetHtml"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"BodyEl selection -> msg Log"}},{"source":{"id":"Actor","port":"io"},"target":{"id":"Poll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor io -> in Poll"}},{"source":{"id":"MouseClick","port":"event"},"target":{"id":"Poll","port":":start"},"metadata":{"title":"MouseClick event -> :start Poll"}},{"source":{"id":"Poll","port":"out"},"target":{"id":"ClickMeForIOUpdate","port":"vars"},"metadata":{"title":"Poll out -> vars ClickMeForIOUpdate"}},{"source":{"id":"ClickMeForIOUpdate","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"ClickMeForIOUpdate out -> html SetHtml"}},{"source":{"id":"Poll","port":"out"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"Poll out -> msg Log"}}],"nodes":[{"id":"MouseMove","title":"MouseMove","ns":"dom","name":"addMouseEvent"},{"id":"MouseClick","title":"MouseClick","ns":"dom","name":"addMouseEvent"},{"id":"BodyEl","title":"BodyEl","ns":"dom","name":"querySelector"},{"id":"SetHtml","title":"SetHtml","ns":"dom","name":"setHtml"},{"id":"Log","title":"Log","ns":"console","name":"log"},{"id":"toString","title":"toString","ns":"data","name":"string"},{"id":"HandleMe","title":"HandleMe","ns":"template","name":"handlebars"},{"id":"ClickMeForIOUpdate","title":"ClickMeForIOUpdate","ns":"template","name":"handlebars"},{"id":"Actor","title":"Actor","ns":"core","name":"actor"},{"id":"Poll","title":"Poll","ns":"object","name":"create"}],"title":"Mouse event example","providers":{"@":{"url":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}};
+var map = {"id":"80399321-713a-4af9-b635-121540eba9e7","type":"flow","links":[{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"MouseMove","port":"element"},"metadata":{"title":"BodyEl selection -> element MouseMove"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"MouseClick","port":"element"},"metadata":{"title":"BodyEl selection -> element MouseClick"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"KeyboardEvent","port":"element"},"metadata":{"title":"BodyEl selection -> element KeyboardEvent"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"HandleMe","port":"vars"},"metadata":{"title":"MouseMove event -> vars HandleMe"}},{"source":{"id":"HandleMe","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"HandleMe out -> html SetHtml"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"SetHtml","port":"element","setting":{"persist":true}},"metadata":{"title":"BodyEl selection -> element SetHtml"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"BodyEl selection -> msg Log"}},{"source":{"id":"Actor","port":"io"},"target":{"id":"Poll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor io -> in Poll"}},{"source":{"id":"Actor","port":"pm"},"target":{"id":"PMPoll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor pm -> in PMPoll"}},{"source":{"id":"MouseClick","port":"event"},"target":{"id":"Poll","port":":start"},"metadata":{"title":"MouseClick event -> :start Poll"}},{"source":{"id":"Poll","port":"out"},"target":{"id":"IOManagerView","port":"vars"},"metadata":{"title":"Poll out -> vars IOManagerView"}},{"source":{"id":"IOManagerView","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"IOManagerView out -> html SetHtml"}},{"source":{"id":"Poll","port":"out"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"Poll out -> msg Log"}},{"source":{"id":"KeyboardEvent","port":"event"},"target":{"id":"PMPoll","port":":start"},"metadata":{"title":"KeyboardEvent event -> :start PMPoll"}},{"source":{"id":"PMPoll","port":"out"},"target":{"id":"ProcessManagerView","port":"vars"},"metadata":{"title":"PMPoll out -> vars ProcessManagerView"}},{"source":{"id":"ProcessManagerView","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"ProcessManagerView out -> html SetHtml"}}],"nodes":[{"id":"MouseMove","title":"MouseMove","ns":"dom","name":"addMouseEvent"},{"id":"MouseClick","title":"MouseClick","ns":"dom","name":"addMouseEvent"},{"id":"KeyboardEvent","title":"KeyboardEvent","ns":"dom","name":"addKeyboardEvent"},{"id":"BodyEl","title":"BodyEl","ns":"dom","name":"querySelector"},{"id":"SetHtml","title":"SetHtml","ns":"dom","name":"setHtml"},{"id":"Log","title":"Log","ns":"console","name":"log"},{"id":"toString","title":"toString","ns":"data","name":"string"},{"id":"HandleMe","title":"HandleMe","ns":"template","name":"handlebars"},{"id":"IOManagerView","title":"IOManagerView","ns":"template","name":"handlebars"},{"id":"ProcessManagerView","title":"ProcessManagerView","ns":"template","name":"handlebars"},{"id":"Actor","title":"Actor","ns":"core","name":"actor"},{"id":"Poll","title":"Poll","ns":"object","name":"create"},{"id":"PMPoll","title":"PMPoll","ns":"object","name":"create"}],"title":"Mouse event example","providers":{"@":{"url":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}};
 
 var actor = Flow.create(map, loader);
 
@@ -16079,7 +16081,7 @@ monitor(console, actor);
 
 function onDeviceReady() {
 
-actor.sendIIPs([{"source":{"id":"b166e840-bb5d-4c78-aea6-89f6c6136a1a","port":":iip"},"target":{"id":"BodyEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector BodyEl"},"data":"body"},{"source":{"id":"b166e840-bb5d-4c78-aea6-89f6c6136a1a","port":":iip"},"target":{"id":"MouseMove","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseMove"},"data":"mousemove"},{"source":{"id":"b166e840-bb5d-4c78-aea6-89f6c6136a1a","port":":iip"},"target":{"id":"MouseClick","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseClick"},"data":"click"},{"source":{"id":"b166e840-bb5d-4c78-aea6-89f6c6136a1a","port":":iip"},"target":{"id":"HandleMe","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body HandleMe"},"data":"<div>x: {{x}}, y: {{y}}</div>"},{"source":{"id":"b166e840-bb5d-4c78-aea6-89f6c6136a1a","port":":iip"},"target":{"id":"ClickMeForIOUpdate","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body ClickMeForIOUpdate"},"data":"{{#each connections}}\n\n  <table>\n    <tr><th>id</th><td>{{@key}}</td></tr>\n    <tr><th>source</th><td>{{this.source.id}} {{this.source.port}}</td></tr>\n    <tr><th>target</th><td>{{this.target.id}} {{this.target.port}}</td></tr>\n    <tr><th>fills</th><td>{{this.fills}}</td></tr>\n    <tr><th>rejects</th><td>{{this.rejects}}</td></tr>\n    <tr><th>writes</th><td>{{this.writes}}</td></tr>\n  </table>\n\n{{/each}}\n"},{"source":{"id":"b166e840-bb5d-4c78-aea6-89f6c6136a1a","port":":iip"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"Mouse event example :iip -> html SetHtml"},"data":"I should be replaced!"},{"source":{"id":"b166e840-bb5d-4c78-aea6-89f6c6136a1a","port":":iip"},"target":{"id":"Actor","port":":start"},"metadata":{"title":"Mouse event example :iip -> :start Actor"},"data":""}]);
+actor.sendIIPs([{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"BodyEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector BodyEl"},"data":"body"},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"MouseMove","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseMove"},"data":"mousemove"},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"MouseClick","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseClick"},"data":"click"},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"KeyboardEvent","port":"event"},"metadata":{"title":"Mouse event example :iip -> event KeyboardEvent"},"data":"keypress"},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"HandleMe","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body HandleMe"},"data":"<div>x: {{x}}, y: {{y}}</div>"},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"IOManagerView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body IOManagerView"},"data":"{{#each connections}}\n\n  <table>\n    <tr><th>id</th><td>{{@key}}</td></tr>\n    <tr><th>source</th><td>{{this.source.id}} {{this.source.port}}</td></tr>\n    <tr><th>target</th><td>{{this.target.id}} {{this.target.port}}</td></tr>\n    <tr><th>fills</th><td>{{this.fills}}</td></tr>\n    <tr><th>rejects</th><td>{{this.rejects}}</td></tr>\n    <tr><th>writes</th><td>{{this.writes}}</td></tr>\n  </table>\n\n{{/each}}\n"},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"ProcessManagerView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body ProcessManagerView"},"data":"{{#each processes}}\n\n  <table>\n    <tr><th>pid</th><td>{{@key}}</td></tr>\n    <tr><th>Identifier</th><td>{{this.identifier}}</td></tr>\n    <tr><th>Title</th><td>{{this.title}}</td></tr>\n    <tr><th>Input ports</th><td>{{this.inPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Status</th><td>{{this.status}}</td></tr>\n  </table>\n\n{{/each}}\n"},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"Mouse event example :iip -> html SetHtml"},"data":"I should be replaced!"},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"Actor","port":":start"},"metadata":{"title":"Mouse event example :iip -> :start Actor"},"data":""},{"source":{"id":"80399321-713a-4af9-b635-121540eba9e7","port":":iip"},"target":{"id":"Actor","port":":start"},"metadata":{"title":"Mouse event example :iip -> :start Actor"},"data":""}]);
 actor.push();
 
 };
@@ -16094,6 +16096,4 @@ if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/))
 // as long as this module is loaded.
 module.exports = actor;
 
-},{"chix-flow":"jXAsbI","chix-monitor-npmlog":"HNG52E"}],"mouse":[function(require,module,exports){
-module.exports=require('QCA6vm');
-},{}]},{},["QCA6vm"])
+},{"chix-flow":"jXAsbI","chix-monitor-npmlog":"HNG52E"}]},{},["QCA6vm"])

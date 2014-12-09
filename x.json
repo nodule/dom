@@ -20,6 +20,11 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "preventDefault": {
+            "type": "boolean",
+            "title": "Prevent Default Event",
+            "default": true
+          },
           "event": {
             "type": "string",
             "enum": [
@@ -50,7 +55,7 @@
       "description": "Add Form Event Listener",
       "ns": "dom",
       "name": "addFormEvent",
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
@@ -58,6 +63,11 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element"
+          },
+          "preventDefault": {
+            "type": "boolean",
+            "title": "Prevent Default Event",
+            "default": true
           },
           "event": {
             "type": "string",
@@ -86,7 +96,7 @@
       "description": "Add Keyboard Event Listener",
       "ns": "dom",
       "name": "addKeyboardEvent",
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
@@ -147,6 +157,11 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "preventDefault": {
+            "type": "boolean",
+            "title": "Prevent Default Event",
+            "default": true
+          },
           "event": {
             "type": "string",
             "enum": [
@@ -178,7 +193,7 @@
       "description": "Add Mutation Event Listener",
       "ns": "dom",
       "name": "addMutationEvent",
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
@@ -186,6 +201,11 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element"
+          },
+          "preventDefault": {
+            "type": "boolean",
+            "title": "Prevent Default Event",
+            "default": true
           },
           "event": {
             "type": "string",
@@ -221,7 +241,7 @@
       "description": "Add Pointer Event Listener",
       "ns": "dom",
       "name": "addPointerEvent",
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
@@ -260,6 +280,11 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "preventDefault": {
+            "type": "boolean",
+            "title": "Prevent Default Event",
+            "default": true
+          },
           "event": {
             "type": "string",
             "enum": [
@@ -290,7 +315,7 @@
       "description": "Add Touch Event Listener",
       "ns": "dom",
       "name": "addTouchEvent",
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
@@ -298,6 +323,11 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element"
+          },
+          "preventDefault": {
+            "type": "boolean",
+            "title": "Prevent Default Event",
+            "default": true
           },
           "event": {
             "type": "string",
@@ -326,7 +356,7 @@
       "description": "Add UI Event Listener",
       "ns": "dom",
       "name": "addUIEvent",
-      "fn": "output = [input.element, 'addEventListener', input.event];\n"
+      "fn": "output = function(cb) {\n\n  input.element.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: input.element,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
     },
     {
       "ports": {
