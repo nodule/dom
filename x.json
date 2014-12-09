@@ -946,7 +946,8 @@
           "html": {
             "type": "string",
             "format": "html",
-            "title": "html"
+            "title": "html",
+            "async": true
           }
         },
         "output": {
@@ -962,7 +963,7 @@
       "description": "dom setHtml",
       "ns": "dom",
       "name": "setHtml",
-      "fn": "input.element.innerHTML = input.html;\noutput = { element: input.element };\n"
+      "fn": "on.input.html = function(data) {\n  input.element.innerHTML = data;\n  output({ element: input.element });\n};\n"
     },
     {
       "ports": {

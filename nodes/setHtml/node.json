@@ -14,7 +14,8 @@
       "html": {
         "type": "string",
         "format": "html",
-        "title": "html"
+        "title": "html",
+        "async": true
       }
     },
     "output": {

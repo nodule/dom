@@ -1,0 +1,36 @@
+title: Mouse event example
+
+MouseMove(dom/addMouseEvent)
+MouseClick(dom/addMouseEvent)
+BodyEl(dom/querySelector)
+SetHtml(dom/setHtml)
+Log(console/log)
+toString(data/string)
+HandleMe(template/handlebars)
+Actor(core/actor)
+
+# Ok somehow this doesn't work
+# it should though queue/index etc. bug.
+
+# debug does not seem to report the integer to string error
+# although it takes place.
+# toString fixes this.
+#
+# Another rather fun observation is that html is not async yet it
+# seems to perform ok. there is definitly queing taking place.
+# I did not expect this to perform at all. Maybe it's because
+# Mouse move can still be considered slow data.
+# What I would now like to show on the page is the queue stats.
+# Sync means, we run the node and when the node is finished
+# the next is allowed to do setHtml, I did not expect this to perform at all.
+# ok handlebars, how to make that fast..
+#MouseMove event [y] -> [x] in toString out -> html SetHtml
+#MouseMove event [x] -> msg Log
+
+'' -> :start Actor qm -> msg Log
+
+#MouseMove event [clientX] -> msg Log
+#MouseMove event [clientY] -> msg Log
+#MouseMove event [keyCode] -> msg Log
+#MouseMove event [toElement] -> msg Log
+#MouseMove event [fromElement] -> msg Log2(console/log)
