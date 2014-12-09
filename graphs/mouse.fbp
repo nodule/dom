@@ -10,8 +10,11 @@ KeyboardEvent(dom/addKeyboardEvent)
 BodyEl(dom/querySelector)
 CanvasEl(dom/querySelector)
 PanelEl(dom/querySelector)
+ConnectionsEl(dom/querySelector)
 
 SetHtml(dom/setHtml)
+UpdateConnections(dom/setHtml)
+
 Log(console/log)
 toString(data/string)
 HandleMe(template/handlebars)
@@ -25,9 +28,10 @@ CreateNode(dom/createElement)
 NodeHtml(dom/setHtml)
 
 
-'body'    -> selector BodyEl
-'#panel'  -> selector PanelEl
-'#canvas' -> selector CanvasEl
+'body'         -> selector BodyEl
+'#panel'       -> selector PanelEl
+'#connections' -> selector ConnectionsEl
+'#canvas'      -> selector CanvasEl
 
 'mousemove' -> event MouseMove
 'click'     -> event MouseClick
@@ -35,13 +39,13 @@ NodeHtml(dom/setHtml)
 
 'div' -> in CreateNode
 
-BodyEl selection -> element MouseMove
-BodyEl selection -> element MouseClick
-BodyEl selection -> element KeyboardEvent
+#BodyEl selection -> element MouseMove
+#BodyEl selection -> element MouseClick
+#BodyEl selection -> element KeyboardEvent
 
 CanvasEl selection -> element AppendNode
 
-'<div>x: {{x}}, y: {{y}}</div>' -> ^body HandleMe
+'<div>x: {{clientX}}, y: {{clientY}}</div>' -> ^body HandleMe
 #'<p>queue: {{inQueue}}, TODO: queues *should* remove empty ones</div>' -> ^body ClickMeForQueueUpdate
 './views/connections.hb'    ~> ^body IOManagerView
 './views/node.hb'           ~> ^body NodeView
@@ -54,6 +58,7 @@ MouseMove event -> vars HandleMe out -> html SetHtml
 'I should be replaced!' -> html SetHtml
 
 PanelEl selection -> ^element SetHtml
+ConnectionsEl selection -> ^element UpdateConnections
 
 '' -> :start Actor
 
@@ -68,7 +73,7 @@ Actor addNode  -> vars NodeView out -> html NodeHtml
 NodeHtml element -> element AppendNode
 
 #MouseClick event -> :start Poll out -> vars ClickMeForQueueUpdate out -> html SetHtml
-MouseClick event -> :start Poll out -> vars IOManagerView out -> html SetHtml
+MouseMove event -> :start Poll out -> vars IOManagerView out -> html UpdateConnections
 Poll out -> msg Log
 
 KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html SetHtml
