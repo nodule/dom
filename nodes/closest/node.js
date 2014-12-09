@@ -1,6 +1,6 @@
 on.input.element = function(data) {
   output({
-    selection: closest(
+    selection: discore_closest(
       data, input.selector, input.checkSelf,
       input.within || document
     ),

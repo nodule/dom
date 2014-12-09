@@ -7,9 +7,10 @@
     "url": "https://github.com/nodule/dom.git"
   },
   "dependencies": {
-    "keyboard": "0.x.x",
+    "discore-closest": "^0.2.0",
     "domify": "1.x.x",
     "domready": "1.x.x",
+    "keyboard": "0.x.x",
     "scriptjs": "2.x.x"
   },
   "nodes": [
@@ -457,6 +458,11 @@
       "phrases": {
         "active": "Finding closest parent: {{input.selector}}"
       },
+      "dependencies": {
+        "npm": {
+          "discore-closest": "0.2.x"
+        }
+      },
       "expose": [
         "document"
       ],
@@ -464,7 +470,7 @@
       "title": "Closest",
       "ns": "dom",
       "name": "closest",
-      "fn": "on.input.element = function(data) {\n  output({\n    selection: closest(\n      data, input.selector, input.checkSelf,\n      input.within || document\n    ),\n    element: data\n  });\n};\n"
+      "fn": "on.input.element = function(data) {\n  output({\n    selection: discore_closest(\n      data, input.selector, input.checkSelf,\n      input.within || document\n    ),\n    element: data\n  });\n};\n"
     },
     {
       "ports": {

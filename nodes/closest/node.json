@@ -6,6 +6,11 @@
   "expose": [
     "document"
   ],
+  "dependencies": {
+    "npm": {
+      "discore-closest": "0.2.x"
+    }
+  },
   "phrases": {
     "active": "Finding closest parent: {{input.selector}}"
   },
