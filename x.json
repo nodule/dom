@@ -467,6 +467,7 @@
         "document"
       ],
       "description": " Finds the closest parent that matches a selector.",
+      "async": true,
       "title": "Closest",
       "ns": "dom",
       "name": "closest",

@@ -2,6 +2,7 @@
   "name": "closest",
   "ns": "dom",
   "title": "Closest",
+  "async": true,
   "description": " Finds the closest parent that matches a selector.",
   "expose": [
     "document"

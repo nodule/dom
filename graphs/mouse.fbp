@@ -7,6 +7,8 @@ MouseMove(dom/addMouseEvent)
 MouseClick(dom/addMouseEvent)
 KeyboardEvent(dom/addKeyboardEvent)
 
+Closest(dom/closest)
+
 BodyEl(dom/querySelector)
 CanvasEl(dom/querySelector)
 PanelEl(dom/querySelector)
@@ -89,6 +91,8 @@ MouseMove event -> :start Poll out -> vars IOManagerView out -> html UpdateConne
 # Poll out -> msg Log
 MouseClick event -> msg Log
 
+'.node' -> ^selector Closest
+MouseClick event [target] -> element Closest selection -> msg Log
 KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html SetHtml
 
 # click on the node show full info.
@@ -106,7 +110,7 @@ KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html 
 # td, th, tr, thead, div bla.. a bit like jquery.parent('#my-id')
 # which doesn't use bubbling at all, but I don't mind
 # so I want dom/parent
-# closest... \:D/ :-)
+# ok solved with dom/closest
 
 # Expose the schema of this output.. :-)
 # MouseClick event:schema [type] ->

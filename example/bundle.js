@@ -12658,7 +12658,59 @@ module.exports={
   }
 }
 
-},{}],47:[function(require,module,exports){
+},{}],"discore-closest":[function(require,module,exports){
+module.exports=require('iekHuh');
+},{}],"iekHuh":[function(require,module,exports){
+var matches = require('matches-selector')
+
+module.exports = function (element, selector, checkYoSelf, root) {
+  element = checkYoSelf ? {parentNode: element} : element
+
+  root = root || document
+
+  // Make sure `element !== document` and `element != null`
+  // otherwise we get an illegal invocation
+  while ((element = element.parentNode) && element !== document) {
+    if (matches(element, selector))
+      return element
+    // After `matches` on the edge case that
+    // the selector matches the root
+    // (when the root is not the document)
+    if (element === root)
+      return  
+  }
+}
+},{"matches-selector":49}],49:[function(require,module,exports){
+'use strict';
+
+var proto = Element.prototype;
+var vendor = proto.matches
+  || proto.matchesSelector
+  || proto.webkitMatchesSelector
+  || proto.mozMatchesSelector
+  || proto.msMatchesSelector
+  || proto.oMatchesSelector;
+
+module.exports = match;
+
+/**
+ * Match `el` to `selector`.
+ *
+ * @param {Element} el
+ * @param {String} selector
+ * @return {Boolean}
+ * @api public
+ */
+
+function match(el, selector) {
+  if (vendor) return vendor.call(el, selector);
+  var nodes = el.parentNode.querySelectorAll(selector);
+  for (var i = 0; i < nodes.length; i++) {
+    if (nodes[i] == el) return true;
+  }
+  return false;
+}
+},{}],50:[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var Handlebars = require("./handlebars.runtime")["default"];
@@ -12698,7 +12750,7 @@ Handlebars.create = create;
 Handlebars['default'] = Handlebars;
 
 exports["default"] = Handlebars;
-},{"./handlebars.runtime":48,"./handlebars/compiler/ast":50,"./handlebars/compiler/base":51,"./handlebars/compiler/compiler":52,"./handlebars/compiler/javascript-compiler":54}],48:[function(require,module,exports){
+},{"./handlebars.runtime":51,"./handlebars/compiler/ast":53,"./handlebars/compiler/base":54,"./handlebars/compiler/compiler":55,"./handlebars/compiler/javascript-compiler":57}],51:[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var base = require("./handlebars/base");
@@ -12734,7 +12786,7 @@ Handlebars.create = create;
 Handlebars['default'] = Handlebars;
 
 exports["default"] = Handlebars;
-},{"./handlebars/base":49,"./handlebars/exception":58,"./handlebars/runtime":59,"./handlebars/safe-string":60,"./handlebars/utils":61}],49:[function(require,module,exports){
+},{"./handlebars/base":52,"./handlebars/exception":61,"./handlebars/runtime":62,"./handlebars/safe-string":63,"./handlebars/utils":64}],52:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -12966,7 +13018,7 @@ var createFrame = function(object) {
   return frame;
 };
 exports.createFrame = createFrame;
-},{"./exception":58,"./utils":61}],50:[function(require,module,exports){
+},{"./exception":61,"./utils":64}],53:[function(require,module,exports){
 "use strict";
 var Exception = require("../exception")["default"];
 
@@ -13181,7 +13233,7 @@ var AST = {
 // Must be exported as an object rather than the root of the module as the jison lexer
 // most modify the object to operate properly.
 exports["default"] = AST;
-},{"../exception":58}],51:[function(require,module,exports){
+},{"../exception":61}],54:[function(require,module,exports){
 "use strict";
 var parser = require("./parser")["default"];
 var AST = require("./ast")["default"];
@@ -13203,7 +13255,7 @@ function parse(input) {
 }
 
 exports.parse = parse;
-},{"../utils":61,"./ast":50,"./helpers":53,"./parser":55}],52:[function(require,module,exports){
+},{"../utils":64,"./ast":53,"./helpers":56,"./parser":58}],55:[function(require,module,exports){
 "use strict";
 var Exception = require("../exception")["default"];
 var isArray = require("../utils").isArray;
@@ -13656,7 +13708,7 @@ exports.compile = compile;function argEquals(a, b) {
     return true;
   }
 }
-},{"../exception":58,"../utils":61}],53:[function(require,module,exports){
+},{"../exception":61,"../utils":64}],56:[function(require,module,exports){
 "use strict";
 var Exception = require("../exception")["default"];
 
@@ -13844,7 +13896,7 @@ function omitLeft(statements, i, multiple) {
   current.leftStripped = current.string !== original;
   return current.leftStripped;
 }
-},{"../exception":58}],54:[function(require,module,exports){
+},{"../exception":61}],57:[function(require,module,exports){
 "use strict";
 var COMPILER_REVISION = require("../base").COMPILER_REVISION;
 var REVISION_CHANGES = require("../base").REVISION_CHANGES;
@@ -14809,7 +14861,7 @@ JavaScriptCompiler.isValidJavaScriptVariableName = function(name) {
 };
 
 exports["default"] = JavaScriptCompiler;
-},{"../base":49,"../exception":58}],55:[function(require,module,exports){
+},{"../base":52,"../exception":61}],58:[function(require,module,exports){
 "use strict";
 /* jshint ignore:start */
 /* istanbul ignore next */
@@ -15310,7 +15362,7 @@ function Parser () { this.yy = {}; }Parser.prototype = parser;parser.Parser = Pa
 return new Parser;
 })();exports["default"] = handlebars;
 /* jshint ignore:end */
-},{}],56:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 "use strict";
 var Visitor = require("./visitor")["default"];
 
@@ -15452,7 +15504,7 @@ PrintVisitor.prototype.content = function(content) {
 PrintVisitor.prototype.comment = function(comment) {
   return this.pad("{{! '" + comment.comment + "' }}");
 };
-},{"./visitor":57}],57:[function(require,module,exports){
+},{"./visitor":60}],60:[function(require,module,exports){
 "use strict";
 function Visitor() {}
 
@@ -15465,7 +15517,7 @@ Visitor.prototype = {
 };
 
 exports["default"] = Visitor;
-},{}],58:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 "use strict";
 
 var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
@@ -15494,7 +15546,7 @@ function Exception(message, node) {
 Exception.prototype = new Error();
 
 exports["default"] = Exception;
-},{}],59:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -15688,7 +15740,7 @@ exports.noop = noop;function initData(context, data) {
   }
   return data;
 }
-},{"./base":49,"./exception":58,"./utils":61}],60:[function(require,module,exports){
+},{"./base":52,"./exception":61,"./utils":64}],63:[function(require,module,exports){
 "use strict";
 // Build out our basic SafeString type
 function SafeString(string) {
@@ -15700,7 +15752,7 @@ SafeString.prototype.toString = function() {
 };
 
 exports["default"] = SafeString;
-},{}],61:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 "use strict";
 /*jshint -W004 */
 var SafeString = require("./safe-string")["default"];
@@ -15789,7 +15841,7 @@ exports.isEmpty = isEmpty;function appendContextPath(contextPath, id) {
 }
 
 exports.appendContextPath = appendContextPath;
-},{"./safe-string":60}],"handlebars":[function(require,module,exports){
+},{"./safe-string":63}],"handlebars":[function(require,module,exports){
 module.exports=require('7MzhPZ');
 },{}],"7MzhPZ":[function(require,module,exports){
 // USAGE:
@@ -15819,7 +15871,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions[".hbs"] = extension;
 }
 
-},{"../dist/cjs/handlebars":47,"../dist/cjs/handlebars/compiler/printer":56,"../dist/cjs/handlebars/compiler/visitor":57,"fs":1}],"underscore":[function(require,module,exports){
+},{"../dist/cjs/handlebars":50,"../dist/cjs/handlebars/compiler/printer":59,"../dist/cjs/handlebars/compiler/visitor":60,"fs":1}],"underscore":[function(require,module,exports){
 module.exports=require('ZKusGn');
 },{}],"ZKusGn":[function(require,module,exports){
 //     Underscore.js 1.7.0
@@ -17238,15 +17290,13 @@ module.exports=require('ZKusGn');
   }
 }.call(this));
 
-},{}],"mouse":[function(require,module,exports){
-module.exports=require('QCA6vm');
 },{}],"QCA6vm":[function(require,module,exports){
 var Loader = function() {
 
   // will be replaced with the json.
-  this.dependencies = {"npm":{"chix-flow":"0.x.x","handlebars":"latest","underscore":"1.x.x"}};
+  this.dependencies = {"npm":{"chix-flow":"0.x.x","handlebars":"latest","underscore":"1.x.x","discore-closest":"0.2.x"}};
   //this.nodes = ;
-  this.nodeDefinitions = {"https://serve-chix.rhcloud.com/nodes/{ns}/{name}":{"core":{"actor":{"_id":"5486929dab54be2e930fbd64","name":"actor","ns":"core","title":"Actor","description":"Chix Actor","phrases":{"active":"Exposing Actor"},"ports":{"input":{"actor":{"title":"Actor","type":"Actor","default":null},"loader":{"title":"Loader","type":"Loader","default":null},"io":{"title":"IO Handler","type":"IOMapHandler","default":null},"pm":{"title":"Process Manager","type":"ProcessManager","default":null}},"output":{"actor":{"title":"Actor","type":"Actor"},"addNode":{"title":"Node added","type":"xNode"},"removeNode":{"title":"Node removed","type":"xNode"},"addLink":{"title":"Link added","type":"xLink"},"removeLink":{"title":"Link removed","type":"xLink"},"connect":{"title":"Link connected","type":"xLink"},"disconnect":{"title":"Link disconnected","type":"xLink"},"qm":{"title":"Queue Manager","type":"QueueManager"},"pm":{"title":"Process Manager","type":"ProcessManager"},"io":{"title":"Io Handler","type":"IOMapHandler"},"error":{"title":"Error","type":"object"}}},"dependencies":{"npm":{"chix-flow":"0.x.x"}},"fn":"output = function (cb) {\n\n  var actor = input.actor || this.getParent();\n\n  // probably should do almost the same as npmlog monitor\n\n  actor.on('inputRequired', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('error', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('addNode', function (event) {\n    cb({\n      addNode: event.node\n    });\n  });\n\n  actor.on('removeNode', function (event) {\n    cb({\n      removeNode: event.node\n    });\n  });\n\n  actor.on('addLink', function (link) {\n    cb({\n      addLink: link\n    });\n  });\n\n  actor.on('removeLink', function (link) {\n    cb({\n      removeLink: link\n    });\n  });\n\n  actor.ioHandler.on('connect', function (link) {\n    cb({\n      connect: link\n    });\n  });\n\n  actor.ioHandler.on('disconnect', function (link) {\n    cb({\n      disconnect: link\n    });\n  });\n\n  cb({\n    qm: actor.ioHandler.queueManager,\n    io: actor.ioHandler,\n    pm: actor.processManager\n  });\n\n  // not really useful I guess\n  /*\n  actor.ioHandler.on('data', function (link) {\n    cb({\n      disconnectLink: link\n    });\n  });\n  */\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"dom":{"addMouseEvent":{"_id":"52be4f096a14bb6fbd924a28","name":"addMouseEvent","ns":"dom","description":"Add Mouse Event Listener","phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element","required":false},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["click","dblclick","mousedown","mouseup","mouseover","mousemove","mouseout","dragstart","drag","dragenter","dragleave","dragover","drop","dragend"],"title":"Dom Event"}},"output":{"element":{"type":"any","title":"Element"},"event":{"type":"object","title":"Event"}}},"fn":"output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"addKeyboardEvent":{"_id":"52bf38966a14bb6fbd924a2d","name":"addKeyboardEvent","ns":"dom","description":"Add Keyboard Event Listener","phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element","required":false},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["keydown","keypress","keyup"],"title":"Dom Event"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"event":{"type":"object","title":"Event"}}},"fn":"output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"querySelector":{"_id":"527299bb30b8af4b8910216b","name":"querySelector","ns":"dom","title":"querySelector","description":"[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)","expose":["document"],"phrases":{"active":"Gathering elements matching criteria: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","type":"HTMLElement","default":null},"selector":{"title":"Selector","type":"string"}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"},"error":{"title":"Error","type":"Error"}}},"fn":"var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\n\nvar selection = el.querySelector(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"setHtml":{"_id":"52be32d46a14bb6fbd924a24","name":"setHtml","ns":"dom","description":"dom setHtml","async":true,"phrases":{"active":"Adding html"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"html":{"type":"string","format":"html","title":"html","async":true}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"}}},"fn":"on.input.html = function(data) {\n  input.element.innerHTML = data;\n  output({ element: input.element });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"appendChild":{"_id":"52be32d46a14bb6fbd924a20","name":"appendChild","ns":"dom","description":"dom appendChild","async":true,"phrases":{"active":"Adding child node"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"child":{"type":"HTMLElement","async":true,"title":"Child Element"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"out":{"type":"object"}}},"fn":"on.input.child = function() {\n\n  output( {\n    element: input.element,\n    out: input.element.appendChild(data)\n  } );\n\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"createElement":{"_id":"531160f50dfaa3eb4a7e1730","name":"createElement","ns":"dom","async":true,"description":"dom createElement","phrases":{"active":"Creating element"},"ports":{"input":{"in":{"type":"string","title":"Tagname","async":true,"default":"div"}},"output":{"out":{"type":"HTMLElement"}}},"fn":"on.input.in = function() {\n  output( { out: document.createElement(data) });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"console":{"log":{"_id":"52645993df5da0102500004e","name":"log","ns":"console","description":"Console log","async":true,"phrases":{"active":"Logging to console"},"ports":{"input":{"msg":{"type":"any","title":"Log message","description":"Logs a message to the console","async":true,"required":true}},"output":{"out":{"type":"any","title":"Log message"}}},"fn":"on.input.msg = function() {\n  console.log(data);\n  output( { out: data });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"data":{"string":{"_id":"526b1327b8a561ad0ebfa3b7","name":"string","ns":"data","title":"String","async":true,"description":"String","phrases":{"active":"Creating string {{input.string}}"},"ports":{"input":{"in":{"title":"String","type":"any","async":true,"required":true}},"output":{"out":{"title":"out","type":"string"}}},"fn":"on.input.in = function() {\n  output( { out: typeof data === null ? 'null' : data.toString() });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"template":{"handlebars":{"_id":"52ea878d1905561c7aa3bdbc","name":"handlebars","ns":"template","description":"Handlebars Template engine","phrases":{"active":"Compiling handlebars template"},"ports":{"input":{"body":{"type":"string","format":"html","title":"Template body","description":"The body of the handlebars template","required":true},"vars":{"type":"object","title":"Input variables","description":"the input variables for this template","required":true},"handlebars":{"type":"function","title":"Handlebars","default":null}},"output":{"out":{"title":"HTML","type":"string"}}},"dependencies":{"npm":{"handlebars":"latest"}},"fn":"var hb = input.handlebars || handlebars;\nvar tpl = hb.compile(input.body);\noutput = {\n  out: tpl(input.vars)\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"object":{"create":{"_id":"52fa908e909495ebbe6ded4c","name":"create","ns":"object","description":"Create an object, if input is a direct object it just returns a copy of the object","phrases":{"active":"Creating object"},"ports":{"input":{"in":{"title":"Object","type":"object"}},"output":{"out":{"title":"out","type":"object"}}},"fn":"output.out = input.in;\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"values":{"_id":"52ef3631cf8e1bab142d539a","name":"values","ns":"object","description":"Retrieve all of the values of the object's properties","phrases":{"active":"Retrieving object values"},"ports":{"input":{"in":{"title":"Object","type":"object"}},"output":{"out":{"title":"out","type":"array"}}},"dependencies":{"npm":{"underscore":"1.x.x"}},"fn":"output.out = underscore.values(input. in )\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}}};
+  this.nodeDefinitions = {"https://serve-chix.rhcloud.com/nodes/{ns}/{name}":{"core":{"actor":{"_id":"5486929dab54be2e930fbd64","name":"actor","ns":"core","title":"Actor","description":"Chix Actor","phrases":{"active":"Exposing Actor"},"ports":{"input":{"actor":{"title":"Actor","type":"Actor","default":null},"loader":{"title":"Loader","type":"Loader","default":null},"io":{"title":"IO Handler","type":"IOMapHandler","default":null},"pm":{"title":"Process Manager","type":"ProcessManager","default":null}},"output":{"actor":{"title":"Actor","type":"Actor"},"addNode":{"title":"Node added","type":"xNode"},"removeNode":{"title":"Node removed","type":"xNode"},"addLink":{"title":"Link added","type":"xLink"},"removeLink":{"title":"Link removed","type":"xLink"},"connect":{"title":"Link connected","type":"xLink"},"disconnect":{"title":"Link disconnected","type":"xLink"},"qm":{"title":"Queue Manager","type":"QueueManager"},"pm":{"title":"Process Manager","type":"ProcessManager"},"io":{"title":"Io Handler","type":"IOMapHandler"},"error":{"title":"Error","type":"object"}}},"dependencies":{"npm":{"chix-flow":"0.x.x"}},"fn":"output = function (cb) {\n\n  var actor = input.actor || this.getParent();\n\n  // probably should do almost the same as npmlog monitor\n\n  actor.on('inputRequired', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('error', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('addNode', function (event) {\n    cb({\n      addNode: event.node\n    });\n  });\n\n  actor.on('removeNode', function (event) {\n    cb({\n      removeNode: event.node\n    });\n  });\n\n  actor.on('addLink', function (link) {\n    cb({\n      addLink: link\n    });\n  });\n\n  actor.on('removeLink', function (link) {\n    cb({\n      removeLink: link\n    });\n  });\n\n  actor.ioHandler.on('connect', function (link) {\n    cb({\n      connect: link\n    });\n  });\n\n  actor.ioHandler.on('disconnect', function (link) {\n    cb({\n      disconnect: link\n    });\n  });\n\n  cb({\n    qm: actor.ioHandler.queueManager,\n    io: actor.ioHandler,\n    pm: actor.processManager\n  });\n\n  // not really useful I guess\n  /*\n  actor.ioHandler.on('data', function (link) {\n    cb({\n      disconnectLink: link\n    });\n  });\n  */\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"dom":{"addMouseEvent":{"_id":"52be4f096a14bb6fbd924a28","name":"addMouseEvent","ns":"dom","description":"Add Mouse Event Listener","phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element","required":false},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["click","dblclick","mousedown","mouseup","mouseover","mousemove","mouseout","dragstart","drag","dragenter","dragleave","dragover","drop","dragend"],"title":"Dom Event"}},"output":{"element":{"type":"any","title":"Element"},"event":{"type":"object","title":"Event"}}},"fn":"output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"addKeyboardEvent":{"_id":"52bf38966a14bb6fbd924a2d","name":"addKeyboardEvent","ns":"dom","description":"Add Keyboard Event Listener","phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element","required":false},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["keydown","keypress","keyup"],"title":"Dom Event"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"event":{"type":"object","title":"Event"}}},"fn":"output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"querySelector":{"_id":"527299bb30b8af4b8910216b","name":"querySelector","ns":"dom","title":"querySelector","description":"[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)","expose":["document"],"phrases":{"active":"Gathering elements matching criteria: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","type":"HTMLElement","default":null},"selector":{"title":"Selector","type":"string"}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"},"error":{"title":"Error","type":"Error"}}},"fn":"var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\n\nvar selection = el.querySelector(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"setHtml":{"_id":"52be32d46a14bb6fbd924a24","name":"setHtml","ns":"dom","description":"dom setHtml","async":true,"phrases":{"active":"Adding html"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"html":{"type":"string","format":"html","title":"html","async":true}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"}}},"fn":"on.input.html = function(data) {\n  input.element.innerHTML = data;\n  output({ element: input.element });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"appendChild":{"_id":"52be32d46a14bb6fbd924a20","name":"appendChild","ns":"dom","description":"dom appendChild","async":true,"phrases":{"active":"Adding child node"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"child":{"type":"HTMLElement","async":true,"title":"Child Element"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"out":{"type":"object"}}},"fn":"on.input.child = function() {\n\n  output( {\n    element: input.element,\n    out: input.element.appendChild(data)\n  } );\n\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"createElement":{"_id":"531160f50dfaa3eb4a7e1730","name":"createElement","ns":"dom","async":true,"description":"dom createElement","phrases":{"active":"Creating element"},"ports":{"input":{"in":{"type":"string","title":"Tagname","async":true,"default":"div"}},"output":{"out":{"type":"HTMLElement"}}},"fn":"on.input.in = function() {\n  output( { out: document.createElement(data) });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"closest":{"_id":"5486feb1ab54be2e930fbd66","name":"closest","ns":"dom","title":"Closest","description":" Finds the closest parent that matches a selector.","expose":["document"],"dependencies":{"npm":{"discore-closest":"0.2.x"}},"phrases":{"active":"Finding closest parent: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","description":"will check this elements parents","type":"HTMLElement","async":true},"selector":{"title":"Selector","description":"CSS selector to match parents","type":"string"},"checkSelf":{"title":"Check Self","description":"check element. If falsey, will begin with element.parentNode and is synonymous to $.fn.parents. Otherwise, it's $.fn.closest.","type":"boolean","default":false},"within":{"title":"Within","description":"check only within this element. By default, document","type":"HTMLElement","required":false}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"}}},"fn":"on.input.element = function(data) {\n  output({\n    selection: discore_closest(\n      data, input.selector, input.checkSelf,\n      input.within || document\n    ),\n    element: data\n  });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"console":{"log":{"_id":"52645993df5da0102500004e","name":"log","ns":"console","description":"Console log","async":true,"phrases":{"active":"Logging to console"},"ports":{"input":{"msg":{"type":"any","title":"Log message","description":"Logs a message to the console","async":true,"required":true}},"output":{"out":{"type":"any","title":"Log message"}}},"fn":"on.input.msg = function() {\n  console.log(data);\n  output( { out: data });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"data":{"string":{"_id":"526b1327b8a561ad0ebfa3b7","name":"string","ns":"data","title":"String","async":true,"description":"String","phrases":{"active":"Creating string {{input.string}}"},"ports":{"input":{"in":{"title":"String","type":"any","async":true,"required":true}},"output":{"out":{"title":"out","type":"string"}}},"fn":"on.input.in = function() {\n  output( { out: typeof data === null ? 'null' : data.toString() });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"template":{"handlebars":{"_id":"52ea878d1905561c7aa3bdbc","name":"handlebars","ns":"template","description":"Handlebars Template engine","phrases":{"active":"Compiling handlebars template"},"ports":{"input":{"body":{"type":"string","format":"html","title":"Template body","description":"The body of the handlebars template","required":true},"vars":{"type":"object","title":"Input variables","description":"the input variables for this template","required":true},"handlebars":{"type":"function","title":"Handlebars","default":null}},"output":{"out":{"title":"HTML","type":"string"}}},"dependencies":{"npm":{"handlebars":"latest"}},"fn":"var hb = input.handlebars || handlebars;\nvar tpl = hb.compile(input.body);\noutput = {\n  out: tpl(input.vars)\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"object":{"create":{"_id":"52fa908e909495ebbe6ded4c","name":"create","ns":"object","description":"Create an object, if input is a direct object it just returns a copy of the object","phrases":{"active":"Creating object"},"ports":{"input":{"in":{"title":"Object","type":"object"}},"output":{"out":{"title":"out","type":"object"}}},"fn":"output.out = input.in;\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"values":{"_id":"52ef3631cf8e1bab142d539a","name":"values","ns":"object","description":"Retrieve all of the values of the object's properties","phrases":{"active":"Retrieving object values"},"ports":{"input":{"in":{"title":"Object","type":"object"}},"output":{"out":{"title":"out","type":"array"}}},"dependencies":{"npm":{"underscore":"1.x.x"}},"fn":"output.out = underscore.values(input. in )\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}}};
 
 };
 
@@ -17269,14 +17319,14 @@ Loader.prototype.getNodeDefinition = function(node) {
 var Flow = require('chix-flow').Flow;
 var loader = new Loader();
 
-var map = {"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","type":"flow","links":[{"source":{"id":"CanvasEl","port":"selection"},"target":{"id":"AppendNode","port":"element","setting":{"persist":true}},"metadata":{"title":"CanvasEl selection -> element AppendNode"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"HandleMe","port":"vars"},"metadata":{"title":"MouseMove event -> vars HandleMe"}},{"source":{"id":"HandleMe","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"HandleMe out -> html SetHtml"}},{"source":{"id":"PanelEl","port":"selection"},"target":{"id":"SetHtml","port":"element","setting":{"persist":true}},"metadata":{"title":"PanelEl selection -> element SetHtml"}},{"source":{"id":"ConnectionsEl","port":"selection"},"target":{"id":"UpdateConnections","port":"element","setting":{"persist":true}},"metadata":{"title":"ConnectionsEl selection -> element UpdateConnections"}},{"source":{"id":"Actor","port":"io"},"target":{"id":"Poll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor io -> in Poll"}},{"source":{"id":"Actor","port":"pm"},"target":{"id":"PMPoll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor pm -> in PMPoll"}},{"source":{"id":"CreateNode","port":"out"},"target":{"id":"NodeHtml","port":"element"},"metadata":{"title":"CreateNode out -> element NodeHtml"}},{"source":{"id":"NodeView","port":"out"},"target":{"id":"NodeHtml","port":"html"},"metadata":{"title":"NodeView out -> html NodeHtml"}},{"source":{"id":"NodeHtml","port":"element"},"target":{"id":"AppendNode","port":"child"},"metadata":{"title":"NodeHtml element -> child AppendNode"}},{"source":{"id":"Actor","port":"pm","setting":{"index":"processes"}},"target":{"id":"NodeValues","port":"in"},"metadata":{"title":"Actor pm -> in NodeValues"}},{"source":{"id":"NodeValues","port":"out"},"target":{"id":"CreateNode","port":":start","setting":{"cyclic":true}},"metadata":{"title":"NodeValues out -> :start CreateNode"}},{"source":{"id":"NodeValues","port":"out"},"target":{"id":"NodeView","port":"vars","setting":{"cyclic":true}},"metadata":{"title":"NodeValues out -> vars NodeView"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"Poll","port":":start"},"metadata":{"title":"MouseMove event -> :start Poll"}},{"source":{"id":"Poll","port":"out"},"target":{"id":"IOManagerView","port":"vars"},"metadata":{"title":"Poll out -> vars IOManagerView"}},{"source":{"id":"IOManagerView","port":"out"},"target":{"id":"UpdateConnections","port":"html"},"metadata":{"title":"IOManagerView out -> html UpdateConnections"}},{"source":{"id":"MouseClick","port":"event"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"MouseClick event -> msg Log"}},{"source":{"id":"KeyboardEvent","port":"event"},"target":{"id":"PMPoll","port":":start"},"metadata":{"title":"KeyboardEvent event -> :start PMPoll"}},{"source":{"id":"PMPoll","port":"out"},"target":{"id":"ProcessManagerView","port":"vars"},"metadata":{"title":"PMPoll out -> vars ProcessManagerView"}},{"source":{"id":"ProcessManagerView","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"ProcessManagerView out -> html SetHtml"}}],"nodes":[{"id":"Actor","title":"Actor","ns":"core","name":"actor"},{"id":"MouseMove","title":"MouseMove","ns":"dom","name":"addMouseEvent"},{"id":"MouseClick","title":"MouseClick","ns":"dom","name":"addMouseEvent"},{"id":"KeyboardEvent","title":"KeyboardEvent","ns":"dom","name":"addKeyboardEvent"},{"id":"BodyEl","title":"BodyEl","ns":"dom","name":"querySelector"},{"id":"CanvasEl","title":"CanvasEl","ns":"dom","name":"querySelector"},{"id":"PanelEl","title":"PanelEl","ns":"dom","name":"querySelector"},{"id":"ConnectionsEl","title":"ConnectionsEl","ns":"dom","name":"querySelector"},{"id":"SetHtml","title":"SetHtml","ns":"dom","name":"setHtml"},{"id":"UpdateConnections","title":"UpdateConnections","ns":"dom","name":"setHtml"},{"id":"Log","title":"Log","ns":"console","name":"log"},{"id":"toString","title":"toString","ns":"data","name":"string"},{"id":"HandleMe","title":"HandleMe","ns":"template","name":"handlebars"},{"id":"NodeView","title":"NodeView","ns":"template","name":"handlebars"},{"id":"IOManagerView","title":"IOManagerView","ns":"template","name":"handlebars"},{"id":"ProcessManagerView","title":"ProcessManagerView","ns":"template","name":"handlebars"},{"id":"AppendNode","title":"AppendNode","ns":"dom","name":"appendChild"},{"id":"CreateNode","title":"CreateNode","ns":"dom","name":"createElement"},{"id":"NodeHtml","title":"NodeHtml","ns":"dom","name":"setHtml"},{"id":"Poll","title":"Poll","ns":"object","name":"create"},{"id":"PMPoll","title":"PMPoll","ns":"object","name":"create"},{"id":"NodeValues","title":"NodeValues","ns":"object","name":"values"}],"title":"Mouse event example","providers":{"@":{"url":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}};
+var map = {"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","type":"flow","links":[{"source":{"id":"CanvasEl","port":"selection"},"target":{"id":"AppendNode","port":"element","setting":{"persist":true}},"metadata":{"title":"CanvasEl selection -> element AppendNode"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"HandleMe","port":"vars"},"metadata":{"title":"MouseMove event -> vars HandleMe"}},{"source":{"id":"HandleMe","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"HandleMe out -> html SetHtml"}},{"source":{"id":"PanelEl","port":"selection"},"target":{"id":"SetHtml","port":"element","setting":{"persist":true}},"metadata":{"title":"PanelEl selection -> element SetHtml"}},{"source":{"id":"ConnectionsEl","port":"selection"},"target":{"id":"UpdateConnections","port":"element","setting":{"persist":true}},"metadata":{"title":"ConnectionsEl selection -> element UpdateConnections"}},{"source":{"id":"Actor","port":"io"},"target":{"id":"Poll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor io -> in Poll"}},{"source":{"id":"Actor","port":"pm"},"target":{"id":"PMPoll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor pm -> in PMPoll"}},{"source":{"id":"CreateNode","port":"out"},"target":{"id":"NodeHtml","port":"element"},"metadata":{"title":"CreateNode out -> element NodeHtml"}},{"source":{"id":"NodeView","port":"out"},"target":{"id":"NodeHtml","port":"html"},"metadata":{"title":"NodeView out -> html NodeHtml"}},{"source":{"id":"NodeHtml","port":"element"},"target":{"id":"AppendNode","port":"child"},"metadata":{"title":"NodeHtml element -> child AppendNode"}},{"source":{"id":"Actor","port":"pm","setting":{"index":"processes"}},"target":{"id":"NodeValues","port":"in"},"metadata":{"title":"Actor pm -> in NodeValues"}},{"source":{"id":"NodeValues","port":"out"},"target":{"id":"CreateNode","port":":start","setting":{"cyclic":true}},"metadata":{"title":"NodeValues out -> :start CreateNode"}},{"source":{"id":"NodeValues","port":"out"},"target":{"id":"NodeView","port":"vars","setting":{"cyclic":true}},"metadata":{"title":"NodeValues out -> vars NodeView"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"Poll","port":":start"},"metadata":{"title":"MouseMove event -> :start Poll"}},{"source":{"id":"Poll","port":"out"},"target":{"id":"IOManagerView","port":"vars"},"metadata":{"title":"Poll out -> vars IOManagerView"}},{"source":{"id":"IOManagerView","port":"out"},"target":{"id":"UpdateConnections","port":"html"},"metadata":{"title":"IOManagerView out -> html UpdateConnections"}},{"source":{"id":"MouseClick","port":"event"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"MouseClick event -> msg Log"}},{"source":{"id":"MouseClick","port":"event","setting":{"index":"target"}},"target":{"id":"Closest","port":"element"},"metadata":{"title":"MouseClick event -> element Closest"}},{"source":{"id":"Closest","port":"selection"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"Closest selection -> msg Log"}},{"source":{"id":"KeyboardEvent","port":"event"},"target":{"id":"PMPoll","port":":start"},"metadata":{"title":"KeyboardEvent event -> :start PMPoll"}},{"source":{"id":"PMPoll","port":"out"},"target":{"id":"ProcessManagerView","port":"vars"},"metadata":{"title":"PMPoll out -> vars ProcessManagerView"}},{"source":{"id":"ProcessManagerView","port":"out"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"ProcessManagerView out -> html SetHtml"}}],"nodes":[{"id":"Actor","title":"Actor","ns":"core","name":"actor"},{"id":"MouseMove","title":"MouseMove","ns":"dom","name":"addMouseEvent"},{"id":"MouseClick","title":"MouseClick","ns":"dom","name":"addMouseEvent"},{"id":"KeyboardEvent","title":"KeyboardEvent","ns":"dom","name":"addKeyboardEvent"},{"id":"Closest","title":"Closest","ns":"dom","name":"closest"},{"id":"BodyEl","title":"BodyEl","ns":"dom","name":"querySelector"},{"id":"CanvasEl","title":"CanvasEl","ns":"dom","name":"querySelector"},{"id":"PanelEl","title":"PanelEl","ns":"dom","name":"querySelector"},{"id":"ConnectionsEl","title":"ConnectionsEl","ns":"dom","name":"querySelector"},{"id":"SetHtml","title":"SetHtml","ns":"dom","name":"setHtml"},{"id":"UpdateConnections","title":"UpdateConnections","ns":"dom","name":"setHtml"},{"id":"Log","title":"Log","ns":"console","name":"log"},{"id":"toString","title":"toString","ns":"data","name":"string"},{"id":"HandleMe","title":"HandleMe","ns":"template","name":"handlebars"},{"id":"NodeView","title":"NodeView","ns":"template","name":"handlebars"},{"id":"IOManagerView","title":"IOManagerView","ns":"template","name":"handlebars"},{"id":"ProcessManagerView","title":"ProcessManagerView","ns":"template","name":"handlebars"},{"id":"AppendNode","title":"AppendNode","ns":"dom","name":"appendChild"},{"id":"CreateNode","title":"CreateNode","ns":"dom","name":"createElement"},{"id":"NodeHtml","title":"NodeHtml","ns":"dom","name":"setHtml"},{"id":"Poll","title":"Poll","ns":"object","name":"create"},{"id":"PMPoll","title":"PMPoll","ns":"object","name":"create"},{"id":"NodeValues","title":"NodeValues","ns":"object","name":"values"}],"title":"Mouse event example","providers":{"@":{"url":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}};
 
 var actor = Flow.create(map, loader);
 
 
 function onDeviceReady() {
 
-actor.sendIIPs([{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"BodyEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector BodyEl"},"data":"body"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"PanelEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector PanelEl"},"data":"#panel"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"ConnectionsEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector ConnectionsEl"},"data":"#connections"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"CanvasEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector CanvasEl"},"data":"#canvas"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"MouseMove","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseMove"},"data":"mousemove"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"MouseClick","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseClick"},"data":"click"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"KeyboardEvent","port":"event"},"metadata":{"title":"Mouse event example :iip -> event KeyboardEvent"},"data":"keydown"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"CreateNode","port":"in"},"metadata":{"title":"Mouse event example :iip -> in CreateNode"},"data":"div"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"HandleMe","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body HandleMe"},"data":"<div>x: {{clientX}}, y: {{clientY}}</div>"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"IOManagerView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body IOManagerView"},"data":"<table class=\"table table-striped\">\n  <thead>\n    <tr>\n      <th>Link</th>\n      <th>Fills</th>\n      <th>Rejects</th>\n      <th>Writes</th>\n    </tr>\n  </thead>\n  <tbody>\n    {{#each connections}}\n    <tr>\n      <td>{{this.source.id}} {{this.source.port}} -> {{this.target.port}} {{this.target.id}}</td>\n      <td class=\"success\">fills: {{this.fills}}</td>\n      <td class=\"danger\">rejects: {{this.rejects}}</td>\n      <td class=\"success\">writes: {{this.writes}}</td>\n    </tr>\n    {{/each}}\n  </tbody>\n</table>\n"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"NodeView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body NodeView"},"data":"<div id=\"{{id}}\" class=\"node pull-left\">\n  <table>\n    <caption>{{title}}</caption>\n    <tbody>\n      <tr><th>id</th><td>{{id}}</td></tr>\n      <tr><th>pid</th><td>{{pid}}</td></tr>\n      <tr><th>Identifier</th><td>{{this.identifier}}</td></tr>\n      <tr><th>Title</th><td>{{this.title}}</td></tr>\n      <tr><th>Input ports</th><td>{{this.inPorts}}</td></tr>\n      <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n      <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n      <tr><th>Status</th><td>{{this.status}}</td></tr>\n    </tbody>\n  </table>\n</div>\n"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"ProcessManagerView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body ProcessManagerView"},"data":"{{#each processes}}\n\n  <table class=\"table table-striped\">\n    <tr><th>pid</th><td>{{@key}}</td></tr>\n    <tr><th>Identifier</th><td>{{this.identifier}}</td></tr>\n    <tr><th>Title</th><td>{{this.title}}</td></tr>\n    <tr><th>Input ports</th><td>{{this.inPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Status</th><td>{{this.status}}</td></tr>\n  </table>\n\n{{/each}}\n"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"Mouse event example :iip -> html SetHtml"},"data":"I should be replaced!"},{"source":{"id":"0ccc5a70-bc38-426d-8669-9dc55db44e65","port":":iip"},"target":{"id":"Actor","port":":start"},"metadata":{"title":"Mouse event example :iip -> :start Actor"},"data":""}]);
+actor.sendIIPs([{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"BodyEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector BodyEl"},"data":"body"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"PanelEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector PanelEl"},"data":"#panel"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"ConnectionsEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector ConnectionsEl"},"data":"#connections"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"CanvasEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector CanvasEl"},"data":"#canvas"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"MouseMove","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseMove"},"data":"mousemove"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"MouseClick","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseClick"},"data":"click"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"KeyboardEvent","port":"event"},"metadata":{"title":"Mouse event example :iip -> event KeyboardEvent"},"data":"keydown"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"CreateNode","port":"in"},"metadata":{"title":"Mouse event example :iip -> in CreateNode"},"data":"div"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"HandleMe","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body HandleMe"},"data":"<div>x: {{clientX}}, y: {{clientY}}</div>"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"IOManagerView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body IOManagerView"},"data":"<table class=\"table table-striped\">\n  <thead>\n    <tr>\n      <th>Link</th>\n      <th>Fills</th>\n      <th>Rejects</th>\n      <th>Writes</th>\n    </tr>\n  </thead>\n  <tbody>\n    {{#each connections}}\n    <tr>\n      <td>{{this.source.id}} {{this.source.port}} -> {{this.target.port}} {{this.target.id}}</td>\n      <td class=\"success\">fills: {{this.fills}}</td>\n      <td class=\"danger\">rejects: {{this.rejects}}</td>\n      <td class=\"success\">writes: {{this.writes}}</td>\n    </tr>\n    {{/each}}\n  </tbody>\n</table>\n"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"NodeView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body NodeView"},"data":"<div id=\"{{id}}\" class=\"node pull-left\">\n  <table>\n    <caption>{{title}}</caption>\n    <tbody>\n      <tr><th>id</th><td>{{id}}</td></tr>\n      <tr><th>pid</th><td>{{pid}}</td></tr>\n      <tr><th>Identifier</th><td>{{this.identifier}}</td></tr>\n      <tr><th>Title</th><td>{{this.title}}</td></tr>\n      <tr><th>Input ports</th><td>{{this.inPorts}}</td></tr>\n      <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n      <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n      <tr><th>Status</th><td>{{this.status}}</td></tr>\n    </tbody>\n  </table>\n</div>\n"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"ProcessManagerView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body ProcessManagerView"},"data":"{{#each processes}}\n\n  <table class=\"table table-striped\">\n    <tr><th>pid</th><td>{{@key}}</td></tr>\n    <tr><th>Identifier</th><td>{{this.identifier}}</td></tr>\n    <tr><th>Title</th><td>{{this.title}}</td></tr>\n    <tr><th>Input ports</th><td>{{this.inPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Status</th><td>{{this.status}}</td></tr>\n  </table>\n\n{{/each}}\n"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"SetHtml","port":"html"},"metadata":{"title":"Mouse event example :iip -> html SetHtml"},"data":"I should be replaced!"},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"Actor","port":":start"},"metadata":{"title":"Mouse event example :iip -> :start Actor"},"data":""},{"source":{"id":"bbca6e96-4621-45f2-b856-88bbe5a46cfc","port":":iip"},"target":{"id":"Closest","port":"selector","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> selector Closest"},"data":".node"}]);
 actor.push();
 
 };
@@ -17291,4 +17341,6 @@ if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/))
 // as long as this module is loaded.
 module.exports = actor;
 
-},{"chix-flow":"jXAsbI"}]},{},["QCA6vm"])
+},{"chix-flow":"jXAsbI"}],"mouse":[function(require,module,exports){
+module.exports=require('QCA6vm');
+},{}]},{},["QCA6vm"])
