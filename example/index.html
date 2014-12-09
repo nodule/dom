@@ -4,15 +4,32 @@
     <script src="bundle.js"></script>
     <style>
 
-      #connections {
+      body {
       }
 
-      #connections table {
+      table {
         font-size: x-small;
+        width: 100%;
       }
 
       .node {
-        border: 1px solid white;
+       border: 1px solid white;
+       display: block;
+       width: 150px;
+       overflow: hidden;
+      }
+
+      .node:hover {
+        background-color: white;
+        cursor: pointer;
+      }
+      .node:hover h3 {
+        font-weight: bold;
+        color: black;
+      }
+
+      .node h3 {
+        font-size: small;
       }
 
     </style>

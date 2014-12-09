@@ -1,6 +1,6 @@
 {{#each processes}}
 
-  <table>
+  <table class="table table-striped">
     <tr><th>pid</th><td>{{@key}}</td></tr>
     <tr><th>Identifier</th><td>{{this.identifier}}</td></tr>
     <tr><th>Title</th><td>{{this.title}}</td></tr>
