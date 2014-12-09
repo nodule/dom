@@ -1,10 +1,30 @@
 <html>
   <head>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/cyborg/bootstrap.min.css">
     <script src="bundle.js"></script>
+    <style>
+
+      #connections {
+      }
+
+      #connections table {
+        font-size: x-small;
+      }
+
+      .node {
+        border: 1px solid white;
+      }
+
+    </style>
   </head>
   <body>
-    <div id="panel"></div>
-    <div id="connections"></div>
-    <div id="canvas"></div>
+    <div id="panel" class="panel"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div id="connections" class="col-lg-3"></div>
+        <div id="canvas" class="col-lg-8"></div>
+      </div>
+    </div>
   </body>
 </html>

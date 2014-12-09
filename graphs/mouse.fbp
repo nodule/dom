@@ -86,7 +86,7 @@ NodeValues out => vars NodeView
 
 #MouseClick event -> :start Poll out -> vars ClickMeForQueueUpdate out -> html SetHtml
 MouseMove event -> :start Poll out -> vars IOManagerView out -> html UpdateConnections
-Poll out -> msg Log
+# Poll out -> msg Log
 
 KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html SetHtml
 

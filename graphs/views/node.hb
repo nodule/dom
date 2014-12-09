@@ -1,4 +1,4 @@
-<div id="{id}" style="display: block; width: 250px; border: 1px solid black;">
+<div id="{id}" class="node pull-left">
   <h3>{{title}}</h3>
   <table>
     <tr><th>id</th><td>{{id}}</td></tr>
