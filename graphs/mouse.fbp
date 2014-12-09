@@ -41,14 +41,13 @@ NodeHtml(dom/setHtml)
 
 'div' -> in CreateNode
 
-#BodyEl selection -> element MouseMove
-#BodyEl selection -> element MouseClick
+CanvasEl selection -> element MouseMove
+CanvasEl selection -> element MouseClick
 #BodyEl selection -> element KeyboardEvent
 
 CanvasEl selection -> ^element AppendNode
 
 '<div>x: {{clientX}}, y: {{clientY}}</div>' -> ^body HandleMe
-#'<p>queue: {{inQueue}}, TODO: queues *should* remove empty ones</div>' -> ^body ClickMeForQueueUpdate
 './views/connections.hb'    ~> ^body IOManagerView
 './views/node.hb'           ~> ^body NodeView
 './views/processManager.hb' ~> ^body ProcessManagerView
@@ -76,11 +75,6 @@ CreateNode out -> element NodeHtml
 NodeView out -> html NodeHtml
 NodeHtml element -> child AppendNode
 
-# works, but too much internal knowledge?
-# addNode above doesn't work, if it does there could be a sync problem
-# doesn't happen, but could, it only doesn't happen because I know it won't
-# the system does not prevent it by itself
-
 # should be converted to array.
 Actor pm [processes] -> in NodeValues(object/values)
 NodeValues out => :start CreateNode
@@ -95,24 +89,6 @@ MouseClick event -> msg Log
 MouseClick event [target] -> element Closest selection -> msg Log
 KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html SetHtml
 
-# click on the node show full info.
-# so how to actually get our node info ?
-# normally you put it in data and get the attribute
-# however using local storage for all this kind of data is maybe nicer.
-# which means all state is within local storage. not attached to elements.
-# in which case you can also get a nice overview of what data is actually
-# used within the application.
-# So, how do you bind data to an element? You don't.. :-)
-# I can make nodeClick and let all nodes go through that.
-# It will work but is weird. That's why it's better to listen to click in
-# general and filter every click, then determine about what id it is.
-# ok then ofcourse the problem is, detecting where we are in the dom.
-# td, th, tr, thead, div bla.. a bit like jquery.parent('#my-id')
-# which doesn't use bubbling at all, but I don't mind
-# so I want dom/parent
-# ok solved with dom/closest
-
-# Expose the schema of this output.. :-)
 # MouseClick event:schema [type] ->
 # MouseClick event:schema [title] ->
 
@@ -121,11 +97,3 @@ KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html 
 #MouseMove event [keyCode] -> msg Log
 #MouseMove event [toElement] -> msg Log
 #MouseMove event [fromElement] -> msg Log2(console/log)
-
-# Ok, now what's unique about Actor pm
-# Process Manager is it has access to all processes within the system.
-# this means from any graph, you can pick processes from other graphs
-# if you would like to. you could then truly say, you are programming..
-# within .fbp :-)
-# within graphs the name is unique so call them by name.
-# or just query the processes for properties.

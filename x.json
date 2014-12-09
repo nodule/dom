@@ -452,6 +452,10 @@
           "selection": {
             "title": "Selection",
             "type": "HTMLElement"
+          },
+          "error": {
+            "title": "Error",
+            "type": "Error"
           }
         }
       },
@@ -471,7 +475,7 @@
       "title": "Closest",
       "ns": "dom",
       "name": "closest",
-      "fn": "on.input.element = function(data) {\n  output({\n    selection: discore_closest(\n      data, input.selector, input.checkSelf,\n      input.within || document\n    ),\n    element: data\n  });\n};\n"
+      "fn": "on.input.element = function(data) {\n  var sel = discore_closest(\n    data, input.selector, input.checkSelf,\n    input.within || document\n  );\n  var res = { element: data };\n  if (sel) {\n    res.selection = sel;\n  } else {\n    res.error = new Error('Selector didn\\'t match:' + input.selector);\n  }\n\n  output(res);\n\n};\n"
     },
     {
       "ports": {
