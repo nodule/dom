@@ -1,10 +1,10 @@
 {
-  "name": "hide",
+  "name": "toggle",
   "ns": "dom",
   "async": true,
-  "description": "dom hide",
+  "description": "dom toggle",
   "phrases": {
-    "active": "hideing"
+    "active": "toggling"
   },
   "ports": {
     "input": {

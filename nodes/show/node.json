@@ -1,6 +1,7 @@
 {
   "name": "show",
   "ns": "dom",
+  "async": true,
   "description": "dom show",
   "phrases": {
     "active": "Showing"
@@ -9,11 +10,8 @@
     "input": {
       "element": {
         "type": "HTMLElement",
-        "title": "Dom Element"
-      },
-      ":start": {
-        "type": "any",
-        "title": "Start"
+        "title": "Dom Element",
+        "async": true
       }
     },
     "output": {

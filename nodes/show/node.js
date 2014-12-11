@@ -1,3 +1,4 @@
-input.element.style.display = 'block';
-
-output = { element: input.element };
+on.input.element = function(data) {
+  data.style.display = 'block';
+  output({ element: data });
+};

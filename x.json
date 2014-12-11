@@ -755,27 +755,25 @@
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
-          },
-          ":start": {
-            "type": "any",
-            "title": "Start"
+            "title": "Dom Element",
+            "async": true
           }
         },
         "output": {
           "element": {
-            "type": "any",
+            "type": "HTMLElement",
             "title": "Dom Element"
           }
         }
       },
       "phrases": {
-        "active": "Hiding"
+        "active": "hideing"
       },
       "description": "dom hide",
+      "async": true,
       "ns": "dom",
       "name": "hide",
-      "fn": "input.element.style.display = 'none';\n\noutput = { element: input.element };\n"
+      "fn": "on.input.element = function(data) {\n  data.style.display = 'none';\n  output({ element: data });\n};\n"
     },
     {
       "ports": {
@@ -1130,11 +1128,8 @@
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Dom Element"
-          },
-          ":start": {
-            "type": "any",
-            "title": "Start"
+            "title": "Dom Element",
+            "async": true
           }
         },
         "output": {
@@ -1148,9 +1143,35 @@
         "active": "Showing"
       },
       "description": "dom show",
+      "async": true,
       "ns": "dom",
       "name": "show",
-      "fn": "input.element.style.display = 'block';\n\noutput = { element: input.element };\n"
+      "fn": "on.input.element = function(data) {\n  data.style.display = 'block';\n  output({ element: data });\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element",
+            "async": true
+          }
+        },
+        "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          }
+        }
+      },
+      "phrases": {
+        "active": "toggling"
+      },
+      "description": "dom toggle",
+      "async": true,
+      "ns": "dom",
+      "name": "toggle",
+      "fn": "on.input.element = function(data) {\n  data.style.display = data.style.display === 'none' ? 'block' : 'none';\n  output({ element: data });\n};\n"
     },
     {
       "ports": {
