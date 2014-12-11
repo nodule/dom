@@ -480,6 +480,30 @@
     {
       "ports": {
         "input": {
+          "message": {
+            "title": "Message",
+            "type": "any",
+            "required": "true"
+          },
+          "in": {
+            "title": "Input",
+            "type": "any",
+            "default": ""
+          }
+        }
+      },
+      "phrases": {
+        "active": "Confirming yes/no"
+      },
+      "description": "Confirm whether this input is go or no go",
+      "title": "Confirm",
+      "ns": "dom",
+      "name": "confirm",
+      "fn": "var r = confirm(input.message);\nif (r) {\n  output.yes = input.in;\n} else {\n  output.no = input.in;\n}\n"
+    },
+    {
+      "ports": {
+        "input": {
           "in": {
             "type": "string",
             "title": "Tagname",

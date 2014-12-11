@@ -1,6 +1,5 @@
 title: Mouse event example
 
-# if this works... moveing it up, :-o :p
 Actor(core/actor)
 
 MouseMove(dom/addMouseEvent)
@@ -14,86 +13,91 @@ CanvasEl(dom/querySelector)
 PanelEl(dom/querySelector)
 ConnectionsEl(dom/querySelector)
 
-SetHtml(dom/setHtml)
-UpdateConnections(dom/setHtml)
+UpdateMouseView(dom/setHtml)
+UpdateConnectionsView(dom/setHtml)
 
 Log(console/log)
 toString(data/string)
-HandleMe(template/handlebars)
+MouseView(template/handlebars)
 
 NodeView(template/handlebars)
-IOManagerView(template/handlebars)
+ConnectionsView(template/handlebars)
 ProcessManagerView(template/handlebars)
 
 AppendNode(dom/appendChild)
 CreateNode(dom/createElement)
-NodeHtml(dom/setHtml)
+UpdateNodeView(dom/setHtml)
 
+Router(router/client)
 
+# Selectors
 'body'         -> selector BodyEl
 '#panel'       -> selector PanelEl
 '#connections' -> selector ConnectionsEl
 '#canvas'      -> selector CanvasEl
 
+# Events
 'mousemove' -> event MouseMove
 'click'     -> event MouseClick
 'keydown'   -> event KeyboardEvent
 
-'div' -> in CreateNode
-
-CanvasEl selection -> element MouseMove
-CanvasEl selection -> element MouseClick
-#BodyEl selection -> element KeyboardEvent
-
+# Event targets
+CanvasEl selection ->  element MouseMove
+CanvasEl selection ->  element MouseClick
 CanvasEl selection -> ^element AppendNode
+BodyEl selection   ->  element KeyboardEvent
 
-'<div>x: {{clientX}}, y: {{clientY}}</div>' -> ^body HandleMe
-'./views/connections.hb'    ~> ^body IOManagerView
+# Views
+'<div>x: {{clientX}}, y: {{clientY}}</div>' -> ^body MouseView
+'./views/connections.hb'    ~> ^body ConnectionsView
 './views/node.hb'           ~> ^body NodeView
 './views/processManager.hb' ~> ^body ProcessManagerView
 
-#MouseMove event [y] -> [x] in toString out -> html SetHtml
-#MouseMove event [x] -> msg Log
-MouseMove event -> vars HandleMe out -> html SetHtml
+# Routes
 
-'I should be replaced!' -> html SetHtml
+["/items", "/#/items"] -> routes Router
+Router out -> msg Log
 
-PanelEl selection -> ^element SetHtml
-ConnectionsEl selection -> ^element UpdateConnections
+MouseMove event -> vars MouseView out -> html UpdateMouseView
 
+PanelEl selection       -> ^element UpdateMouseView
+ConnectionsEl selection -> ^element UpdateConnectionsView
+
+# shouldn't push() already solve this?
 '' -> :start Actor
+
+# If actor is exposed it's not showing `this` graph
+# but will show whatever graph is feeded.
+# actor Actor
 
 Actor io -> ^in Poll(object/create)
 Actor pm -> ^in PMPoll(object/create)
 
-# setup for this is too late unfortunatly.
-#
-#Actor addNode  -> :start CreateNode
-CreateNode out -> element NodeHtml
-#Actor addNode  -> vars NodeView
+# Creates node divs
+Actor pm [processes]   ->      in NodeValues(object/values)
+'div'                  ->      in CreateNode
+CreateNode out         -> element UpdateNodeView
+NodeValues out         =>  :start CreateNode
+NodeValues out         =>    vars NodeView
+NodeView out           ->    html UpdateNodeView
+UpdateNodeView element ->   child AppendNode
+#NodeValues out -> msg Log
+#NodeView out -> msg Log
 
-NodeView out -> html NodeHtml
-NodeHtml element -> child AppendNode
+# On mouse move update connections panel
+MouseMove event -> :start Poll out -> vars ConnectionsView out -> html UpdateConnectionsView
 
-# should be converted to array.
-Actor pm [processes] -> in NodeValues(object/values)
-NodeValues out => :start CreateNode
-NodeValues out => vars NodeView
-
-#MouseClick event -> :start Poll out -> vars ClickMeForQueueUpdate out -> html SetHtml
-MouseMove event -> :start Poll out -> vars IOManagerView out -> html UpdateConnections
-# Poll out -> msg Log
-MouseClick event -> msg Log
-
+# Find closes .node on mouse click
 '.node' -> ^selector Closest
 MouseClick event [target] -> element Closest selection -> msg Log
-KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html SetHtml
+MouseClick event -> msg Log
+
+# Poll process manager on any key
+KeyboardEvent event -> :start PMPoll out -> vars ProcessManagerView out -> html UpdateMouseView
 
 # MouseClick event:schema [type] ->
 # MouseClick event:schema [title] ->
 
-#MouseMove event [clientX] -> msg Log
-#MouseMove event [clientY] -> msg Log
-#MouseMove event [keyCode] -> msg Log
-#MouseMove event [toElement] -> msg Log
-#MouseMove event [fromElement] -> msg Log2(console/log)
+# Dynamic node additions (not used)
+#Actor addNode  -> :start CreateNode
+#Actor addNode  -> vars NodeView
