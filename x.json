@@ -490,6 +490,16 @@
             "type": "any",
             "default": ""
           }
+        },
+        "output": {
+          "yes": {
+            "title": "Yes",
+            "type": "any"
+          },
+          "no": {
+            "title": "No",
+            "type": "any"
+          }
         }
       },
       "phrases": {
