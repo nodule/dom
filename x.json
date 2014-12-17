@@ -254,6 +254,31 @@
         "input": {
           "url": {
             "type": "string",
+            "title": "Script Url",
+            "async": true
+          }
+        },
+        "output": {}
+      },
+      "dependencies": {
+        "npm": {
+          "load-script": "0.x.x"
+        }
+      },
+      "phrases": {
+        "active": "Attaching script {input.url}"
+      },
+      "description": "Adds a script to the head of the HTML page",
+      "async": true,
+      "ns": "dom",
+      "name": "addScript",
+      "fn": "on.input.url = function() {\n  load_script.load(data, function() {\n\n  });\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "url": {
+            "type": "string",
             "async": true,
             "format": "url",
             "title": "Script Url"
