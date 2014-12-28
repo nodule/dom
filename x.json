@@ -408,7 +408,7 @@
       "title": "Alert",
       "ns": "dom",
       "name": "alert",
-      "fn": "alert(input.message);\n"
+      "fn": "on.input.message = function() {\n  alert(data);\n};\n"
     },
     {
       "ports": {
