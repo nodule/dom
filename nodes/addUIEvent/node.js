@@ -18,7 +18,6 @@ on.input.element = function() {
 
   if(state.el) {
     state.el.removeEventListener(state.event);
-    state.el.innerHTML = null;
   }
   state.el = input.element;
   state.event = input.event;
