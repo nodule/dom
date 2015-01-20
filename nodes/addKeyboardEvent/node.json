@@ -17,6 +17,7 @@
       "element": {
         "type": "HTMLElement",
         "title": "Dom Element",
+        "async": true,
         "required": false
       },
       "preventDefault": {

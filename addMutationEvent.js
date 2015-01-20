@@ -26,7 +26,29 @@ module.exports = {
       element: {
         type: "HTMLElement",
         title: "Dom Element",
-        required: false
+        async: true,
+        required: false,
+        fn: function __ELEMENT__(data, x, source, state, input, output) {
+          var r = function() {
+            if (state.el) {
+              state.el.removeEventListener(state.event);
+              state.el.innerHTML = null;
+            }
+
+            state.event = input.event;
+            state.preventDefault = input.preventDefault;
+
+            var el = input.element || document;
+            el.addEventListener(input.event, state.clickHandler, false);
+            output({
+              element: el
+            });
+          }.call(this);
+          return {
+            state: state,
+            return: r
+          };
+        }
       },
       preventDefault: {
         type: "boolean",
@@ -62,32 +84,15 @@ module.exports = {
     }
   },
   state: {
-    "in": null
-  },
-  fn: function addMutationEvent(input, output, state, done, cb, on) {
-    var r = function() {
-      var el = input.element || document;
-
-      el.addEventListener(input.event, function(ev) {
-
-        if (input.preventDefault) ev.preventDefault();
-
-        output({
-          out: state.in,
-          event: ev
-        });
-
-      }, false);
-
+    "in": null,
+    event: null,
+    preventDefault: null,
+    clickHandler: function(ev) {
+      if (state.preventDefault) ev.preventDefault();
       output({
-        element: el
+        out: state.in,
+        event: ev
       });
-    }.call(this);
-    return {
-      output: output,
-      state: state,
-      on: on,
-      return: r
-    };
+    }
   }
 }

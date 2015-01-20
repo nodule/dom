@@ -26,6 +26,7 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
+            "async": true,
             "required": false
           },
           "preventDefault": {
@@ -68,7 +69,7 @@
       "description": "Add Form Event Listener",
       "ns": "dom",
       "name": "addFormEvent",
-      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
+      "fn": "state.in = null;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n    state.el.innerHTML = null;\n  }\n\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  var el = input.element || document;\n  el.addEventListener(input.event, state.clickHandler, false);\n  output({element: el});\n};\n"
     },
     {
       "ports": {
@@ -82,6 +83,7 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
+            "async": true,
             "required": false
           },
           "preventDefault": {
@@ -121,7 +123,7 @@
       "description": "Add Keyboard Event Listener",
       "ns": "dom",
       "name": "addKeyboardEvent",
-      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
+      "fn": "state.in = null;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n    state.el.innerHTML = null;\n  }\n\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  var el = input.element || document;\n  el.addEventListener(input.event, state.clickHandler, false);\n  output({element: el});\n};\n"
     },
     {
       "ports": {
@@ -135,6 +137,7 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
+            "async": true,
             "required": false
           },
           "preventDefault": {
@@ -185,7 +188,7 @@
       "description": "Add Mouse Event Listener",
       "ns": "dom",
       "name": "addMouseEvent",
-      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
+      "fn": "state.in = null;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n    state.el.innerHTML = null;\n  }\n\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  var el = input.element || document;\n  el.addEventListener(input.event, state.clickHandler, false);\n  output({element: el});\n};\n"
     },
     {
       "ports": {
@@ -199,6 +202,7 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
+            "async": true,
             "required": false
           },
           "preventDefault": {
@@ -242,7 +246,7 @@
       "description": "Add Mutation Event Listener",
       "ns": "dom",
       "name": "addMutationEvent",
-      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
+      "fn": "state.in = null;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n    state.el.innerHTML = null;\n  }\n\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  var el = input.element || document;\n  el.addEventListener(input.event, state.clickHandler, false);\n  output({element: el});\n};\n"
     },
     {
       "ports": {
@@ -256,6 +260,7 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
+            "async": true,
             "required": false
           },
           "preventDefault": {
@@ -302,7 +307,7 @@
       "description": "Add Pointer Event Listener",
       "ns": "dom",
       "name": "addPointerEvent",
-      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
+      "fn": "state.in = null;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n    state.el.innerHTML = null;\n  }\n\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  var el = input.element || document;\n  el.addEventListener(input.event, state.clickHandler, false);\n  output({element: el});\n};\n"
     },
     {
       "ports": {
@@ -371,6 +376,7 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
+            "async": true,
             "required": false
           },
           "preventDefault": {
@@ -413,7 +419,7 @@
       "description": "Add Touch Event Listener",
       "ns": "dom",
       "name": "addTouchEvent",
-      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
+      "fn": "state.in = null;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n    state.el.innerHTML = null;\n  }\n\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  var el = input.element || document;\n  el.addEventListener(input.event, state.clickHandler, false);\n  output({element: el});\n};\n"
     },
     {
       "ports": {
@@ -427,6 +433,7 @@
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
+            "async": true,
             "required": false
           },
           "preventDefault": {
@@ -466,7 +473,7 @@
       "description": "Add UI Event Listener",
       "ns": "dom",
       "name": "addUIEvent",
-      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
+      "fn": "state.in = null;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n    state.el.innerHTML = null;\n  }\n\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  var el = input.element || document;\n  el.addEventListener(input.event, state.clickHandler, false);\n  output({element: el});\n};\n"
     },
     {
       "ports": {
