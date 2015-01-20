@@ -16,6 +16,8 @@ on.input.in = function() {
 
 on.input.element = function() {
 
+  if (!state.in) return false;
+
   if(state.el) {
     state.el.removeEventListener(state.event);
   }
