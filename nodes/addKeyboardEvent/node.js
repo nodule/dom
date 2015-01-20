@@ -1,3 +1,9 @@
+state.in = null;
+
+on.input.in = function() {
+  state.in = data;
+};
+
 output = function(cb) {
 
   var el = input.element || document;
@@ -7,10 +13,11 @@ output = function(cb) {
     if(input.preventDefault) ev.preventDefault();
 
     cb({
-      element: el,
+      out: state.in,
       event: ev
     });
 
   }, false);
 
+  output({element: el});
 };

@@ -2,11 +2,18 @@
   "name": "addMutationEvent",
   "ns": "dom",
   "description": "Add Mutation Event Listener",
+  "async": true,
   "phrases": {
     "active": "Adding {{input.event}} handler"
   },
   "ports": {
     "input": {
+      "in": {
+        "title": "Input",
+        "type": "any",
+        "async": true,
+        "default": null
+      },
       "element": {
         "type": "HTMLElement",
         "title": "Dom Element",
@@ -35,6 +42,10 @@
       "element": {
         "type": "HTMLElement",
         "title": "Dom Element"
+      },
+      "out": {
+        "type": "any",
+        "title": "Output"
       },
       "event": {
         "type": "object",

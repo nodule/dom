@@ -2,11 +2,18 @@
   "name": "addMouseEvent",
   "ns": "dom",
   "description": "Add Mouse Event Listener",
+  "async": true,
   "phrases": {
     "active": "Adding {{input.event}} handler"
   },
   "ports": {
     "input": {
+      "in": {
+        "title": "Input",
+        "type": "any",
+        "async": true,
+        "default": null
+      },
       "element": {
         "type": "HTMLElement",
         "title": "Dom Element",
@@ -42,6 +49,10 @@
       "element": {
         "type": "any",
         "title": "Element"
+      },
+      "out": {
+        "type": "any",
+        "title": "Output"
       },
       "event": {
         "type": "object",

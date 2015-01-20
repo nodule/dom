@@ -2,11 +2,27 @@ module.exports = {
   name: "addFormEvent",
   ns: "dom",
   description: "Add Form Event Listener",
+  async: true,
   phrases: {
     active: "Adding {{input.event}} handler"
   },
   ports: {
     input: {
+      "in": {
+        title: "Input",
+        type: "any",
+        async: true,
+        "default": null,
+        fn: function __IN__(data, x, source, state, input, output) {
+          var r = function() {
+            state.in = data;
+          }.call(this);
+          return {
+            state: state,
+            return: r
+          };
+        }
+      },
       element: {
         type: "HTMLElement",
         title: "Dom Element",
@@ -34,11 +50,18 @@ module.exports = {
         type: "HTMLElement",
         title: "Dom Element"
       },
+      out: {
+        type: "any",
+        title: "Output"
+      },
       event: {
         type: "object",
         title: "Event"
       }
     }
+  },
+  state: {
+    "in": null
   },
   fn: function addFormEvent(input, output, state, done, cb, on) {
     var r = function() {
@@ -49,11 +72,15 @@ module.exports = {
         if (input.preventDefault) ev.preventDefault();
 
         output({
-          element: el,
+          out: state.in,
           event: ev
         });
 
       }, false);
+
+      output({
+        element: el
+      });
     }.call(this);
     return {
       output: output,

@@ -17,6 +17,12 @@
     {
       "ports": {
         "input": {
+          "in": {
+            "title": "Input",
+            "type": "any",
+            "async": true,
+            "default": null
+          },
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
@@ -45,6 +51,10 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "out": {
+            "type": "any",
+            "title": "Output"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -54,14 +64,21 @@
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "async": true,
       "description": "Add Form Event Listener",
       "ns": "dom",
       "name": "addFormEvent",
-      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
     },
     {
       "ports": {
         "input": {
+          "in": {
+            "title": "Input",
+            "type": "any",
+            "async": true,
+            "default": null
+          },
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
@@ -87,6 +104,10 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "out": {
+            "type": "any",
+            "title": "Output"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -96,14 +117,21 @@
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "async": true,
       "description": "Add Keyboard Event Listener",
       "ns": "dom",
       "name": "addKeyboardEvent",
-      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
     },
     {
       "ports": {
         "input": {
+          "in": {
+            "title": "Input",
+            "type": "any",
+            "async": true,
+            "default": null
+          },
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
@@ -140,6 +168,10 @@
             "type": "any",
             "title": "Element"
           },
+          "out": {
+            "type": "any",
+            "title": "Output"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -149,14 +181,21 @@
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "async": true,
       "description": "Add Mouse Event Listener",
       "ns": "dom",
       "name": "addMouseEvent",
-      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
     },
     {
       "ports": {
         "input": {
+          "in": {
+            "title": "Input",
+            "type": "any",
+            "async": true,
+            "default": null
+          },
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
@@ -186,6 +225,10 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "out": {
+            "type": "any",
+            "title": "Output"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -195,14 +238,21 @@
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "async": true,
       "description": "Add Mutation Event Listener",
       "ns": "dom",
       "name": "addMutationEvent",
-      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
     },
     {
       "ports": {
         "input": {
+          "in": {
+            "title": "Input",
+            "type": "any",
+            "async": true,
+            "default": null
+          },
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
@@ -235,6 +285,10 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "out": {
+            "type": "any",
+            "title": "Output"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -244,10 +298,11 @@
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "async": true,
       "description": "Add Pointer Event Listener",
       "ns": "dom",
       "name": "addPointerEvent",
-      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
     },
     {
       "ports": {
@@ -307,6 +362,12 @@
     {
       "ports": {
         "input": {
+          "in": {
+            "title": "Input",
+            "type": "any",
+            "async": true,
+            "default": null
+          },
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
@@ -335,6 +396,10 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "out": {
+            "type": "any",
+            "title": "Output"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -344,14 +409,21 @@
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "async": true,
       "description": "Add Touch Event Listener",
       "ns": "dom",
       "name": "addTouchEvent",
-      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
     },
     {
       "ports": {
         "input": {
+          "in": {
+            "title": "Input",
+            "type": "any",
+            "async": true,
+            "default": null
+          },
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
@@ -377,6 +449,10 @@
             "type": "HTMLElement",
             "title": "Dom Element"
           },
+          "out": {
+            "type": "any",
+            "title": "Output"
+          },
           "event": {
             "type": "object",
             "title": "Event"
@@ -386,10 +462,11 @@
       "phrases": {
         "active": "Adding {{input.event}} handler"
       },
+      "async": true,
       "description": "Add UI Event Listener",
       "ns": "dom",
       "name": "addUIEvent",
-      "fn": "output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n"
+      "fn": "state.in = null;\n\non.input.in = function() {\n  state.in = data;\n};\n\noutput = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      out: state.in,\n      event: ev\n    });\n\n  }, false);\n\n  output({element: el});\n};\n"
     },
     {
       "ports": {
