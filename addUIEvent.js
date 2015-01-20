@@ -29,6 +29,8 @@ module.exports = {
         async: true,
         fn: function __ELEMENT__(data, x, source, state, input, output) {
           var r = function() {
+            if (!state.in) return false;
+
             if (state.el) {
               state.el.removeEventListener(state.event);
             }
