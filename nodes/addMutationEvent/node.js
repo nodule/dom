@@ -20,11 +20,10 @@ on.input.element = function() {
     state.el.removeEventListener(state.event);
     state.el.innerHTML = null;
   }
-
+  state.el = input.element;
   state.event = input.event;
   state.preventDefault = input.preventDefault;
 
-  var el = input.element || document;
-  el.addEventListener(input.event, state.clickHandler, false);
-  output({element: el});
+  state.el.addEventListener(input.event, state.clickHandler, false);
+  output({element: input.el});
 };

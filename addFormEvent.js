@@ -27,21 +27,19 @@ module.exports = {
         type: "HTMLElement",
         title: "Dom Element",
         async: true,
-        required: false,
         fn: function __ELEMENT__(data, x, source, state, input, output) {
           var r = function() {
             if (state.el) {
               state.el.removeEventListener(state.event);
               state.el.innerHTML = null;
             }
-
+            state.el = input.element;
             state.event = input.event;
             state.preventDefault = input.preventDefault;
 
-            var el = input.element || document;
-            el.addEventListener(input.event, state.clickHandler, false);
+            state.el.addEventListener(input.event, state.clickHandler, false);
             output({
-              element: el
+              element: input.el
             });
           }.call(this);
           return {
