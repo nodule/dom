@@ -25,5 +25,5 @@ on.input.element = function() {
   state.preventDefault = input.preventDefault;
 
   state.el.addEventListener(input.event, state.clickHandler, false);
-  output({element: input.el});
+  output({element: input.element});
 };

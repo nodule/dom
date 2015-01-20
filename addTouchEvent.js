@@ -39,7 +39,7 @@ module.exports = {
 
             state.el.addEventListener(input.event, state.clickHandler, false);
             output({
-              element: input.el
+              element: input.element
             });
           }.call(this);
           return {
