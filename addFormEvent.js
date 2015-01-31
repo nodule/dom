@@ -76,7 +76,7 @@ module.exports = {
         title: "Output"
       },
       event: {
-        type: "object",
+        type: "Event",
         title: "Event"
       }
     }

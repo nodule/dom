@@ -84,7 +84,7 @@ module.exports = {
         title: "Output"
       },
       event: {
-        type: "object",
+        type: "MouseEvent",
         title: "Event"
       }
     }

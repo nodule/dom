@@ -80,7 +80,7 @@ module.exports = {
         title: "Output"
       },
       event: {
-        type: "object",
+        type: "PointerEvent",
         title: "Event"
       }
     }

@@ -56,7 +56,7 @@
             "title": "Output"
           },
           "event": {
-            "type": "object",
+            "type": "Event",
             "title": "Event"
           }
         }
@@ -109,7 +109,7 @@
             "title": "Output"
           },
           "event": {
-            "type": "object",
+            "type": "KeyboardEvent",
             "title": "Event"
           }
         }
@@ -173,7 +173,7 @@
             "title": "Output"
           },
           "event": {
-            "type": "object",
+            "type": "MouseEvent",
             "title": "Event"
           }
         }
@@ -230,7 +230,7 @@
             "title": "Output"
           },
           "event": {
-            "type": "object",
+            "type": "MutationEvent",
             "title": "Event"
           }
         }
@@ -290,7 +290,7 @@
             "title": "Output"
           },
           "event": {
-            "type": "object",
+            "type": "PointerEvent",
             "title": "Event"
           }
         }
@@ -401,7 +401,7 @@
             "title": "Output"
           },
           "event": {
-            "type": "object",
+            "type": "TouchEvent",
             "title": "Event"
           }
         }
@@ -454,7 +454,7 @@
             "title": "Output"
           },
           "event": {
-            "type": "object",
+            "type": "UIEvent",
             "title": "Event"
           }
         }

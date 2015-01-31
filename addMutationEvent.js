@@ -77,7 +77,7 @@ module.exports = {
         title: "Output"
       },
       event: {
-        type: "object",
+        type: "MutationEvent",
         title: "Event"
       }
     }
