@@ -35,6 +35,10 @@ module.exports = {
     output: {
       element: {
         type: "HTMLElement"
+      },
+      attribute: {
+        title: "Attribute",
+        type: "string"
       }
     }
   },
