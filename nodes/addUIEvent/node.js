@@ -1,4 +1,4 @@
-state.in = null;
+state.in = undefined;
 state.event = null;
 state.preventDefault = null;
 
@@ -15,8 +15,7 @@ on.input.in = function() {
 };
 
 on.input.element = function() {
-
-  if (!state.in) return false;
+  if (state.in === undefined) return false;
 
   if(state.el) {
     state.el.removeEventListener(state.event);
