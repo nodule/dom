@@ -11,6 +11,7 @@
     "domify": "1.x.x",
     "domready": "1.x.x",
     "keyboard": "0.x.x",
+    "load-script": "^1.0.0",
     "scriptjs": "2.x.x"
   },
   "nodes": [
