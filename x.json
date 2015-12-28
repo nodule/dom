@@ -1283,6 +1283,35 @@
     {
       "ports": {
         "input": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element",
+            "async": true
+          }
+        },
+        "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
+          "out": {
+            "type": "string",
+            "title": "Value"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Reading value from {input.element.name}"
+      },
+      "description": "Take value from an input element",
+      "async": true,
+      "ns": "dom",
+      "name": "value",
+      "fn": "on.input.element = function(data) {\n  output({\n    element: data,\n    out: data.value // never ownProperty...\n  });\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
           "selector": {
             "type": "string",
             "title": "Frame Selector",
