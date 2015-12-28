@@ -835,6 +835,35 @@
         "input": {
           "element": {
             "type": "HTMLElement",
+            "title": "Dom Element",
+            "async": true
+          }
+        },
+        "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
+          "out": {
+            "type": "string",
+            "title": "Value"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Reading value from {input.element.name}"
+      },
+      "description": "Take value from an input element",
+      "async": true,
+      "ns": "dom",
+      "name": "getValue",
+      "fn": "on.input.element = function(data) {\n  output({\n    element: data,\n    out: data.value // never ownProperty...\n  });\n};\n"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "HTMLElement",
             "title": "Dom Element"
           }
         },
@@ -1233,6 +1262,38 @@
     {
       "ports": {
         "input": {
+          "in": {
+            "type": "any",
+            "title": "Value"
+          },
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element",
+            "async": true
+          }
+        },
+        "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          },
+          "out": {
+            "type": "string",
+            "title": "Value"
+          }
+        }
+      },
+      "phrases": {
+        "active": "Setting value for {input.element.name}"
+      },
+      "description": "Set value of an input element",
+      "ns": "dom",
+      "name": "setValue",
+      "fn": "input.element.value = input.in\noutput.element = input.element\noutput.out = input.in\n"
+    },
+    {
+      "ports": {
+        "input": {
           "element": {
             "type": "HTMLElement",
             "title": "Dom Element",
@@ -1279,35 +1340,6 @@
       "ns": "dom",
       "name": "toggle",
       "fn": "on.input.element = function(data) {\n  data.style.display = data.style.display === 'none' ? 'block' : 'none';\n  output({ element: data });\n};\n"
-    },
-    {
-      "ports": {
-        "input": {
-          "element": {
-            "type": "HTMLElement",
-            "title": "Dom Element",
-            "async": true
-          }
-        },
-        "output": {
-          "element": {
-            "type": "HTMLElement",
-            "title": "Dom Element"
-          },
-          "out": {
-            "type": "string",
-            "title": "Value"
-          }
-        }
-      },
-      "phrases": {
-        "active": "Reading value from {input.element.name}"
-      },
-      "description": "Take value from an input element",
-      "async": true,
-      "ns": "dom",
-      "name": "value",
-      "fn": "on.input.element = function(data) {\n  output({\n    element: data,\n    out: data.value // never ownProperty...\n  });\n};\n"
     },
     {
       "ports": {
