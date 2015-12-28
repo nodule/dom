@@ -1,13 +1,16 @@
 {
-  "name": "value",
+  "name": "setValue",
   "ns": "dom",
-  "async": true,
-  "description": "Take value from an input element",
+  "description": "Set value of an input element",
   "phrases": {
-    "active": "Reading value from {input.element.name}"
+    "active": "Setting value for {input.element.name}"
   },
   "ports": {
     "input": {
+      "in": {
+        "type": "any",
+        "title": "Value"
+      },
       "element": {
         "type": "HTMLElement",
         "title": "Dom Element",
