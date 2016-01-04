@@ -14,7 +14,7 @@
   "scripts": {
     "test": "chit -r",
     "deploy": "gh-pages-deploy",
-    "clean-source": "rimraf *.js graphs nodes"
+    "clean-source": "rimraf *.js graphs nodes example *.json"
   },
   "gh-pages-deploy": {
     "staticpath": "example",
