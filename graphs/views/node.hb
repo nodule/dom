@@ -9,6 +9,8 @@
       <tr><th>Input ports</th><td>{{inPorts}}</td></tr>
       <tr><th>Output ports</th><td>{{outPorts}}</td></tr>
       <tr><th>Status</th><td>{{status}}</td></tr>
+      <tr><th>Run Count</th><td>{{runCount}}</td></tr>
+      <tr><th>Output Count</th><td>{{outputCount}}</td></tr>
     </tbody>
   </table>
 </div>
