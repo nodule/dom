@@ -18,7 +18,10 @@
   },
   "gh-pages-deploy": {
     "staticpath": "example",
-    "noprompt": true
+    "noprompt": true,
+    "post": [
+      "clean-source"
+    ]
   },
   "devDependencies": {
     "chit": "0.x.x",
