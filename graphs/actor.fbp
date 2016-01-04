@@ -1,4 +1,5 @@
 title: Mouse event example
+id: ActorExample
 
 MouseMove(dom/addMouseEvent)
 MouseClick(dom/addMouseEvent)

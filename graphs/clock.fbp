@@ -1,5 +1,5 @@
 title:	Clock
-
+id: ClockExample
 DomImage(dom/image),DomQuerySelector(dom/querySelector),DomSetHtml(dom/setHtml),CanvasGetContext(canvas/getContext),CanvasDrawImage(canvas/drawImage),DomQuerySelector2(dom/querySelector),MathDegreesToRadians(math/degreesToRadians),DateCreate(date/create),DateGetSeconds(date/getSeconds),CanvasBeginPath(canvas/beginPath),CanvasMoveTo(canvas/moveTo),CanvasLineTo(canvas/lineTo),CanvasLineTo2(canvas/lineTo),CanvasLineTo3(canvas/lineTo),CanvasLineTo4(canvas/lineTo),CanvasStroke(canvas/stroke),MathMultiply(math/multiply),CanvasRotate(canvas/rotate),CanvasSetAttributes(canvas/setAttributes),CanvasFill(canvas/fill),CanvasTranslate(canvas/translate),UtilWait(util/wait),ConsoleLog(console/log),CanvasStrokeText(canvas/strokeText),CanvasSave(canvas/save),ConsoleLog2(console/log),DomAddMouseEvent(dom/addMouseEvent),DomAlert(dom/alert),DateCreate2(date/create),CanvasRestore(canvas/restore),CanvasSetAttributes2(canvas/setAttributes)
 
 #,SoundAlert(sound/alert)

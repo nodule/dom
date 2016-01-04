@@ -22,6 +22,7 @@
     "color": "rgb(35,116,136)"
   },
   "dependencies": {
+    "alert": "0.0.2",
     "discore-closest": "^0.2.0",
     "domify": "1.x.x",
     "domready": "1.x.x",

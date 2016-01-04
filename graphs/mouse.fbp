@@ -1,4 +1,5 @@
 title: Mouse event example
+id: MouseExample
 
 Actor(core/actor)
 
