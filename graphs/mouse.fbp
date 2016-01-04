@@ -49,10 +49,10 @@ CanvasEl selection -> ^element AppendNode
 BodyEl selection   ->  element KeyboardEvent
 
 # Views
-'<div>x: {{clientX}}, y: {{clientY}}</div>' -> ^body MouseView
-'./views/connections.hb'    ~> ^body ConnectionsView
-'./views/node.hb'           ~> ^body NodeView
-'./views/processManager.hb' ~> ^body ProcessManagerView
+'<div>x: {{clientX}}, y: {{clientY}}</div>' -> @body MouseView
+'./views/connections.hb'    ~> @body ConnectionsView
+'./views/node.hb'           ~> @body NodeView
+'./views/processManager.hb' ~> @body ProcessManagerView
 
 # Routes
 
