@@ -1219,38 +1219,6 @@ function hasOwnProperty(obj, prop) {
 
 }).call(this,require("DbRmao"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./support/isBuffer":6,"DbRmao":5,"inherits":3}],8:[function(require,module,exports){
-module.exports = {
-  bottle: ['http://i.cloudup.com/y29czRwU3R.m4a', 'http://i.cloudup.com/baNnhH1I7M.ogg'],
-  funk: ['http://i.cloudup.com/KkfWRzYC77.m4a', 'http://i.cloudup.com/7SSbOm5XZS.ogg'],
-  glass: ['http://i.cloudup.com/E021I9zUG3.m4a', 'http://i.cloudup.com/3gveeCqUD6.ogg'],
-  morse: ['http://i.cloudup.com/h7r7MsF4q3.m4a', 'http://i.cloudup.com/b0EXCVaceT.ogg'],
-  pop: ['http://i.cloudup.com/vTka9yOizT.m4a', 'http://i.cloudup.com/4TnDj0v9GE.ogg'],
-  purr: ['http://i.cloudup.com/5HJSHCtOzZ.m4a', 'http://i.cloudup.com/YdDNGA0sj5.ogg'],
-  submarine: ['http://i.cloudup.com/r4ZENSF0Hu.m4a', 'http://i.cloudup.com/2OPb5OYAI2.ogg'],
-  tink: ['http://i.cloudup.com/nCtoNq3kJN.m4a', 'http://i.cloudup.com/SNi1RX8iwb.ogg']
-};
-
-},{}],"Gehzdn":[function(require,module,exports){
-var play    = require('play-audio'),
-    content = require('./content'),
-    playing = play().autoplay();
-
-module.exports = playAlert;
-module.exports.content = content;
-module.exports.volume = playing.volume;
-module.exports.player = playing;
-
-function playAlert(name){
-  name || ( name = 'bottle' );
-
-  if (!content[name]) return;
-
-  playing.src(content[name]);
-}
-
-},{"./content":8,"play-audio":110}],"alert":[function(require,module,exports){
-module.exports=require('Gehzdn');
-},{}],11:[function(require,module,exports){
 'use strict';
 
 var util         = require('util');
@@ -1495,7 +1463,7 @@ CHI.prototype.merge = function (newChi, oldChi, unique) {
 
 module.exports = CHI;
 
-},{"./group":12,"./portPointer":13,"./portSyncer":14,"./store":15,"events":2,"util":7}],12:[function(require,module,exports){
+},{"./group":9,"./portPointer":10,"./portSyncer":11,"./store":12,"events":2,"util":7}],9:[function(require,module,exports){
 'use strict';
 
 var util = require('util'),
@@ -1668,7 +1636,7 @@ Group.prototype.gid = function() {
 
 module.exports = Group;
 
-},{"events":2,"util":7,"uuid":126}],13:[function(require,module,exports){
+},{"events":2,"util":7,"uuid":114}],10:[function(require,module,exports){
 'use strict';
 
 var uuid = require('uuid').v4;
@@ -1730,7 +1698,7 @@ PortPointer.prototype.add = function(port) {
 
 module.exports = PortPointer;
 
-},{"uuid":126}],14:[function(require,module,exports){
+},{"uuid":114}],11:[function(require,module,exports){
 'use strict';
 
 ////
@@ -1834,7 +1802,7 @@ PortSyncer.prototype.add = function(link, p) {
 
 module.exports = PortSyncer;
 
-},{}],15:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 function Store() {
@@ -1887,7 +1855,7 @@ Store.prototype.isEmpty = function() {
 
 module.exports = Store;
 
-},{}],16:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 var util = require('util');
@@ -1916,7 +1884,7 @@ ConnectionMap.prototype.toJSON = function() {
 
 module.exports = ConnectionMap;
 
-},{"util":7}],17:[function(require,module,exports){
+},{"util":7}],14:[function(require,module,exports){
 'use strict';
 
 var Packet = require('./packet');
@@ -3762,7 +3730,7 @@ Actor.prototype.hasParent = function() {
 
 module.exports = Actor;
 
-},{"../lib/context/defaultProvider":19,"../lib/io/mapHandler":22,"../lib/multisort":24,"../lib/process/defaultManager":31,"./connector":18,"./flow":20,"./link":23,"./node":25,"./node/polymer":27,"./packet":28,"./run":33,"./validate":37,"chix-loader":44,"debug":45,"events":2,"util":7,"uuid":126}],18:[function(require,module,exports){
+},{"../lib/context/defaultProvider":16,"../lib/io/mapHandler":19,"../lib/multisort":21,"../lib/process/defaultManager":28,"./connector":15,"./flow":17,"./link":20,"./node":22,"./node/polymer":24,"./packet":25,"./run":30,"./validate":34,"chix-loader":41,"debug":42,"events":2,"util":7,"uuid":114}],15:[function(require,module,exports){
 'use strict';
 
 var util    = require('util');
@@ -3868,7 +3836,7 @@ Connector.prototype.toJSON = function() {
 
 module.exports = Connector;
 
-},{"./setting":36,"util":7}],19:[function(require,module,exports){
+},{"./setting":33,"util":7}],16:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3892,7 +3860,7 @@ DefaultProvider.prototype.addContext = function(node, defaultContext) {
 
 module.exports = DefaultProvider;
 
-},{}],20:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 var Packet = require('./packet');
@@ -5258,7 +5226,7 @@ Flow.prototype.hasParent = function() {
 
 module.exports = Flow;
 
-},{"./ConnectionMap":16,"./actor":17,"./link":23,"./packet":28,"./validate":37,"debug":45,"util":7}],21:[function(require,module,exports){
+},{"./ConnectionMap":13,"./actor":14,"./link":20,"./packet":25,"./validate":34,"debug":42,"util":7}],18:[function(require,module,exports){
 'use strict';
 
 var util = require('util');
@@ -5331,7 +5299,7 @@ module.exports = function handleIndex(link, p) {
   }
 };
 
-},{"util":7}],22:[function(require,module,exports){
+},{"util":7}],19:[function(require,module,exports){
 'use strict';
 var Packet = require('../packet');
 var EventEmitter = require('events').EventEmitter;
@@ -6030,7 +5998,7 @@ IoMapHandler.prototype.drop = function(packet, origin) {
 
 module.exports = IoMapHandler;
 
-},{"../packet":28,"../queue/defaultManager":32,"./indexHandler":21,"chix-chi":11,"debug":45,"events":2,"is-plain-object":94,"util":7,"uuid":126}],23:[function(require,module,exports){
+},{"../packet":25,"../queue/defaultManager":29,"./indexHandler":18,"chix-chi":8,"debug":42,"events":2,"is-plain-object":91,"util":7,"uuid":114}],20:[function(require,module,exports){
 'use strict';
 
 var util = require('util');
@@ -6267,7 +6235,7 @@ Link.prototype.toJSON = function() {
 
 module.exports = Link;
 
-},{"./connector":18,"./setting":36,"./validate":37,"util":7,"uuid":126}],24:[function(require,module,exports){
+},{"./connector":15,"./setting":33,"./validate":34,"util":7,"uuid":114}],21:[function(require,module,exports){
 'use strict';
 
 /**
@@ -6324,7 +6292,7 @@ module.exports = function(arr, columns, orderBy) {
   });
 };
 
-},{}],25:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 /* jshint -W040 */
@@ -7955,7 +7923,7 @@ xNode.prototype.reset = function() {
 
 module.exports = xNode;
 
-},{"./connector":18,"./node/interface":26,"./packet":28,"./port":29,"./port/filler":30,"./sandbox/node":34,"./sandbox/port":35,"debug":45,"util":7}],26:[function(require,module,exports){
+},{"./connector":15,"./node/interface":23,"./packet":25,"./port":26,"./port/filler":27,"./sandbox/node":31,"./sandbox/port":32,"debug":42,"util":7}],23:[function(require,module,exports){
 'use strict';
 
 /* jshint -W040 */
@@ -9524,7 +9492,7 @@ INode.prototype.getConnections = function() {
 
 module.exports = INode;
 
-},{"../ConnectionMap":16,"../packet":28,"../port":29,"../validate":37,"chix-chi":11,"debug":45,"events":2,"util":7}],27:[function(require,module,exports){
+},{"../ConnectionMap":13,"../packet":25,"../port":26,"../validate":34,"chix-chi":8,"debug":42,"events":2,"util":7}],24:[function(require,module,exports){
 'use strict';
 
 /* global document */
@@ -9719,7 +9687,7 @@ PolymerNode.prototype.release = function() {
 
 module.exports = PolymerNode;
 
-},{"../packet":28,"./interface":26,"util":7}],28:[function(require,module,exports){
+},{"../packet":25,"./interface":23,"util":7}],25:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9807,7 +9775,7 @@ Packet.prototype.has = function(prop) {
 
 module.exports = Packet;
 
-},{}],29:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10034,7 +10002,7 @@ Port.prototype.setOptions = function(options) {
 
 module.exports = Port;
 
-},{}],30:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 var Port = require('../port');
@@ -10177,7 +10145,7 @@ exports.defaulter = function(port, ports, input, context) {
   }
 };
 
-},{"../port":29,"util":7}],31:[function(require,module,exports){
+},{"../port":26,"util":7}],28:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -10498,7 +10466,7 @@ ProcessManager.prototype.filterBy = function(prop, value) {
 module.exports = ProcessManager;
 
 }).call(this,require("DbRmao"))
-},{"DbRmao":5,"events":2,"util":7,"uuid":126}],32:[function(require,module,exports){
+},{"DbRmao":5,"events":2,"util":7,"uuid":114}],29:[function(require,module,exports){
 'use strict';
 
 var util = require('util');
@@ -10859,7 +10827,7 @@ QueueManager.prototype.getQueues = function() {
 
 module.exports = QueueManager;
 
-},{"debug":45,"util":7}],33:[function(require,module,exports){
+},{"debug":42,"util":7}],30:[function(require,module,exports){
 'use strict';
 
 var DefaultContextProvider = require('./context/defaultProvider');
@@ -10969,7 +10937,7 @@ Run.prototype.handleOutput = function(data) {
 
 module.exports = Run;
 
-},{"./context/defaultProvider":19}],34:[function(require,module,exports){
+},{"./context/defaultProvider":16}],31:[function(require,module,exports){
 (function (process,global){
 'use strict';
 
@@ -11173,7 +11141,7 @@ NodeBox.prototype.run = function(bind) {
 module.exports = NodeBox;
 
 }).call(this,require("DbRmao"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"DbRmao":5,"iobox":93,"path":4,"util":7}],35:[function(require,module,exports){
+},{"DbRmao":5,"iobox":90,"path":4,"util":7}],32:[function(require,module,exports){
 'use strict';
 
 var NodeBox = require('./node');
@@ -11216,7 +11184,7 @@ PortBox.prototype.define = function() {
 
 module.exports = PortBox;
 
-},{"./node":34,"util":7}],36:[function(require,module,exports){
+},{"./node":31,"util":7}],33:[function(require,module,exports){
 'use strict';
 
 var util = require('util');
@@ -11299,7 +11267,7 @@ Setting.prototype.has = function(name) {
 
 module.exports = Setting;
 
-},{"events":2,"util":7}],37:[function(require,module,exports){
+},{"events":2,"util":7}],34:[function(require,module,exports){
 'use strict';
 
 var jsongate = require('json-gate');
@@ -11510,7 +11478,7 @@ module.exports = {
   nodeDefinitions: _checkIds
 };
 
-},{"../schemas/link.json":40,"../schemas/map.json":41,"../schemas/node.json":42,"instance-of":92,"is-plain-object":94,"json-gate":97}],"chix-flow":[function(require,module,exports){
+},{"../schemas/link.json":37,"../schemas/map.json":38,"../schemas/node.json":39,"instance-of":89,"is-plain-object":91,"json-gate":94}],"chix-flow":[function(require,module,exports){
 module.exports=require('jXAsbI');
 },{}],"jXAsbI":[function(require,module,exports){
 'use strict';
@@ -11537,7 +11505,7 @@ module.exports = {
   }
 };
 
-},{"./lib/actor":17,"./lib/flow":20,"./lib/link":23,"./lib/node":25,"./lib/validate":37,"./schemas/map.json":41,"./schemas/node.json":42,"./schemas/stage.json":43}],40:[function(require,module,exports){
+},{"./lib/actor":14,"./lib/flow":17,"./lib/link":20,"./lib/node":22,"./lib/validate":34,"./schemas/map.json":38,"./schemas/node.json":39,"./schemas/stage.json":40}],37:[function(require,module,exports){
 module.exports={
   "type": "object",
   "title": "Chiχ Link",
@@ -11614,7 +11582,7 @@ module.exports={
   "additionalProperties": false
 }
 
-},{}],41:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 module.exports={
   "type":"object",
   "title":"Chiχ Map",
@@ -11766,7 +11734,7 @@ module.exports={
   "additionalProperties": false
 }
 
-},{}],42:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 module.exports={
   "type":"object",
   "title":"Chiχ Nodes",
@@ -11847,7 +11815,7 @@ module.exports={
   "additionalProperties": false
 }
 
-},{}],43:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 module.exports={
   "type":"object",
   "title":"Chiχ Stage",
@@ -11943,7 +11911,7 @@ module.exports={
   }
 }
 
-},{}],44:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 'use strict';
 
 var EventEmitter = require('events').EventEmitter;
@@ -12643,7 +12611,7 @@ Loader.prototype.getNodeDefinitions = function(provider) {
 
 module.exports = Loader;
 
-},{"events":2,"util":7}],45:[function(require,module,exports){
+},{"events":2,"util":7}],42:[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -12813,7 +12781,7 @@ function localstorage(){
   } catch (e) {}
 }
 
-},{"./debug":46}],46:[function(require,module,exports){
+},{"./debug":43}],43:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -13012,7 +12980,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":108}],"discore-closest":[function(require,module,exports){
+},{"ms":98}],"discore-closest":[function(require,module,exports){
 module.exports=require('iekHuh');
 },{}],"iekHuh":[function(require,module,exports){
 var matches = require('matches-selector')
@@ -13034,7 +13002,7 @@ module.exports = function (element, selector, checkYoSelf, root) {
       return  
   }
 }
-},{"matches-selector":100}],49:[function(require,module,exports){
+},{"matches-selector":97}],46:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -13101,7 +13069,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars.runtime":50,"./handlebars/compiler/ast":52,"./handlebars/compiler/base":53,"./handlebars/compiler/compiler":55,"./handlebars/compiler/javascript-compiler":57,"./handlebars/compiler/visitor":60,"./handlebars/no-conflict":74}],50:[function(require,module,exports){
+},{"./handlebars.runtime":47,"./handlebars/compiler/ast":49,"./handlebars/compiler/base":50,"./handlebars/compiler/compiler":52,"./handlebars/compiler/javascript-compiler":54,"./handlebars/compiler/visitor":57,"./handlebars/no-conflict":71}],47:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -13169,7 +13137,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars/base":51,"./handlebars/exception":64,"./handlebars/no-conflict":74,"./handlebars/runtime":75,"./handlebars/safe-string":76,"./handlebars/utils":77}],51:[function(require,module,exports){
+},{"./handlebars/base":48,"./handlebars/exception":61,"./handlebars/no-conflict":71,"./handlebars/runtime":72,"./handlebars/safe-string":73,"./handlebars/utils":74}],48:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -13275,7 +13243,7 @@ exports.createFrame = _utils.createFrame;
 exports.logger = _logger2['default'];
 
 
-},{"./decorators":62,"./exception":64,"./helpers":65,"./logger":73,"./utils":77}],52:[function(require,module,exports){
+},{"./decorators":59,"./exception":61,"./helpers":62,"./logger":70,"./utils":74}],49:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -13308,7 +13276,7 @@ exports['default'] = AST;
 module.exports = exports['default'];
 
 
-},{}],53:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -13358,7 +13326,7 @@ function parse(input, options) {
 }
 
 
-},{"../utils":77,"./helpers":56,"./parser":58,"./whitespace-control":61}],54:[function(require,module,exports){
+},{"../utils":74,"./helpers":53,"./parser":55,"./whitespace-control":58}],51:[function(require,module,exports){
 /* global define */
 'use strict';
 
@@ -13526,7 +13494,7 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 
-},{"../utils":77,"source-map":80}],55:[function(require,module,exports){
+},{"../utils":74,"source-map":77}],52:[function(require,module,exports){
 /* eslint-disable new-cap */
 
 'use strict';
@@ -14100,7 +14068,7 @@ function transformLiteralToPath(sexpr) {
 }
 
 
-},{"../exception":64,"../utils":77,"./ast":52}],56:[function(require,module,exports){
+},{"../exception":61,"../utils":74,"./ast":49}],53:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -14332,7 +14300,7 @@ function preparePartialBlock(open, program, close, locInfo) {
 }
 
 
-},{"../exception":64}],57:[function(require,module,exports){
+},{"../exception":61}],54:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -15460,7 +15428,7 @@ exports['default'] = JavaScriptCompiler;
 module.exports = exports['default'];
 
 
-},{"../base":51,"../exception":64,"../utils":77,"./code-gen":54}],58:[function(require,module,exports){
+},{"../base":48,"../exception":61,"../utils":74,"./code-gen":51}],55:[function(require,module,exports){
 /* istanbul ignore next */
 /* Jison generated parser */
 "use strict";
@@ -16200,7 +16168,7 @@ var handlebars = (function () {
 exports['default'] = handlebars;
 
 
-},{}],59:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 /* eslint-disable new-cap */
 'use strict';
 
@@ -16388,7 +16356,7 @@ PrintVisitor.prototype.HashPair = function (pair) {
 /* eslint-enable new-cap */
 
 
-},{"./visitor":60}],60:[function(require,module,exports){
+},{"./visitor":57}],57:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -16530,7 +16498,7 @@ exports['default'] = Visitor;
 module.exports = exports['default'];
 
 
-},{"../exception":64}],61:[function(require,module,exports){
+},{"../exception":61}],58:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -16753,7 +16721,7 @@ exports['default'] = WhitespaceControl;
 module.exports = exports['default'];
 
 
-},{"./visitor":60}],62:[function(require,module,exports){
+},{"./visitor":57}],59:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -16771,7 +16739,7 @@ function registerDefaultDecorators(instance) {
 }
 
 
-},{"./decorators/inline":63}],63:[function(require,module,exports){
+},{"./decorators/inline":60}],60:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -16802,7 +16770,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":77}],64:[function(require,module,exports){
+},{"../utils":74}],61:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -16844,7 +16812,7 @@ exports['default'] = Exception;
 module.exports = exports['default'];
 
 
-},{}],65:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -16892,7 +16860,7 @@ function registerDefaultHelpers(instance) {
 }
 
 
-},{"./helpers/block-helper-missing":66,"./helpers/each":67,"./helpers/helper-missing":68,"./helpers/if":69,"./helpers/log":70,"./helpers/lookup":71,"./helpers/with":72}],66:[function(require,module,exports){
+},{"./helpers/block-helper-missing":63,"./helpers/each":64,"./helpers/helper-missing":65,"./helpers/if":66,"./helpers/log":67,"./helpers/lookup":68,"./helpers/with":69}],63:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -16933,7 +16901,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":77}],67:[function(require,module,exports){
+},{"../utils":74}],64:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17029,7 +16997,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":64,"../utils":77}],68:[function(require,module,exports){
+},{"../exception":61,"../utils":74}],65:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17056,7 +17024,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":64}],69:[function(require,module,exports){
+},{"../exception":61}],66:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17087,7 +17055,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":77}],70:[function(require,module,exports){
+},{"../utils":74}],67:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17115,7 +17083,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],71:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17129,7 +17097,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],72:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17164,7 +17132,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":77}],73:[function(require,module,exports){
+},{"../utils":74}],70:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17213,7 +17181,7 @@ exports['default'] = logger;
 module.exports = exports['default'];
 
 
-},{"./utils":77}],74:[function(require,module,exports){
+},{"./utils":74}],71:[function(require,module,exports){
 (function (global){
 /* global window */
 'use strict';
@@ -17237,7 +17205,7 @@ module.exports = exports['default'];
 
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],75:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17531,7 +17499,7 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 }
 
 
-},{"./base":51,"./exception":64,"./utils":77}],76:[function(require,module,exports){
+},{"./base":48,"./exception":61,"./utils":74}],73:[function(require,module,exports){
 // Build out our basic SafeString type
 'use strict';
 
@@ -17548,7 +17516,7 @@ exports['default'] = SafeString;
 module.exports = exports['default'];
 
 
-},{}],77:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17703,7 +17671,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions['.hbs'] = extension;
 }
 
-},{"../dist/cjs/handlebars":49,"../dist/cjs/handlebars/compiler/printer":59,"fs":1}],80:[function(require,module,exports){
+},{"../dist/cjs/handlebars":46,"../dist/cjs/handlebars/compiler/printer":56,"fs":1}],77:[function(require,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
@@ -17713,7 +17681,7 @@ exports.SourceMapGenerator = require('./source-map/source-map-generator').Source
 exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
 exports.SourceNode = require('./source-map/source-node').SourceNode;
 
-},{"./source-map/source-map-consumer":87,"./source-map/source-map-generator":88,"./source-map/source-node":89}],81:[function(require,module,exports){
+},{"./source-map/source-map-consumer":84,"./source-map/source-map-generator":85,"./source-map/source-node":86}],78:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -17822,7 +17790,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":90,"amdefine":91}],82:[function(require,module,exports){
+},{"./util":87,"amdefine":88}],79:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -17970,7 +17938,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./base64":83,"amdefine":91}],83:[function(require,module,exports){
+},{"./base64":80,"amdefine":88}],80:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -18045,7 +18013,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":91}],84:[function(require,module,exports){
+},{"amdefine":88}],81:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -18164,7 +18132,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":91}],85:[function(require,module,exports){
+},{"amdefine":88}],82:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2014 Mozilla Foundation and contributors
@@ -18252,7 +18220,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":90,"amdefine":91}],86:[function(require,module,exports){
+},{"./util":87,"amdefine":88}],83:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -18374,7 +18342,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":91}],87:[function(require,module,exports){
+},{"amdefine":88}],84:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -19453,7 +19421,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":81,"./base64-vlq":82,"./binary-search":84,"./quick-sort":86,"./util":90,"amdefine":91}],88:[function(require,module,exports){
+},{"./array-set":78,"./base64-vlq":79,"./binary-search":81,"./quick-sort":83,"./util":87,"amdefine":88}],85:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -19854,7 +19822,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":81,"./base64-vlq":82,"./mapping-list":85,"./util":90,"amdefine":91}],89:[function(require,module,exports){
+},{"./array-set":78,"./base64-vlq":79,"./mapping-list":82,"./util":87,"amdefine":88}],86:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -20270,7 +20238,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./source-map-generator":88,"./util":90,"amdefine":91}],90:[function(require,module,exports){
+},{"./source-map-generator":85,"./util":87,"amdefine":88}],87:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -20642,7 +20610,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":91}],91:[function(require,module,exports){
+},{"amdefine":88}],88:[function(require,module,exports){
 (function (process,__filename){
 /** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 1.0.0 Copyright (c) 2011-2015, The Dojo Foundation All Rights Reserved.
@@ -20947,7 +20915,7 @@ function amdefine(module, requireFn) {
 module.exports = amdefine;
 
 }).call(this,require("DbRmao"),"/node_modules/handlebars/node_modules/source-map/node_modules/amdefine/amdefine.js")
-},{"DbRmao":5,"path":4}],92:[function(require,module,exports){
+},{"DbRmao":5,"path":4}],89:[function(require,module,exports){
 module.exports = function InstanceOf(obj, type) {
   if(obj === null) return false;
   if(type === 'array') type = 'Array';
@@ -20962,7 +20930,7 @@ module.exports = function InstanceOf(obj, type) {
   }
 };
 
-},{}],93:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 'use strict';
 
 var util = require('util');
@@ -21239,7 +21207,7 @@ IOBox.prototype.run = function (bind) {
 
 module.exports = IOBox;
 
-},{"events":2,"util":7}],94:[function(require,module,exports){
+},{"events":2,"util":7}],91:[function(require,module,exports){
 /*!
  * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
  *
@@ -21252,7 +21220,7 @@ module.exports = IOBox;
 module.exports = function isPlainObject(o) {
   return !!o && typeof o === 'object' && o.constructor === Object;
 };
-},{}],95:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 exports.getType = function (obj) {
 	switch (Object.prototype.toString.call(obj)) {
 		case '[object String]':
@@ -21353,7 +21321,7 @@ exports.deepEquals = function (obj1, obj2) {
 	}
 };
 
-},{}],96:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 var RE_0_TO_100 = '([1-9]?[0-9]|100)';
 var RE_0_TO_255 = '([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
 
@@ -21449,7 +21417,7 @@ var formats = {
 
 exports.formats = formats;
 
-},{}],97:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 var validateSchema = require('./valid-schema'),
 	validateObject = require('./valid-object');
 
@@ -21466,7 +21434,7 @@ module.exports.createSchema = function (schema) {
 	return new Schema(schema);
 }
 
-},{"./valid-object":98,"./valid-schema":99}],98:[function(require,module,exports){
+},{"./valid-object":95,"./valid-schema":96}],95:[function(require,module,exports){
 var formats = require('./formats').formats;
 var common = require('./common'),
 	getType = common.getType,
@@ -21851,7 +21819,7 @@ module.exports = function(obj, schema, done) {
 	}
 };
 
-},{"./common":95,"./formats":96}],99:[function(require,module,exports){
+},{"./common":92,"./formats":93}],96:[function(require,module,exports){
 var formats = require('./formats').formats;
 var common = require('./common'),
 	getType = common.getType,
@@ -22133,7 +22101,7 @@ module.exports = function(schema) {
 	validateSchema(schema, []);
 };
 
-},{"./common":95,"./formats":96,"./valid-object":98}],100:[function(require,module,exports){
+},{"./common":92,"./formats":93,"./valid-object":95}],97:[function(require,module,exports){
 'use strict';
 
 var proto = Element.prototype;
@@ -22163,242 +22131,7 @@ function match(el, selector) {
   }
   return false;
 }
-},{}],101:[function(require,module,exports){
-module.exports = require('./lib/player');
-module.exports.audio = media('audio');
-module.exports.video = media('video');
-
-function media (kind) {
-  return function (urls, dom) {
-    return module.exports(kind, urls, dom);
-  };
-}
-
-},{"./lib/player":103}],102:[function(require,module,exports){
-var table = {
-  aif  : "audio/x-aiff",
-  aiff : "audio/x-aiff",
-  wav  : "audio/x-wav",
-  mp3  : 'audio/mpeg',
-  m3u  : "audio/x-mpegurl",
-  mid  : "audio/midi",
-  midi : "audio/midi",
-  m4a  : 'audio/m4a',
-  ogg  : 'audio/ogg',
-  mp4  : 'video/mp4',
-  ogv  : 'video/mp4',
-  webm : 'video/webm',
-  mkv  : 'video/x-matroska',
-  mpg  : 'video/mpeg'
-};
-
-module.exports = mimeOf;
-
-function mimeOf(url){
-  return table[ url.split('.').slice(-1)[0] ];
-}
-
-},{}],103:[function(require,module,exports){
-var newChain  = require('new-chain'),
-    src = require('./src'),
-    render = require('./render');
-
-module.exports = play;
-
-function play(media, urls, dom){
-  var el, chain, url;
-
-  dom || ( dom = document.documentElement );
-  el = render(media);
-  dom.appendChild(el);
-
-  chain = newChain({
-    autoplay: bool('autoplay'),
-    controls: bool('controls'),
-    load: method('load'),
-    loop: bool('loop'),
-    muted: bool('muted'),
-    on: on,
-    pause: method('pause'),
-    play: method('play'),
-    preload: bool('preload')
-  });
-
-  chain.currentTime = attr('currentTime');
-  chain.element = element;
-  chain.src = src.attr(el);
-  chain.volume = attr('volume');
-  chain.remove = remove;
-
-  chain.src(urls);
-
-  return chain;
-
-  function attr(name){
-    return function(value){
-      if ( arguments.length ) {
-        el[name] = value;
-        return chain;
-      }
-
-      return el[name];
-    };
-  }
-
-  function bool(name){
-    return function(value){
-      if (value === false) {
-        return el[name] = false;
-      }
-
-      return el[name] = true;
-    };
-  }
-
-  function element(){
-    return el;
-  }
-
-  function on(event, callback){
-    el.addEventListener(event, callback, false);
-  }
-
-  function method(name){
-    return function(){
-      return el[name].apply(el, arguments);
-    };
-  }
-
-  function remove(){
-    return el.parentNode.removeChild(el);
-  }
-
-}
-
-},{"./render":104,"./src":105,"new-chain":109}],104:[function(require,module,exports){
-var domify = require('domify'),
-    templates = require("./templates");
-
-module.exports = render;
-
-function render(media){
-  return domify(templates[media + '.html']);
-}
-
-},{"./templates":106,"domify":107}],105:[function(require,module,exports){
-var mimeOf = require("./mime");
-
-module.exports = {
-  attr: attr,
-  pick: pick
-};
-
-function attr(el){
-  var value;
-
-  return function(urls){
-    if (arguments.length) {
-      value = urls;
-      el.setAttribute('src', pick(el, value));
-    }
-
-    return value;
-  };
-}
-
-function pick(el, urls){
-  if(!urls) return;
-
-  if(typeof urls == 'string'){
-    return urls;
-  }
-
-  var canPlay = urls.filter(function (url) {
-    return !!el.canPlayType(url.mime || mimeOf(url.type || url));
-  });
-
-  if (canPlay.length == 0) return;
-
-  return canPlay[0].url || canPlay[0];
-}
-
-},{"./mime":102}],106:[function(require,module,exports){
-exports["audio.html"] = "<audio preload=\"auto\" /></audio>"
-exports["video.html"] = "<video preload=\"auto\" /></video>"
-},{}],107:[function(require,module,exports){
-
-/**
- * Expose `parse`.
- */
-
-module.exports = parse;
-
-/**
- * Wrap map from jquery.
- */
-
-var map = {
-  option: [1, '<select multiple="multiple">', '</select>'],
-  optgroup: [1, '<select multiple="multiple">', '</select>'],
-  legend: [1, '<fieldset>', '</fieldset>'],
-  thead: [1, '<table>', '</table>'],
-  tbody: [1, '<table>', '</table>'],
-  tfoot: [1, '<table>', '</table>'],
-  colgroup: [1, '<table>', '</table>'],
-  caption: [1, '<table>', '</table>'],
-  tr: [2, '<table><tbody>', '</tbody></table>'],
-  td: [3, '<table><tbody><tr>', '</tr></tbody></table>'],
-  th: [3, '<table><tbody><tr>', '</tr></tbody></table>'],
-  col: [2, '<table><tbody></tbody><colgroup>', '</colgroup></table>'],
-  _default: [0, '', '']
-};
-
-/**
- * Parse `html` and return the children.
- *
- * @param {String} html
- * @return {Array}
- * @api private
- */
-
-function parse(html) {
-  if ('string' != typeof html) throw new TypeError('String expected');
-
-  // tag name
-  var m = /<([\w:]+)/.exec(html);
-  if (!m) throw new Error('No elements were generated.');
-  var tag = m[1];
-
-  // body support
-  if (tag == 'body') {
-    var el = document.createElement('html');
-    el.innerHTML = html;
-    return el.removeChild(el.lastChild);
-  }
-
-  // wrap map
-  var wrap = map[tag] || map._default;
-  var depth = wrap[0];
-  var prefix = wrap[1];
-  var suffix = wrap[2];
-  var el = document.createElement('div');
-  el.innerHTML = prefix + html + suffix;
-  while (depth--) el = el.lastChild;
-
-  var els = el.children;
-  if (1 == els.length) {
-    return el.removeChild(els[0]);
-  }
-
-  var fragment = document.createDocumentFragment();
-  while (els.length) {
-    fragment.appendChild(el.removeChild(els[0]));
-  }
-
-  return fragment;
-}
-
-},{}],108:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -22525,67 +22258,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],109:[function(require,module,exports){
-module.exports = newChain;
-module.exports.from = from;
-
-function from(chain){
-
-  return function(){
-    var m, i;
-
-    m = methods.apply(undefined, arguments);
-    i   = m.length;
-
-    while ( i -- ) {
-      chain[ m[i].name ] = m[i].fn;
-    }
-
-    m.forEach(function(method){
-      chain[ method.name ] = function(){
-        method.fn.apply(this, arguments);
-        return chain;
-      };
-    });
-
-    return chain;
-  };
-
-}
-
-function methods(){
-  var all, el, i, len, result, key;
-
-  all    = Array.prototype.slice.call(arguments);
-  result = [];
-  i      = all.length;
-
-  while ( i -- ) {
-    el = all[i];
-
-    if ( typeof el == 'function' ) {
-      result.push({ name: el.name, fn: el });
-      continue;
-    }
-
-    if ( typeof el != 'object' ) continue;
-
-    for ( key in el ) {
-      result.push({ name: key, fn: el[key] });
-    }
-  }
-
-  return result;
-}
-
-function newChain(){
-  return from({}).apply(undefined, arguments);
-}
-
-},{}],110:[function(require,module,exports){
-module.exports = require('media').audio;
-
-},{"media":101}],"router-lib":[function(require,module,exports){
+},{}],"router-lib":[function(require,module,exports){
 module.exports=require('ifsK7d');
 },{}],"ifsK7d":[function(require,module,exports){
 module.exports = {
@@ -22598,7 +22271,7 @@ module.exports = {
   Query: require('./lib/Query')
 };
 
-},{"./lib/Matcher":113,"./lib/Params":114,"./lib/Query":115,"./lib/Route":116,"./lib/browser":117,"./lib/helpers":118,"./router":122}],113:[function(require,module,exports){
+},{"./lib/Matcher":101,"./lib/Params":102,"./lib/Query":103,"./lib/Route":104,"./lib/browser":105,"./lib/helpers":106,"./router":110}],101:[function(require,module,exports){
 var regexpFromPath = require('path-to-regexp');
 var helpers = require('./helpers');
 
@@ -22645,7 +22318,7 @@ Matcher.matchWithPath = function(matchers, path) {
 
 module.exports = Matcher;
 
-},{"./helpers":118,"path-to-regexp":120}],114:[function(require,module,exports){
+},{"./helpers":106,"path-to-regexp":108}],102:[function(require,module,exports){
 var helpers = require('./helpers');
 var browser = require('./browser');
 
@@ -22678,7 +22351,7 @@ Params.fromMatchedPattern = function(matcher, pattern) {
 
 module.exports = Params;
 
-},{"./browser":117,"./helpers":118}],115:[function(require,module,exports){
+},{"./browser":105,"./helpers":106}],103:[function(require,module,exports){
 var qs = require('qs');
 
 var Query = {};
@@ -22712,7 +22385,7 @@ Query._queryStringFromUri = function(uri) {
 
 module.exports = Query;
 
-},{"qs":121}],116:[function(require,module,exports){
+},{"qs":109}],104:[function(require,module,exports){
 var Params = require('./Params');
 var Query = require('./Query');
 
@@ -22756,7 +22429,7 @@ Route.fromMatchedUri = function(matcher, uri) {
 
 module.exports = Route;
 
-},{"./Params":114,"./Query":115}],117:[function(require,module,exports){
+},{"./Params":102,"./Query":103}],105:[function(require,module,exports){
 var helpers = require('./helpers');
 
 var browser = {};
@@ -22787,7 +22460,7 @@ browser.getCurrentUri = function () {
 
 module.exports = browser;
 
-},{"./helpers":118}],118:[function(require,module,exports){
+},{"./helpers":106}],106:[function(require,module,exports){
 var fn = require('fn.js');
 
 var helpers = {};
@@ -22813,7 +22486,7 @@ helpers.properties = fn.properties;
 
 module.exports = helpers;
 
-},{"fn.js":119}],119:[function(require,module,exports){
+},{"fn.js":107}],107:[function(require,module,exports){
 (function(root, factory) {
 	if (typeof define === 'function' && define.amd) {
 		define(factory);
@@ -23084,7 +22757,7 @@ fn.debounce = function (handler, msDelay) {
 
 return fn;
 }));
-},{}],120:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 /**
  * Expose `pathtoRegexp`.
  */
@@ -23253,7 +22926,7 @@ function pathtoRegexp (path, keys, options) {
   return attachKeys(new RegExp('^' + path + (end ? '$' : ''), flags), keys);
 };
 
-},{}],121:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 /**
  * Object#toString() ref for stringify().
  */
@@ -23621,7 +23294,7 @@ function decode(str) {
   }
 }
 
-},{}],122:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 var browser = require('./lib/browser');
 var Route = require('./lib/Route');
 var Matcher = require('./lib/Matcher');
@@ -23714,7 +23387,7 @@ var router = {
 
 module.exports = router;
 
-},{"./lib/Matcher":113,"./lib/Query":115,"./lib/Route":116,"./lib/browser":117}],"ZKusGn":[function(require,module,exports){
+},{"./lib/Matcher":101,"./lib/Query":103,"./lib/Route":104,"./lib/browser":105}],"ZKusGn":[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -25266,7 +24939,7 @@ module.exports = router;
 
 },{}],"underscore":[function(require,module,exports){
 module.exports=require('ZKusGn');
-},{}],125:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 (function (global){
 
 var rng;
@@ -25301,7 +24974,7 @@ module.exports = rng;
 
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],126:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 //     uuid.js
 //
 //     Copyright (c) 2010-2012 Robert Kieffer
@@ -25486,13 +25159,15 @@ uuid.unparse = unparse;
 
 module.exports = uuid;
 
-},{"./rng":125}],"QCA6vm":[function(require,module,exports){
+},{"./rng":113}],"mouse":[function(require,module,exports){
+module.exports=require('QCA6vm');
+},{}],"QCA6vm":[function(require,module,exports){
 var Loader = function() {
 
   // will be replaced with the json.
-  this.dependencies = {"npm":{"alert":"0.x.x","handlebars":"latest","chix-flow":"0.x.x","discore-closest":"0.2.x","router-lib":"0.x.x","underscore":"1.x.x"}};
+  this.dependencies = {"npm":{"chix-flow":"0.x.x","discore-closest":"0.2.x","handlebars":"latest","router-lib":"0.x.x","underscore":"1.x.x"}};
   //this.nodes = ;
-  this.nodeDefinitions = {"https://serve-chix.rhcloud.com/nodes/{ns}/{name}":{"dom":{"image":{"_id":"5313d1c60dfaa3eb4a7e1733","name":"image","ns":"dom","async":true,"description":"Create an image","phrases":{"active":"Creating Image"},"ports":{"input":{"src":{"type":"string","async":true,"title":"Source path"}},"output":{"image":{"type":"object","title":"Image"}}},"fn":"on.input.src = function() {\n  var img = new Image();\n  img.onload = function() {\n    output( { image: this } );\n  }.bind(img);\n  img.src = data;\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"querySelector":{"_id":"527299bb30b8af4b8910216b","name":"querySelector","ns":"dom","title":"querySelector","description":"[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)","expose":["document"],"phrases":{"active":"Gathering elements matching criteria: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","type":"HTMLElement","default":null},"selector":{"title":"Selector","type":"string"}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"},"error":{"title":"Error","type":"Error"}}},"fn":"var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\n\nvar selection = el.querySelector(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"setHtml":{"_id":"52be32d46a14bb6fbd924a24","name":"setHtml","ns":"dom","description":"dom setHtml","async":true,"phrases":{"active":"Adding html"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"html":{"type":"string","format":"html","title":"html","async":true}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"}}},"fn":"on.input.html = function(data) {\n  input.element.innerHTML = data;\n  output({ element: input.element });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"addMouseEvent":{"_id":"52be4f096a14bb6fbd924a28","name":"addMouseEvent","ns":"dom","description":"Add Mouse Event Listener","phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element","required":false},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["click","dblclick","mousedown","mouseup","mouseover","mousemove","mouseout","dragstart","drag","dragenter","dragleave","dragover","drop","dragend"],"title":"Dom Event"}},"output":{"element":{"type":"any","title":"Element"},"event":{"type":"object","title":"Event"}}},"fn":"output = function(cb) {\n\n  var el = input.element || document;\n\n  el.addEventListener(input.event, function(ev) {\n\n    if(input.preventDefault) ev.preventDefault();\n\n    cb({\n      element: el,\n      event: ev\n    });\n\n  }, false);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"alert":{"_id":"526a3501b8a561ad0ebfa39c","name":"alert","ns":"dom","title":"Alert","description":"Alert","phrases":{"active":"Showing alert"},"ports":{"input":{"message":{"title":"Message","type":"any","required":"true"}}},"fn":"alert(input.message);\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"addKeyboardEvent":{"_id":"52bf38966a14bb6fbd924a2d","name":"addKeyboardEvent","ns":"dom","description":"Add Keyboard Event Listener","async":true,"phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"in":{"title":"Input","type":"any","async":true,"default":null},"element":{"type":"HTMLElement","title":"Dom Element","async":true},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["keydown","keypress","keyup"],"title":"Dom Event"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"out":{"type":"any","title":"Output"},"event":{"type":"KeyboardEvent","title":"Event"}}},"fn":"state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"closest":{"_id":"5486feb1ab54be2e930fbd66","name":"closest","ns":"dom","title":"Closest","async":true,"description":" Finds the closest parent that matches a selector.","expose":["document"],"dependencies":{"npm":{"discore-closest":"0.2.x"}},"phrases":{"active":"Finding closest parent: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","description":"will check this elements parents","type":"HTMLElement","async":true},"selector":{"title":"Selector","description":"CSS selector to match parents","type":"string"},"checkSelf":{"title":"Check Self","description":"check element. If falsey, will begin with element.parentNode and is synonymous to $.fn.parents. Otherwise, it's $.fn.closest.","type":"boolean","default":false},"within":{"title":"Within","description":"check only within this element. By default, document","type":"HTMLElement","required":false}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"},"error":{"title":"Error","type":"Error"}}},"fn":"on.input.element = function(data) {\n  var sel = discore_closest(\n    data, input.selector, input.checkSelf,\n    input.within || document\n  );\n  var res = { element: data };\n  if (sel) {\n    res.selection = sel;\n  } else {\n    res.error = new Error('Selector didn\\'t match:' + input.selector);\n  }\n\n  output(res);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"appendChild":{"_id":"52be32d46a14bb6fbd924a20","name":"appendChild","ns":"dom","description":"dom appendChild","async":true,"phrases":{"active":"Adding child node"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"child":{"type":"HTMLElement","async":true,"title":"Child Element"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"out":{"type":"object"}}},"fn":"on.input.child = function() {\n\n  output( {\n    element: input.element,\n    out: input.element.appendChild(data)\n  } );\n\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"createElement":{"_id":"531160f50dfaa3eb4a7e1730","name":"createElement","ns":"dom","async":true,"description":"dom createElement","phrases":{"active":"Creating element"},"ports":{"input":{"in":{"type":"string","title":"Tagname","async":true,"default":"div"}},"output":{"out":{"type":"HTMLElement"}}},"fn":"on.input.in = function() {\n  output( { out: document.createElement(data) });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"canvas":{"getContext":{"_id":"5314e8a40dfaa3eb4a7e173e","name":"getContext","ns":"canvas","async":true,"title":"Get Context","description":"Get Canvas Context","phrases":{"active":"Getting context"},"ports":{"input":{"canvas":{"title":"Canvas","async":true,"type":"HTMLElement","required":"true"}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.canvas = function() {\n  output({\n    context: data.getContext('2d')\n  });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"drawImage":{"_id":"5314e8a40dfaa3eb4a7e173d","name":"drawImage","ns":"canvas","async":true,"title":"Draw Image","description":"","phrases":{"active":"Drawing image"},"ports":{"input":{"context":{"title":"Context","type":"CanvasRenderingContext2D","required":"true"},"element":{"title":"Element","type":"HTMLElement","required":true},"in":{"title":"Dimensions","async":true,"type":"object","properties":{"dx":{"title":"Destination X","type":"number","description":"The X coordinate in the destination canvas at which to place the top-left corner of the source image."},"dy":{"title":"Destination Y","type":"number","description":"The Y coordinate in the destination canvas at which to place the top-left corner of the source image."},"dw":{"title":"Destination Width","type":"number","description":"The width to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in width when drawn.","required":false},"dh":{"title":"Destination Height","type":"number","description":"The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn.","required":false},"sx":{"title":"Source X","type":"number","description":"The X coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.","required":false},"sy":{"title":"Source Y","type":"number","description":"The Y coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.","required":false},"sw":{"title":"Source Width","type":"number","description":"The width of the sub-rectangle of the source image to draw into the destination context. If not specified, the entire rectangle from the coordinates specified by sx and sy to the bottom-right corner of the image is used. If you specify a negative value, the image is flipped horizontally when drawn.","required":false},"sh":{"title":"Source Height","type":"number","description":"The height of the sub-rectangle of the source image to draw into the destination context. If you specify a negative value, the image is flipped vertically when drawn.","required":false}}}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.in = function() {\n\n  var args = [input.element];\n\n  if(data.sx && data.sy && data.sw && data.sh) {\n    args.push(data.sx);\n    args.push(data.sy);\n    args.push(data.sw);\n    args.push(data.sh);\n  }\n\n  args.push(data.dx || 0);\n  args.push(data.dy || 0);\n\n  if(data.dw) {\n    args.push(data.dw);\n    if(data.dh) {\n      args.push(data.dh);\n    }\n  }\n\n  input.context.drawImage.apply(input.context, args);\n  output({\n    context: input.context\n  });\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"beginPath":{"_id":"5314e8a40dfaa3eb4a7e1736","name":"beginPath","ns":"canvas","async":true,"title":"Begin Path","description":"Begin path","phrases":{"active":"Beginning path"},"ports":{"input":{"context":{"title":"Context","async":true,"type":"CanvasRenderingContext2D","required":"true"}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.context = function() {\n  data.beginPath();\n  output({ context: data });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"moveTo":{"_id":"5314e8a40dfaa3eb4a7e1742","name":"moveTo","ns":"canvas","async":true,"title":"Move To","description":"Moves the starting point of a new subpath to the (x, y) coordinates","phrases":{"active":"Moving"},"ports":{"input":{"context":{"title":"Context","type":"CanvasRenderingContext2D","required":"true"},"in":{"title":"Point","async":true,"type":"object","required":"true","properties":{"x":{"type":"number","title":"X"},"y":{"type":"number","title":"Y"}}}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"},"out":{"title":"Point","type":"array"}}},"fn":"on.input.in = function() {\n  input.context.moveTo(data.x, data.y);\n  output({\n    context: input.context,\n    out: data\n  });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"lineTo":{"_id":"5314e8a40dfaa3eb4a7e1740","name":"lineTo","ns":"canvas","async":true,"title":"Line To","description":"Connects the last point in the subpath to the x, y coordinates with a straight line","phrases":{"active":"Moving"},"ports":{"input":{"context":{"title":"Context","type":"CanvasRenderingContext2D","required":"true"},"in":{"title":"Point","async":true,"type":"object","required":"true","properties":{"x":{"type":"number","title":"X","description":"The x axis of the coordinate for the end of the line"},"y":{"type":"number","title":"Y","description":"The y axis of the coordinate for the end of the line"}}}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"},"out":{"title":"Point","type":"array"}}},"fn":"on.input.in = function() {\n  input.context.lineTo(data.x, data.y);\n  output({\n    context: input.context,\n    out: data\n  });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"stroke":{"_id":"5314e8a40dfaa3eb4a7e174a","name":"stroke","ns":"canvas","async":true,"title":"Stroke","description":"Stroke","phrases":{"active":"Stroking path"},"ports":{"input":{"context":{"title":"Context","async":true,"type":"CanvasRenderingContext2D","required":"true"}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.context = function() {\n  data.stroke();\n  output({ context: data });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"rotate":{"_id":"5314e8a40dfaa3eb4a7e1746","name":"rotate","ns":"canvas","async":true,"title":"Rotate","description":"Rotate Context","phrases":{"active":"Rotating"},"ports":{"input":{"context":{"title":"Context","type":"CanvasRenderingContext2D","required":"true"},"angle":{"title":"Angle","async":true,"type":"number","required":"true"}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.angle = function() {\n  input.context.rotate(data);\n  output({\n    context: input.context\n  });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"setAttributes":{"_id":"5314e8a40dfaa3eb4a7e1748","name":"setAttributes","ns":"canvas","async":true,"title":"Set Attributes","description":"Sets one or more attributes","phrases":{"active":"Setting attributes"},"ports":{"input":{"context":{"title":"Context","type":"CanvasRenderingContext2D","required":"true"},"in":{"title":"Attributes","type":"object","async":true,"required":"true","properties":{"fillStyle":{"type":"string","title":"Fill Style","description":"Color or style to use inside shapes. Default #000 (black).","format":"color","default":"#000"},"font":{"type":"string","title":"Font","default":"10px sans-serif"},"globalAlpha":{"type":"number","title":"Global Alpha","description":"globalAlpha float Alpha value that is applied to shapes and images before they are composited onto the canvas. Default 1.0 (opaque).","default":1},"globalCompositeOperation":{"title":"Global Composite Operation","description":"With globalAlpha applied this sets how shapes and images are drawn onto the existing bitmap.","enum":["source-atop","source-in","source-out","source-over","destination-atop","destination-in","destination-out","destination-over","lighter","darker","copy","xor"],"default":"source-over"},"lineCap":{"enum":["butt","round","square"],"title":"Line Cap","description":"Type of endings on the end of lines.","default":"butt"},"lineDashOffset":{"type":"number","title":"Line Dash Offset","description":"Specifies where to start a dasharray on a line."},"lineJoin":{"enum":["miter","round","bevel"],"title":"Line Join","description":"Defines the type of corners where two lines meet.","default":"miter"},"lineWidth":{"type":"number","title":"Line Width","description":"Width of lines","default":1},"miterLimit":{"type":"number","title":"Miter Limit","default":10},"shadowBlur":{"type":"number","title":"Shadow Blur","description":"float Specifies the blurring effect.","default":0},"shadowColor":{"type":"string","title":"Shadow Color","description":"Color of the shadow. Default fully-transparent black.","format":"color","default":0},"shadowOffsetX":{"type":"number","title":"Shadow Offset X","description":"Horizontal distance the shadow will be offset.","default":0},"shadowOffsetY":{"type":"number","title":"Shadow Offset Y","description":"Vertical distance the shadow will be offset.","default":0},"strokeStyle":{"type":"string","title":"Stroke style","description":"Color or style to use for the lines around shapes.","format":"color","default":"#000"},"textAlign":{"enum":["start","end","left","right","center"],"title":"Text Align","default":"start"},"textBaseline":{"enum":["top","hanging","middle","alphabetic","ideographic","bottom"],"title":"Text Baseline","default":"alphabetic"}}}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.in = function() {\n  for(var k in data) {\n    input.context[k] = data[k];\n  }\n  output({\n    context: input.context\n  });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"fill":{"_id":"5314e8a40dfaa3eb4a7e173c","name":"fill","ns":"canvas","async":true,"title":"Fill","description":"Fill Context","phrases":{"active":"Filling context"},"ports":{"input":{"context":{"title":"Context","async":true,"type":"CanvasRenderingContext2D","required":"true"}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.context = function() {\n  data.fill();\n  output({ context: data });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"translate":{"_id":"5314e8a40dfaa3eb4a7e174b","name":"translate","ns":"canvas","async":true,"title":"Translate","description":"Moves the origin point of the context to (x, y)","phrases":{"active":"Translating context"},"ports":{"input":{"context":{"title":"Context","type":"CanvasRenderingContext2D","required":"true"},"in":{"title":"Point","async":true,"type":"object","required":"true","properties":{"x":{"type":"number","title":"X"},"y":{"type":"number","title":"Y"}}}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"},"out":{"title":"Point","type":"array"}}},"fn":"on.input.in = function() {\n  input.context.translate(data.x, data.y);\n  output({\n    context: input.context,\n    out: data\n  });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"strokeText":{"_id":"5324a9b450cefe6a3d8806ab","name":"strokeText","ns":"canvas","async":true,"title":"Stroke Text","description":"Stroke Text","phrases":{"active":"Stroking text"},"ports":{"input":{"text":{"title":"Text","type":"string","required":"true"},"x":{"title":"X","type":"number","required":"true","default":0},"y":{"title":"Y","type":"number","required":"true","default":0},"context":{"title":"Context","async":true,"type":"CanvasRenderingContext2D","required":"true"}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.context = function() {\n  data.strokeText(input.text, input.x, input.y);\n  output({ context: data });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"save":{"_id":"5314e8a40dfaa3eb4a7e1745","name":"save","ns":"canvas","async":true,"title":"Save","description":"Save Context","phrases":{"active":"Saving context"},"ports":{"input":{"context":{"title":"Context","async":true,"type":"CanvasRenderingContext2D","required":"true"}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.context = function() {\n  data.save();\n  output({ context: data });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"restore":{"_id":"5322eafd50cefe6a3d88069f","name":"restore","ns":"canvas","async":true,"title":"Restore","description":"Restore Context","phrases":{"active":"Restoring"},"ports":{"input":{"context":{"title":"Context","type":"CanvasRenderingContext2D","required":"true"}},"output":{"context":{"title":"Context","type":"CanvasRenderingContext2D"}}},"fn":"on.input.context = function() {\n  data.restore();\n  output({\n    context: data\n  });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"math":{"degreesToRadians":{"_id":"5314aec80dfaa3eb4a7e1734","name":"degreesToRadians","ns":"math","description":"Convert degrees to radians","async":true,"phrases":{"active":"Converting degrees to radians"},"ports":{"input":{"in":{"title":"Degrees","type":"number","async":true,"required":true}},"output":{"out":{"title":"Radians","type":"number"}}},"fn":"on.input.in = function() {\n\n  output( { out: data * (Math.PI / 180) } );\n\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"multiply":{"_id":"52eefb2dcf8e1bab142d5354","name":"multiply","ns":"math","description":"Computes x * y","phrases":{"active":"Multiplying"},"ports":{"input":{"x":{"title":"Number","type":"number","required":true},"y":{"title":"Number","type":"number","required":true}},"output":{"out":{"title":"out","type":"number"}}},"fn":"output.out = input.x * input.y\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"date":{"create":{"_id":"53248ba050cefe6a3d8806a0","name":"create","ns":"date","title":"Create Date","description":"Creates a JavaScript Date instance that represents a single moment in time. Date objects are based on a time value that is the number of milliseconds since 1 January, 1970 UTC.","phrases":{"active":"Creating Date"},"ports":{"input":{"value":{"title":"Value","type":"number","description":"Integer value representing the number of milliseconds since 1 January 1970 00:00:00 UTC (Unix Epoch).","default":null}},"output":{"out":{"title":"Date","type":"Date"}}},"fn":"if(input.value) {\n  output.out = new Date(input.value);\n} else {\n  output.out = new Date();\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"getSeconds":{"_id":"53248ba050cefe6a3d8806a5","name":"getSeconds","ns":"date","title":"Get Seconds","async":true,"description":"The seconds (0-59) in the specified date according to local time.","phrases":{"active":"Getting Seconds"},"ports":{"input":{"date":{"title":"Date","type":"Date","async":true}},"output":{"out":{"title":"Seconds","type":"number","description":"The seconds (0-59) in the specified date according to local time."}}},"fn":"on.input.date = function() {\n  output({\n    out: data.getSeconds()\n  });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"util":{"wait":{"_id":"527330cc30b8af4b8910216d","name":"wait","ns":"util","description":"Holds the input for a while","phrases":{"active":"Holding input for {{input.timeout}} milliseconds."},"expose":["setTimeout"],"ports":{"input":{"in":{"type":"any","title":"Input","description":"Input to be delayed","readonly":true},"timeout":{"type":"number","title":"Timeout","description":"Timeout in milliseconds","format":"time"}},"output":{"out":{"type":"any","title":"Output","description":"Outputs the delayed input"}}},"fn":"var slow = {\n  down: function (to, cb) {\n    setTimeout(function () {\n      cb(input. in );\n    }, to)\n  }\n}\noutput = [slow, 'down', input.timeout]\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"console":{"log":{"_id":"52645993df5da0102500004e","name":"log","ns":"console","description":"Console log","async":true,"phrases":{"active":"Logging to console"},"ports":{"input":{"msg":{"type":"any","title":"Log message","description":"Logs a message to the console","async":true,"required":true}},"output":{"out":{"type":"any","title":"Log message"}}},"fn":"on.input.msg = function() {\n  console.log(data);\n  output( { out: data });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"sound":{"alert":{"_id":"5326ccf350cefe6a3d8806ad","name":"alert","ns":"sound","description":"Play a sound alert","phrases":{"active":"Playing sound alert {{input.sound}}"},"ports":{"input":{"sound":{"title":"Sound","type":"string","enum":["bottle","glass","funk","morse","purr","tink","submarine"],"default":"bottle"},"volume":{"title":"Volume","type":"number","default":0.5,"format":"range","step":0.1,"minimum":0,"maximum":1}},"output":{"volume":{"type":"number","title":"Volume"}}},"dependencies":{"npm":{"alert":"0.x.x"}},"fn":"alert.volume(input.volume);\nalert(input.sound);\noutput.volume = input.volume;\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"data":{"string":{"_id":"526b1327b8a561ad0ebfa3b7","name":"string","ns":"data","title":"String","async":true,"description":"String","phrases":{"active":"Creating string {{input.string}}"},"ports":{"input":{"in":{"title":"String","type":"any","async":true,"required":true}},"output":{"out":{"title":"out","type":"string"}}},"fn":"on.input.in = function() {\n  output( { out: typeof data === null ? 'null' : data.toString() });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"template":{"handlebars":{"_id":"52ea878d1905561c7aa3bdbc","name":"handlebars","ns":"template","description":"Handlebars Template engine","phrases":{"active":"Compiling handlebars template"},"ports":{"input":{"body":{"type":"string","format":"html","title":"Template body","description":"The body of the handlebars template","required":true},"vars":{"type":"object","title":"Input variables","description":"the input variables for this template","default":{}},"handlebars":{"type":"function","title":"Handlebars","default":null}},"output":{"out":{"title":"HTML","type":"string"}}},"dependencies":{"npm":{"handlebars":"latest"}},"fn":"var hb = input.handlebars || handlebars;\nvar tpl = hb.compile(input.body);\noutput = {\n  out: tpl(input.vars)\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"core":{"actor":{"_id":"5486929dab54be2e930fbd64","name":"actor","ns":"core","title":"Actor","description":"Chix Actor","phrases":{"active":"Exposing Actor"},"ports":{"input":{"actor":{"title":"Actor","type":"Actor","default":null},"loader":{"title":"Loader","type":"Loader","default":null},"io":{"title":"IO Handler","type":"IOMapHandler","default":null},"pm":{"title":"Process Manager","type":"ProcessManager","default":null}},"output":{"actor":{"title":"Actor","type":"Actor"},"addNode":{"title":"Node added","type":"xNode"},"removeNode":{"title":"Node removed","type":"xNode"},"addLink":{"title":"Link added","type":"xLink"},"removeLink":{"title":"Link removed","type":"xLink"},"connect":{"title":"Link connected","type":"xLink"},"disconnect":{"title":"Link disconnected","type":"xLink"},"qm":{"title":"Queue Manager","type":"QueueManager"},"pm":{"title":"Process Manager","type":"ProcessManager"},"io":{"title":"Io Handler","type":"IOMapHandler"},"error":{"title":"Error","type":"object"}}},"dependencies":{"npm":{"chix-flow":"0.x.x"}},"fn":"output = function (cb) {\n\n  var actor = input.actor || this.getParent();\n\n  // probably should do almost the same as npmlog monitor\n\n  actor.on('inputRequired', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('error', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('addNode', function (event) {\n    cb({\n      addNode: event.node\n    });\n  });\n\n  actor.on('removeNode', function (event) {\n    cb({\n      removeNode: event.node\n    });\n  });\n\n  actor.on('addLink', function (link) {\n    cb({\n      addLink: link\n    });\n  });\n\n  actor.on('removeLink', function (link) {\n    cb({\n      removeLink: link\n    });\n  });\n\n  actor.ioHandler.on('connect', function (link) {\n    cb({\n      connect: link\n    });\n  });\n\n  actor.ioHandler.on('disconnect', function (link) {\n    cb({\n      disconnect: link\n    });\n  });\n\n  // useally the actor already started so we send what we have\n  // manually\n  Object.keys(actor.nodes).forEach(function(key) {\n    cb({addNode: actor.nodes[key]});\n  });\n\n  Object.keys(actor.links).forEach(function(key) {\n    cb({addLink: actor.links[key]});\n\n    // also report them all as connected for now\n    cb({connect: actor.links[key]});\n  });\n\n  cb({\n    qm: actor.ioHandler.queueManager,\n    io: actor.ioHandler,\n    pm: actor.processManager\n  });\n\n  // not really useful I guess\n  /*\n  actor.ioHandler.on('data', function (link) {\n    cb({\n      disconnectLink: link\n    });\n  });\n  */\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"router":{"client":{"_id":"54876bdfab54be2e930fbd67","name":"client","ns":"router","description":"Client Side Router, to simplify usage outputs an object keyed by route","async":true,"dependencies":{"npm":{"router-lib":"0.x.x"}},"phrases":{"active":"Routing"},"ports":{"input":{"routes":{"title":"Routes","type":"array","async":true}},"output":{"error":{"title":"Error","type":"Error"},"out":{"title":"Route","type":"object","additionalProperties":true}}},"fn":"state.router = null;\non.input.routes = function(data) {\n  state.router = null;\n  state.router = router_lib.router;\n  state.router.setMatchedPaths(data);\n  state.router.setOnChangeHandler(function(uri, route) {\n    if (route) {\n      var ret = {out: {}};\n      ret.out[route.path] = route;\n      output(ret);\n    } else {\n      output({ error: new Error('URI was not matched') });\n    }\n  });\n  state.router.start();\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"object":{"create":{"_id":"52fa908e909495ebbe6ded4c","name":"create","ns":"object","async":true,"description":"Create an object, if input is a direct object it just returns a copy of the object","phrases":{"active":"Creating object"},"ports":{"input":{"in":{"title":"Object","type":"object","async":true}},"output":{"out":{"title":"out","type":"object"}}},"fn":"on.input.in = function(data) { output({out: data}); };\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"values":{"_id":"52ef3631cf8e1bab142d539a","name":"values","ns":"object","async":true,"description":"Retrieve all of the values of the object's properties","phrases":{"active":"Retrieving object values"},"ports":{"input":{"in":{"title":"Object","type":"object","async":true}},"output":{"out":{"title":"out","type":"array"}}},"dependencies":{"npm":{"underscore":"1.x.x"}},"fn":"on.input.in = function(data) {\n  output({out: underscore.values(data)});\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}}};
+  this.nodeDefinitions = {"https://serve-chix.rhcloud.com/nodes/{ns}/{name}":{"core":{"actor":{"_id":"5486929dab54be2e930fbd64","name":"actor","ns":"core","title":"Actor","description":"Chix Actor","phrases":{"active":"Exposing Actor"},"ports":{"input":{"actor":{"title":"Actor","type":"Actor","default":null},"loader":{"title":"Loader","type":"Loader","default":null},"io":{"title":"IO Handler","type":"IOMapHandler","default":null},"pm":{"title":"Process Manager","type":"ProcessManager","default":null}},"output":{"actor":{"title":"Actor","type":"Actor"},"addNode":{"title":"Node added","type":"xNode"},"removeNode":{"title":"Node removed","type":"xNode"},"addLink":{"title":"Link added","type":"xLink"},"removeLink":{"title":"Link removed","type":"xLink"},"connect":{"title":"Link connected","type":"xLink"},"disconnect":{"title":"Link disconnected","type":"xLink"},"qm":{"title":"Queue Manager","type":"QueueManager"},"pm":{"title":"Process Manager","type":"ProcessManager"},"io":{"title":"Io Handler","type":"IOMapHandler"},"error":{"title":"Error","type":"object"}}},"dependencies":{"npm":{"chix-flow":"0.x.x"}},"fn":"output = function (cb) {\n\n  var actor = input.actor || this.getParent();\n\n  // probably should do almost the same as npmlog monitor\n\n  actor.on('inputRequired', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('error', function (data) {\n    cb({\n      error: data\n    });\n  });\n\n  actor.on('addNode', function (event) {\n    cb({\n      addNode: event.node\n    });\n  });\n\n  actor.on('removeNode', function (event) {\n    cb({\n      removeNode: event.node\n    });\n  });\n\n  actor.on('addLink', function (link) {\n    cb({\n      addLink: link\n    });\n  });\n\n  actor.on('removeLink', function (link) {\n    cb({\n      removeLink: link\n    });\n  });\n\n  actor.ioHandler.on('connect', function (link) {\n    cb({\n      connect: link\n    });\n  });\n\n  actor.ioHandler.on('disconnect', function (link) {\n    cb({\n      disconnect: link\n    });\n  });\n\n  // useally the actor already started so we send what we have\n  // manually\n  Object.keys(actor.nodes).forEach(function(key) {\n    cb({addNode: actor.nodes[key]});\n  });\n\n  Object.keys(actor.links).forEach(function(key) {\n    cb({addLink: actor.links[key]});\n\n    // also report them all as connected for now\n    cb({connect: actor.links[key]});\n  });\n\n  cb({\n    qm: actor.ioHandler.queueManager,\n    io: actor.ioHandler,\n    pm: actor.processManager\n  });\n\n  // not really useful I guess\n  /*\n  actor.ioHandler.on('data', function (link) {\n    cb({\n      disconnectLink: link\n    });\n  });\n  */\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"dom":{"addMouseEvent":{"_id":"52be4f096a14bb6fbd924a28","name":"addMouseEvent","ns":"dom","description":"Add Mouse Event Listener","async":true,"phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"in":{"title":"Input","type":"any","async":true,"default":null},"element":{"type":"HTMLElement","title":"Dom Element","async":true},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["click","dblclick","mousedown","mouseup","mouseover","mousemove","mouseout","dragstart","drag","dragenter","dragleave","dragover","drop","dragend"],"title":"Dom Event"}},"output":{"element":{"type":"any","title":"Element"},"out":{"type":"any","title":"Output"},"event":{"type":"MouseEvent","title":"Event"}}},"fn":"state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"addKeyboardEvent":{"_id":"52bf38966a14bb6fbd924a2d","name":"addKeyboardEvent","ns":"dom","description":"Add Keyboard Event Listener","async":true,"phrases":{"active":"Adding {{input.event}} handler"},"ports":{"input":{"in":{"title":"Input","type":"any","async":true,"default":null},"element":{"type":"HTMLElement","title":"Dom Element","async":true},"preventDefault":{"type":"boolean","title":"Prevent Default Event","default":true},"event":{"type":"string","enum":["keydown","keypress","keyup"],"title":"Dom Event"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"out":{"type":"any","title":"Output"},"event":{"type":"KeyboardEvent","title":"Event"}}},"fn":"state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"closest":{"_id":"5486feb1ab54be2e930fbd66","name":"closest","ns":"dom","title":"Closest","async":true,"description":" Finds the closest parent that matches a selector.","expose":["document"],"dependencies":{"npm":{"discore-closest":"0.2.x"}},"phrases":{"active":"Finding closest parent: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","description":"will check this elements parents","type":"HTMLElement","async":true},"selector":{"title":"Selector","description":"CSS selector to match parents","type":"string"},"checkSelf":{"title":"Check Self","description":"check element. If falsey, will begin with element.parentNode and is synonymous to $.fn.parents. Otherwise, it's $.fn.closest.","type":"boolean","default":false},"within":{"title":"Within","description":"check only within this element. By default, document","type":"HTMLElement","required":false}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"},"error":{"title":"Error","type":"Error"}}},"fn":"on.input.element = function(data) {\n  var sel = discore_closest(\n    data, input.selector, input.checkSelf,\n    input.within || document\n  );\n  var res = { element: data };\n  if (sel) {\n    res.selection = sel;\n  } else {\n    res.error = new Error('Selector didn\\'t match:' + input.selector);\n  }\n\n  output(res);\n\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"querySelector":{"_id":"527299bb30b8af4b8910216b","name":"querySelector","ns":"dom","title":"querySelector","description":"[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)","expose":["document"],"phrases":{"active":"Gathering elements matching criteria: {{input.selector}}"},"ports":{"input":{"element":{"title":"Element","type":"HTMLElement","default":null},"selector":{"title":"Selector","type":"string"}},"output":{"element":{"title":"Element","type":"HTMLElement"},"selection":{"title":"Selection","type":"HTMLElement"},"error":{"title":"Error","type":"Error"}}},"fn":"var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\n\nvar selection = el.querySelector(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"setHtml":{"_id":"52be32d46a14bb6fbd924a24","name":"setHtml","ns":"dom","description":"dom setHtml","async":true,"phrases":{"active":"Adding html"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"html":{"type":"string","format":"html","title":"html","async":true}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"}}},"fn":"on.input.html = function(data) {\n  input.element.innerHTML = data;\n  output({ element: input.element });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"appendChild":{"_id":"52be32d46a14bb6fbd924a20","name":"appendChild","ns":"dom","description":"dom appendChild","async":true,"phrases":{"active":"Adding child node"},"ports":{"input":{"element":{"type":"HTMLElement","title":"Dom Element"},"child":{"type":"HTMLElement","async":true,"title":"Child Element"}},"output":{"element":{"type":"HTMLElement","title":"Dom Element"},"out":{"type":"object"}}},"fn":"on.input.child = function() {\n\n  output( {\n    element: input.element,\n    out: input.element.appendChild(data)\n  } );\n\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"createElement":{"_id":"531160f50dfaa3eb4a7e1730","name":"createElement","ns":"dom","async":true,"description":"dom createElement","phrases":{"active":"Creating element"},"ports":{"input":{"in":{"type":"string","title":"Tagname","async":true,"default":"div"}},"output":{"out":{"type":"HTMLElement"}}},"fn":"on.input.in = function() {\n  output( { out: document.createElement(data) });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"console":{"log":{"_id":"52645993df5da0102500004e","name":"log","ns":"console","description":"Console log","async":true,"phrases":{"active":"Logging to console"},"ports":{"input":{"msg":{"type":"any","title":"Log message","description":"Logs a message to the console","async":true,"required":true}},"output":{"out":{"type":"any","title":"Log message"}}},"fn":"on.input.msg = function() {\n  console.log(data);\n  output( { out: data });\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"data":{"string":{"_id":"526b1327b8a561ad0ebfa3b7","name":"string","ns":"data","title":"String","async":true,"description":"String","phrases":{"active":"Creating string {{input.string}}"},"ports":{"input":{"in":{"title":"String","type":"any","async":true,"required":true}},"output":{"out":{"title":"out","type":"string"}}},"fn":"on.input.in = function() {\n  output( { out: typeof data === null ? 'null' : data.toString() });\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"template":{"handlebars":{"_id":"52ea878d1905561c7aa3bdbc","name":"handlebars","ns":"template","description":"Handlebars Template engine","phrases":{"active":"Compiling handlebars template"},"ports":{"input":{"body":{"type":"string","format":"html","title":"Template body","description":"The body of the handlebars template","required":true},"vars":{"type":"object","title":"Input variables","description":"the input variables for this template","default":{}},"handlebars":{"type":"function","title":"Handlebars","default":null}},"output":{"out":{"title":"HTML","type":"string"}}},"dependencies":{"npm":{"handlebars":"latest"}},"fn":"var hb = input.handlebars || handlebars;\nvar tpl = hb.compile(input.body);\noutput = {\n  out: tpl(input.vars)\n}\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"router":{"client":{"_id":"54876bdfab54be2e930fbd67","name":"client","ns":"router","description":"Client Side Router, to simplify usage outputs an object keyed by route","async":true,"dependencies":{"npm":{"router-lib":"0.x.x"}},"phrases":{"active":"Routing"},"ports":{"input":{"routes":{"title":"Routes","type":"array","async":true}},"output":{"error":{"title":"Error","type":"Error"},"out":{"title":"Route","type":"object","additionalProperties":true}}},"fn":"state.router = null;\non.input.routes = function(data) {\n  state.router = null;\n  state.router = router_lib.router;\n  state.router.setMatchedPaths(data);\n  state.router.setOnChangeHandler(function(uri, route) {\n    if (route) {\n      var ret = {out: {}};\n      ret.out[route.path] = route;\n      output(ret);\n    } else {\n      output({ error: new Error('URI was not matched') });\n    }\n  });\n  state.router.start();\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}},"object":{"create":{"_id":"52fa908e909495ebbe6ded4c","name":"create","ns":"object","async":true,"description":"Create an object, if input is a direct object it just returns a copy of the object","phrases":{"active":"Creating object"},"ports":{"input":{"in":{"title":"Object","type":"object","async":true}},"output":{"out":{"title":"out","type":"object"}}},"fn":"on.input.in = function(data) { output({out: data}); };\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"},"values":{"_id":"52ef3631cf8e1bab142d539a","name":"values","ns":"object","async":true,"description":"Retrieve all of the values of the object's properties","phrases":{"active":"Retrieving object values"},"ports":{"input":{"in":{"title":"Object","type":"object","async":true}},"output":{"out":{"title":"out","type":"array"}}},"dependencies":{"npm":{"underscore":"1.x.x"}},"fn":"on.input.in = function(data) {\n  output({out: underscore.values(data)});\n};\n","provider":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}}};
 
 };
 
@@ -25525,7 +25200,7 @@ Loader.prototype.getNodeDefinition = function(node, map) {
 var Flow = require('chix-flow').Flow;
 var loader = new Loader();
 
-var map = {"type":"flow","nodes":[{"id":"Actor","title":"Actor","ns":"core","name":"actor"},{"id":"MouseMove","title":"MouseMove","ns":"dom","name":"addMouseEvent"},{"id":"MouseClick","title":"MouseClick","ns":"dom","name":"addMouseEvent"},{"id":"KeyboardEvent","title":"KeyboardEvent","ns":"dom","name":"addKeyboardEvent"},{"id":"Closest","title":"Closest","ns":"dom","name":"closest"},{"id":"BodyEl","title":"BodyEl","ns":"dom","name":"querySelector"},{"id":"CanvasEl","title":"CanvasEl","ns":"dom","name":"querySelector"},{"id":"PanelEl","title":"PanelEl","ns":"dom","name":"querySelector"},{"id":"ConnectionsEl","title":"ConnectionsEl","ns":"dom","name":"querySelector"},{"id":"UpdateMouseView","title":"UpdateMouseView","ns":"dom","name":"setHtml"},{"id":"UpdateConnectionsView","title":"UpdateConnectionsView","ns":"dom","name":"setHtml"},{"id":"Log","title":"Log","ns":"console","name":"log"},{"id":"toString","title":"toString","ns":"data","name":"string"},{"id":"MouseView","title":"MouseView","ns":"template","name":"handlebars"},{"id":"NodeView","title":"NodeView","ns":"template","name":"handlebars"},{"id":"ConnectionsView","title":"ConnectionsView","ns":"template","name":"handlebars"},{"id":"ProcessManagerView","title":"ProcessManagerView","ns":"template","name":"handlebars"},{"id":"AppendNode","title":"AppendNode","ns":"dom","name":"appendChild"},{"id":"CreateNode","title":"CreateNode","ns":"dom","name":"createElement"},{"id":"UpdateNodeView","title":"UpdateNodeView","ns":"dom","name":"setHtml"},{"id":"Router","title":"Router","ns":"router","name":"client"},{"id":"Poll","title":"Poll","ns":"object","name":"create"},{"id":"PMPoll","title":"PMPoll","ns":"object","name":"create"},{"id":"NodeValues","title":"NodeValues","ns":"object","name":"values"}],"links":[{"source":{"id":"CanvasEl","port":"selection"},"target":{"id":"MouseMove","port":"element"},"metadata":{"title":"CanvasEl selection -> element MouseMove"}},{"source":{"id":"CanvasEl","port":"selection"},"target":{"id":"MouseClick","port":"element"},"metadata":{"title":"CanvasEl selection -> element MouseClick"}},{"source":{"id":"CanvasEl","port":"selection"},"target":{"id":"AppendNode","port":"element","setting":{"persist":true}},"metadata":{"title":"CanvasEl selection -> element AppendNode"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"KeyboardEvent","port":"element"},"metadata":{"title":"BodyEl selection -> element KeyboardEvent"}},{"source":{"id":"Router","port":"out"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"Router out -> msg Log"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"MouseView","port":"vars"},"metadata":{"title":"MouseMove event -> vars MouseView"}},{"source":{"id":"MouseView","port":"out"},"target":{"id":"UpdateMouseView","port":"html"},"metadata":{"title":"MouseView out -> html UpdateMouseView"}},{"source":{"id":"PanelEl","port":"selection"},"target":{"id":"UpdateMouseView","port":"element","setting":{"persist":true}},"metadata":{"title":"PanelEl selection -> element UpdateMouseView"}},{"source":{"id":"ConnectionsEl","port":"selection"},"target":{"id":"UpdateConnectionsView","port":"element","setting":{"persist":true}},"metadata":{"title":"ConnectionsEl selection -> element UpdateConnectionsView"}},{"source":{"id":"Actor","port":"io"},"target":{"id":"Poll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor io -> in Poll"}},{"source":{"id":"Actor","port":"pm"},"target":{"id":"PMPoll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor pm -> in PMPoll"}},{"source":{"id":"Actor","port":"pm","setting":{"index":"processes"}},"target":{"id":"NodeValues","port":"in"},"metadata":{"title":"Actor pm -> in NodeValues"}},{"source":{"id":"CreateNode","port":"out"},"target":{"id":"UpdateNodeView","port":"element"},"metadata":{"title":"CreateNode out -> element UpdateNodeView"}},{"source":{"id":"NodeValues","port":"out"},"target":{"id":"CreateNode","port":":start","setting":{"cyclic":true}},"metadata":{"title":"NodeValues out -> :start CreateNode"}},{"source":{"id":"NodeValues","port":"out"},"target":{"id":"NodeView","port":"vars","setting":{"cyclic":true}},"metadata":{"title":"NodeValues out -> vars NodeView"}},{"source":{"id":"NodeView","port":"out"},"target":{"id":"UpdateNodeView","port":"html"},"metadata":{"title":"NodeView out -> html UpdateNodeView"}},{"source":{"id":"UpdateNodeView","port":"element"},"target":{"id":"AppendNode","port":"child"},"metadata":{"title":"UpdateNodeView element -> child AppendNode"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"Poll","port":":start"},"metadata":{"title":"MouseMove event -> :start Poll"}},{"source":{"id":"Poll","port":"out"},"target":{"id":"ConnectionsView","port":"vars"},"metadata":{"title":"Poll out -> vars ConnectionsView"}},{"source":{"id":"ConnectionsView","port":"out"},"target":{"id":"UpdateConnectionsView","port":"html"},"metadata":{"title":"ConnectionsView out -> html UpdateConnectionsView"}},{"source":{"id":"MouseClick","port":"event","setting":{"index":"target"}},"target":{"id":"Closest","port":"element"},"metadata":{"title":"MouseClick event -> element Closest"}},{"source":{"id":"Closest","port":"selection"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"Closest selection -> msg Log"}},{"source":{"id":"MouseClick","port":"event"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"MouseClick event -> msg Log"}},{"source":{"id":"KeyboardEvent","port":"event"},"target":{"id":"PMPoll","port":":start"},"metadata":{"title":"KeyboardEvent event -> :start PMPoll"}},{"source":{"id":"PMPoll","port":"out"},"target":{"id":"ProcessManagerView","port":"vars"},"metadata":{"title":"PMPoll out -> vars ProcessManagerView"}},{"source":{"id":"ProcessManagerView","port":"out"},"target":{"id":"UpdateMouseView","port":"html"},"metadata":{"title":"ProcessManagerView out -> html UpdateMouseView"}}],"title":"Mouse event example","id":"MouseExample","providers":{"@":{"url":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}};
+var map = {"type":"flow","nodes":[{"id":"Actor","title":"Actor","ns":"core","name":"actor"},{"id":"MouseMove","title":"MouseMove","ns":"dom","name":"addMouseEvent"},{"id":"MouseClick","title":"MouseClick","ns":"dom","name":"addMouseEvent"},{"id":"KeyboardEvent","title":"KeyboardEvent","ns":"dom","name":"addKeyboardEvent"},{"id":"Closest","title":"Closest","ns":"dom","name":"closest"},{"id":"BodyEl","title":"BodyEl","ns":"dom","name":"querySelector"},{"id":"CanvasEl","title":"CanvasEl","ns":"dom","name":"querySelector"},{"id":"PanelEl","title":"PanelEl","ns":"dom","name":"querySelector"},{"id":"ConnectionsEl","title":"ConnectionsEl","ns":"dom","name":"querySelector"},{"id":"UpdateMouseView","title":"UpdateMouseView","ns":"dom","name":"setHtml"},{"id":"UpdateConnectionsView","title":"UpdateConnectionsView","ns":"dom","name":"setHtml"},{"id":"Log","title":"Log","ns":"console","name":"log"},{"id":"toString","title":"toString","ns":"data","name":"string"},{"id":"MouseView","title":"MouseView","ns":"template","name":"handlebars","context":{"body":"<div>x: {{clientX}}, y: {{clientY}}</div>"}},{"id":"NodeView","title":"NodeView","ns":"template","name":"handlebars","context":{"body":"<div id=\"{{id}}\" class=\"node pull-left {{status}}\">\n  <table>\n    <caption>{{title}}</caption>\n    <tbody>\n      <tr><th>id</th><td>{{id}}</td></tr>\n      <tr><th>pid</th><td>{{pid}}</td></tr>\n      <tr><th>Identifier</th><td>{{identifier}}</td></tr>\n      <tr><th>Title</th><td>{{title}}</td></tr>\n      <tr><th>Input ports</th><td>{{inPorts}}</td></tr>\n      <tr><th>Output ports</th><td>{{outPorts}}</td></tr>\n      <tr><th>Status</th><td>{{status}}</td></tr>\n      <tr><th>Run Count</th><td>{{runCount}}</td></tr>\n      <tr><th>Output Count</th><td>{{outputCount}}</td></tr>\n    </tbody>\n  </table>\n</div>\n"}},{"id":"ConnectionsView","title":"ConnectionsView","ns":"template","name":"handlebars","context":{"body":"<table class=\"table table-striped\">\n  <thead>\n    <tr>\n      <th>Link</th>\n      <th>Fills</th>\n      <th>Rejects</th>\n      <th>Writes</th>\n    </tr>\n  </thead>\n  <tbody>\n    {{#each connections}}\n    <tr>\n      <td>{{this.source.id}} {{this.source.port}} -> {{this.target.port}} {{this.target.id}}</td>\n      <td class=\"success\">fills: {{this.fills}}</td>\n      <td class=\"danger\">rejects: {{this.rejects}}</td>\n      <td class=\"success\">writes: {{this.writes}}</td>\n    </tr>\n    {{/each}}\n  </tbody>\n</table>\n"}},{"id":"ProcessManagerView","title":"ProcessManagerView","ns":"template","name":"handlebars","context":{"body":"{{#each processes}}\n\n  <table class=\"table table-striped\">\n    <tr><th>pid</th><td>{{@key}}</td></tr>\n    <tr><th>Identifier</th><td>{{this.identifier}}</td></tr>\n    <tr><th>Title</th><td>{{this.title}}</td></tr>\n    <tr><th>Input ports</th><td>{{this.inPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Status</th><td>{{this.status}}</td></tr>\n  </table>\n\n{{/each}}\n"}},{"id":"AppendNode","title":"AppendNode","ns":"dom","name":"appendChild"},{"id":"CreateNode","title":"CreateNode","ns":"dom","name":"createElement"},{"id":"UpdateNodeView","title":"UpdateNodeView","ns":"dom","name":"setHtml"},{"id":"Router","title":"Router","ns":"router","name":"client"},{"id":"Poll","title":"Poll","ns":"object","name":"create"},{"id":"PMPoll","title":"PMPoll","ns":"object","name":"create"},{"id":"NodeValues","title":"NodeValues","ns":"object","name":"values"}],"links":[{"source":{"id":"CanvasEl","port":"selection"},"target":{"id":"MouseMove","port":"element"},"metadata":{"title":"CanvasEl selection -> element MouseMove"}},{"source":{"id":"CanvasEl","port":"selection"},"target":{"id":"MouseClick","port":"element"},"metadata":{"title":"CanvasEl selection -> element MouseClick"}},{"source":{"id":"CanvasEl","port":"selection"},"target":{"id":"AppendNode","port":"element","setting":{"persist":true}},"metadata":{"title":"CanvasEl selection -> element AppendNode"}},{"source":{"id":"BodyEl","port":"selection"},"target":{"id":"KeyboardEvent","port":"element"},"metadata":{"title":"BodyEl selection -> element KeyboardEvent"}},{"source":{"id":"Router","port":"out"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"Router out -> msg Log"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"MouseView","port":"vars"},"metadata":{"title":"MouseMove event -> vars MouseView"}},{"source":{"id":"MouseView","port":"out"},"target":{"id":"UpdateMouseView","port":"html"},"metadata":{"title":"MouseView out -> html UpdateMouseView"}},{"source":{"id":"PanelEl","port":"selection"},"target":{"id":"UpdateMouseView","port":"element","setting":{"persist":true}},"metadata":{"title":"PanelEl selection -> element UpdateMouseView"}},{"source":{"id":"ConnectionsEl","port":"selection"},"target":{"id":"UpdateConnectionsView","port":"element","setting":{"persist":true}},"metadata":{"title":"ConnectionsEl selection -> element UpdateConnectionsView"}},{"source":{"id":"Actor","port":"io"},"target":{"id":"Poll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor io -> in Poll"}},{"source":{"id":"Actor","port":"pm"},"target":{"id":"PMPoll","port":"in","setting":{"persist":true}},"metadata":{"title":"Actor pm -> in PMPoll"}},{"source":{"id":"Actor","port":"pm","setting":{"index":"processes"}},"target":{"id":"NodeValues","port":"in"},"metadata":{"title":"Actor pm -> in NodeValues"}},{"source":{"id":"CreateNode","port":"out"},"target":{"id":"UpdateNodeView","port":"element"},"metadata":{"title":"CreateNode out -> element UpdateNodeView"}},{"source":{"id":"NodeValues","port":"out"},"target":{"id":"CreateNode","port":":start","setting":{"cyclic":true}},"metadata":{"title":"NodeValues out -> :start CreateNode"}},{"source":{"id":"NodeValues","port":"out"},"target":{"id":"NodeView","port":"vars","setting":{"cyclic":true}},"metadata":{"title":"NodeValues out -> vars NodeView"}},{"source":{"id":"NodeView","port":"out"},"target":{"id":"UpdateNodeView","port":"html"},"metadata":{"title":"NodeView out -> html UpdateNodeView"}},{"source":{"id":"UpdateNodeView","port":"element"},"target":{"id":"AppendNode","port":"child"},"metadata":{"title":"UpdateNodeView element -> child AppendNode"}},{"source":{"id":"MouseMove","port":"event"},"target":{"id":"Poll","port":":start"},"metadata":{"title":"MouseMove event -> :start Poll"}},{"source":{"id":"Poll","port":"out"},"target":{"id":"ConnectionsView","port":"vars"},"metadata":{"title":"Poll out -> vars ConnectionsView"}},{"source":{"id":"ConnectionsView","port":"out"},"target":{"id":"UpdateConnectionsView","port":"html"},"metadata":{"title":"ConnectionsView out -> html UpdateConnectionsView"}},{"source":{"id":"MouseClick","port":"event","setting":{"index":"target"}},"target":{"id":"Closest","port":"element"},"metadata":{"title":"MouseClick event -> element Closest"}},{"source":{"id":"Closest","port":"selection"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"Closest selection -> msg Log"}},{"source":{"id":"MouseClick","port":"event"},"target":{"id":"Log","port":"msg"},"metadata":{"title":"MouseClick event -> msg Log"}},{"source":{"id":"KeyboardEvent","port":"event"},"target":{"id":"PMPoll","port":":start"},"metadata":{"title":"KeyboardEvent event -> :start PMPoll"}},{"source":{"id":"PMPoll","port":"out"},"target":{"id":"ProcessManagerView","port":"vars"},"metadata":{"title":"PMPoll out -> vars ProcessManagerView"}},{"source":{"id":"ProcessManagerView","port":"out"},"target":{"id":"UpdateMouseView","port":"html"},"metadata":{"title":"ProcessManagerView out -> html UpdateMouseView"}}],"title":"Mouse event example","id":"MouseExample","providers":{"@":{"url":"https://serve-chix.rhcloud.com/nodes/{ns}/{name}"}}};
 
 var actor;
 window.Actor = actor = Flow.create(map, loader);
@@ -25534,7 +25209,7 @@ window.Actor = actor = Flow.create(map, loader);
 function onDeviceReady() {
 actor.run();
 actor.push();
-actor.sendIIPs([{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"BodyEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector BodyEl"},"data":"body"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"PanelEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector PanelEl"},"data":"#panel"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"ConnectionsEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector ConnectionsEl"},"data":"#connections"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"CanvasEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector CanvasEl"},"data":"#canvas"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"MouseMove","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseMove"},"data":"mousemove"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"MouseClick","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseClick"},"data":"click"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"KeyboardEvent","port":"event"},"metadata":{"title":"Mouse event example :iip -> event KeyboardEvent"},"data":"keydown"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"MouseView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body MouseView"},"data":"<div>x: {{clientX}}, y: {{clientY}}</div>"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"ConnectionsView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body ConnectionsView"},"data":"<table class=\"table table-striped\">\n  <thead>\n    <tr>\n      <th>Link</th>\n      <th>Fills</th>\n      <th>Rejects</th>\n      <th>Writes</th>\n    </tr>\n  </thead>\n  <tbody>\n    {{#each connections}}\n    <tr>\n      <td>{{this.source.id}} {{this.source.port}} -> {{this.target.port}} {{this.target.id}}</td>\n      <td class=\"success\">fills: {{this.fills}}</td>\n      <td class=\"danger\">rejects: {{this.rejects}}</td>\n      <td class=\"success\">writes: {{this.writes}}</td>\n    </tr>\n    {{/each}}\n  </tbody>\n</table>\n"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"NodeView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body NodeView"},"data":"<div id=\"{{id}}\" class=\"node pull-left {{status}}\">\n  <table>\n    <caption>{{title}}</caption>\n    <tbody>\n      <tr><th>id</th><td>{{id}}</td></tr>\n      <tr><th>pid</th><td>{{pid}}</td></tr>\n      <tr><th>Identifier</th><td>{{identifier}}</td></tr>\n      <tr><th>Title</th><td>{{title}}</td></tr>\n      <tr><th>Input ports</th><td>{{inPorts}}</td></tr>\n      <tr><th>Output ports</th><td>{{outPorts}}</td></tr>\n      <tr><th>Status</th><td>{{status}}</td></tr>\n    </tbody>\n  </table>\n</div>\n"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"ProcessManagerView","port":"body","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> body ProcessManagerView"},"data":"{{#each processes}}\n\n  <table class=\"table table-striped\">\n    <tr><th>pid</th><td>{{@key}}</td></tr>\n    <tr><th>Identifier</th><td>{{this.identifier}}</td></tr>\n    <tr><th>Title</th><td>{{this.title}}</td></tr>\n    <tr><th>Input ports</th><td>{{this.inPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Output ports</th><td>{{this.outPorts}}</td></tr>\n    <tr><th>Status</th><td>{{this.status}}</td></tr>\n  </table>\n\n{{/each}}\n"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"Router","port":"routes"},"metadata":{"title":"Mouse event example :iip -> routes Router"},"data":["/items","/#/items"]},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"Actor","port":":start"},"metadata":{"title":"Mouse event example :iip -> :start Actor"},"data":""},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"CreateNode","port":"in"},"metadata":{"title":"Mouse event example :iip -> in CreateNode"},"data":"div"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"Closest","port":"selector","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> selector Closest"},"data":".node"}]);
+actor.sendIIPs([{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"BodyEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector BodyEl"},"data":"body"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"PanelEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector PanelEl"},"data":"#panel"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"ConnectionsEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector ConnectionsEl"},"data":"#connections"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"CanvasEl","port":"selector"},"metadata":{"title":"Mouse event example :iip -> selector CanvasEl"},"data":"#canvas"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"MouseMove","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseMove"},"data":"mousemove"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"MouseClick","port":"event"},"metadata":{"title":"Mouse event example :iip -> event MouseClick"},"data":"click"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"KeyboardEvent","port":"event"},"metadata":{"title":"Mouse event example :iip -> event KeyboardEvent"},"data":"keydown"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"Router","port":"routes"},"metadata":{"title":"Mouse event example :iip -> routes Router"},"data":["/items","/#/items"]},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"Actor","port":":start"},"metadata":{"title":"Mouse event example :iip -> :start Actor"},"data":""},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"CreateNode","port":"in"},"metadata":{"title":"Mouse event example :iip -> in CreateNode"},"data":"div"},{"source":{"id":"MouseExample","port":":iip"},"target":{"id":"Closest","port":"selector","setting":{"persist":true}},"metadata":{"title":"Mouse event example :iip -> selector Closest"},"data":".node"}]);
 
 };
 
@@ -25548,6 +25223,4 @@ if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/))
 // as long as this module is loaded.
 module.exports = actor;
 
-},{"chix-flow":"jXAsbI"}],"mouse":[function(require,module,exports){
-module.exports=require('QCA6vm');
-},{}]},{},["QCA6vm"])
+},{"chix-flow":"jXAsbI"}]},{},["QCA6vm"])
