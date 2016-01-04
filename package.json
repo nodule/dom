@@ -12,10 +12,18 @@
     "node": ">=0.6.0"
   },
   "scripts": {
-    "test": "chit -r"
+    "test": "chit -r",
+    "deploy": "gh-pages-deploy",
+    "clean-source": "rimraf *.js graphs nodes"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "example",
+    "noprompt": true
   },
   "devDependencies": {
-    "chit": "0.x.x"
+    "chit": "0.x.x",
+    "gh-pages-deploy": "^0.4.0",
+    "rimraf": "^2.5.0"
   },
   "chix": {
     "name": "dom",
