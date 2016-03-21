@@ -1,6 +1,6 @@
-on.input.element = function(data) {
+on.input.element = function() {
   output({
-    element: data,
-    out: data.value // never ownProperty...
+    element: input.element,
+    out: input.element.value // never ownProperty...
   });
 };

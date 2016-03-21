@@ -1,6 +1,6 @@
 on.input.element = function() {
   output( {
-    element: data,
-    text: data.innerText
+    element: input.element,
+    text: input.element.innerText
   } );
 }

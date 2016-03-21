@@ -1,4 +1,4 @@
-on.input.html = function(data) {
-  input.element.innerHTML = data;
+on.input.html = function() {
+  input.element.innerHTML = input.html;
   output({ element: input.element });
 };

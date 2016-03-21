@@ -1,4 +1,4 @@
-on.input.element = function(data) {
-  data.style.display = data.style.display === 'none' ? 'block' : 'none';
-  output({ element: data });
+on.input.element = function() {
+  input.element.style.display = input.element.style.display === 'none' ? 'block' : 'none';
+  output({ element: input.element });
 };

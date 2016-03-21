@@ -1,4 +1,4 @@
-on.input.element = function(data) {
-  data.style.display = 'none';
-  output({ element: data });
+on.input.element = function() {
+  input.element.style.display = 'none';
+  output({ element: input.element });
 };

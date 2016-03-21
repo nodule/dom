@@ -1,6 +1,6 @@
 on.input.element = function() {
-  data.setAttribute(input.attribute, input.value);
+  input.element.setAttribute(input.attribute, input.value);
   output( {
-    element: data
+    element: input.element
   });
 }

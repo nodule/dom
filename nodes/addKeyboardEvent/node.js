@@ -11,7 +11,7 @@ state.clickHandler = function(ev) {
 };
 
 on.input.in = function() {
-  state.in = data;
+  state.in = input.in;
 };
 
 on.input.element = function() {

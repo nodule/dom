@@ -1,3 +1,3 @@
 on.input.message = function() {
-  alert(data);
+  alert(input.message);
 };

@@ -3,5 +3,5 @@ on.input.src = function() {
   img.onload = function() {
     output( { image: this } );
   }.bind(img);
-  img.src = data;
+  img.src = input.src;
 }
