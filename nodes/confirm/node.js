@@ -1,6 +1,6 @@
-var r = confirm(input.message);
+var r = confirm($.message);
 if (r) {
-  output.yes = input.in;
+  output.yes = $.in;
 } else {
-  output.no = input.in;
+  output.no = $.in;
 }

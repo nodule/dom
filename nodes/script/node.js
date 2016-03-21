@@ -1,5 +1,5 @@
 output = function() {
-  scriptjs(input.in, function() {
+  scriptjs($.in, function() {
     cb({ out: true });
   });
 };

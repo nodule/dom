@@ -1,8 +1,8 @@
-var rect = input.element.getBoundingClientRect();
+var rect = $.element.getBoundingClientRect();
 output = {
-  element: input.element,
-  left: rect.left + input.win.pageXOffset,
-  top: rect.top + input.win.pageYOffset,
+  element: $.element,
+  left: rect.left + $.win.pageXOffset,
+  top: rect.top + $.win.pageYOffset,
   width: rect.width,
   height: rect.height
 };

@@ -1,3 +1,3 @@
-input.element.value = input.in
-output.element = input.element
-output.out = input.in
+$.element.value = $.in
+output.element = $.element
+output.out = $.in

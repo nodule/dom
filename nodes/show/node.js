@@ -1,4 +1,4 @@
 on.input.element = function() {
-  input.element.style.display = 'block';
-  output({ element: input.element });
+  $.element.style.display = 'block';
+  output({ element: $.element });
 };

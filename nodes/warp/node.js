@@ -1,3 +1,3 @@
 output = {
-  window: document.querySelector(input.selector).contentWindow
+  window: document.querySelector($.selector).contentWindow
 }

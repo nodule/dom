@@ -1,6 +1,6 @@
 on.input.element = function() {
   output( {
-    element: input.element,
-    html: input.element.innerHTML
+    element: $.element,
+    html: $.element.innerHTML
   } );
 }

@@ -5,7 +5,7 @@ on.input.url = function() {
 
   link.rel  = 'stylesheet';
   link.type = 'text/css';
-  link.href = input.url;
+  link.href = $.url;
   head.appendChild(link);
 
   output({

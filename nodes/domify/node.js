@@ -1,1 +1,1 @@
-output.out = domify(input.in);
+output.out = domify($.in);

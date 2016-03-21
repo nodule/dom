@@ -1,4 +1,4 @@
-var kb = new keyboard(input.element);
+var kb = new keyboard($.element);
 
 // todo: should be async, output is mixed now. see the docs.
-output = [kb, 'on', input.in, input.filter];
+output = [kb, 'on', $.in, $.filter];

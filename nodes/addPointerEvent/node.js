@@ -11,7 +11,7 @@ state.clickHandler = function(ev) {
 };
 
 on.input.in = function() {
-  state.in = input.in;
+  state.in = $.in;
 };
 
 on.input.element = function() {
@@ -20,10 +20,10 @@ on.input.element = function() {
   if(state.el) {
     state.el.removeEventListener(state.event);
   }
-  state.el = input.element;
-  state.event = input.event;
-  state.preventDefault = input.preventDefault;
+  state.el = $.element;
+  state.event = $.event;
+  state.preventDefault = $.preventDefault;
 
-  state.el.addEventListener(input.event, state.clickHandler, false);
-  output({element: input.element});
+  state.el.addEventListener($.event, state.clickHandler, false);
+  output({element: $.element});
 };

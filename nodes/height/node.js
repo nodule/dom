@@ -1,4 +1,4 @@
 output = {
-  element: input.element,
-  height: input.element.getBoundingClientRect().height
+  element: $.element,
+  height: $.element.getBoundingClientRect().height
 };

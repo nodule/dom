@@ -1,2 +1,2 @@
-input.element.innerText = input.text;
-output = { element: input.element };
+$.element.innerText = $.text;
+output = { element: $.element };

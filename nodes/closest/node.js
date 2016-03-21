@@ -1,13 +1,13 @@
 on.input.element = function() {
   var sel = discore_closest(
-    input.element, input.selector, input.checkSelf,
-    input.within || document
+    $.element, $.selector, $.checkSelf,
+    $.within || document
   );
-  var res = { element: input.element};
+  var res = { element: $.element};
   if (sel) {
     res.selection = sel;
   } else {
-    res.error = new Error('Selector didn\'t match:' + input.selector);
+    res.error = new Error('Selector didn\'t match:' + $.selector);
   }
 
   output(res);
