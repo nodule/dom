@@ -1,5 +1,5 @@
 win = $.window || win;
 output = {
-  document: win.document,
-  window: win
+  document: $.create(win.document),
+  window: $.create(win)
 }

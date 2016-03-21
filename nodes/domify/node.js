@@ -1,1 +1,1 @@
-output.out = domify($.in);
+output.out = $.write('in', domify($.in));

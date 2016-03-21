@@ -1,3 +1,3 @@
 on.input.in = function() {
-  output( { out: document.createElement($.in) });
+  output( { out: $.write('in', document.createElement($.in)) });
 }

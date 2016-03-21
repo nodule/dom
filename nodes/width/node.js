@@ -1,4 +1,4 @@
 output = {
-  element: $.element,
-  width: $.element.getBoundingClientRect().width
+  element: $.get('element'),
+  width: $.create($.element.getBoundingClientRect().width)
 };

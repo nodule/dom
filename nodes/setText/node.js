@@ -1,2 +1,2 @@
 $.element.innerText = $.text;
-output = { element: $.element };
+output = { element: $.get('element') };

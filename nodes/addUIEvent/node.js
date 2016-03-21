@@ -5,8 +5,8 @@ state.preventDefault = null;
 state.clickHandler = function(ev) {
   if(state.preventDefault) ev.preventDefault();
   output({
-    out: state.in,
-    event: ev
+    out: $.clone('in', state.in),
+    event: $.create(ev)
   });
 };
 
@@ -25,5 +25,5 @@ on.input.element = function() {
   state.preventDefault = $.preventDefault;
 
   state.el.addEventListener($.event, state.clickHandler, false);
-  output({element: $.element});
+  output({element: $.get('element')});
 };

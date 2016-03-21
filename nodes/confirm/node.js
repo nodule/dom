@@ -1,6 +1,6 @@
 var r = confirm($.message);
 if (r) {
-  output.yes = $.in;
+  output.yes = $.get('in');
 } else {
-  output.no = $.in;
+  output.no = $.get('in');
 }

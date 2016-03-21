@@ -1,6 +1,6 @@
 on.input.element = function() {
   output({
-    element: $.element,
-    out: $.element.value // never ownProperty...
+    element: $.get('element'),
+    out: $.create($.element.value) // never ownProperty...
   });
 };

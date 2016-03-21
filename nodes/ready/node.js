@@ -1,5 +1,5 @@
 output = function() {
   domready(function() {
-    cb({ out: true });
+    cb({ out: $.create(true) });
   });
 };

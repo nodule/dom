@@ -1,10 +1,18 @@
-var el = $.element ? $.element : document;
-output = {
-  element: el
-};
+var el;
+if ($.element) {
+  el = $.element
+  output = {
+    element: $.get('element')
+  };
+} else {
+  el = document
+  output = {
+    element: $.create(el)
+  };
+}
 var selection = el.querySelectorAll($.selector);
 if(selection) {
-  output.selection = selection;
+  output.selection = $.create(selection);
 } else {
-  output.error = Error('Selector ' + $.selector + ' did not match');
+  output.error = $.create(Error('Selector ' + $.selector + ' did not match'));
 }

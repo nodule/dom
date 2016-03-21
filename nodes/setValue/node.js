@@ -1,3 +1,3 @@
 $.element.value = $.in
-output.element = $.element
-output.out = $.in
+output.element = $.get('element')
+output.out = $.get('in')

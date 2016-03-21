@@ -1,6 +1,6 @@
 on.input.element = function() {
   output( {
-    element: $.element,
-    text: $.element.innerText
+    element: $.get('element'),
+    text: $.create($.element.innerText)
   } );
 }

@@ -1,5 +1,4 @@
 on.input.url = function() {
-
   var head = document.head || document.getElementsByTagName('head')[0];
   var link = document.createElement('link');
 
@@ -9,8 +8,7 @@ on.input.url = function() {
   head.appendChild(link);
 
   output({
-    head: head,
-    link: link
+    head: $.create(head),
+    link: $.create(link)
   });
-
 };

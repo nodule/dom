@@ -1,4 +1,4 @@
 on.input.html = function() {
   $.element.innerHTML = $.html;
-  output({ element: $.element });
+  output({ element: $.get('element') });
 };

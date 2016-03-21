@@ -3,13 +3,12 @@ on.input.element = function() {
     $.element, $.selector, $.checkSelf,
     $.within || document
   );
-  var res = { element: $.element};
+  var res = { element: $.get('element')};
   if (sel) {
-    res.selection = sel;
+    res.selection = $.create(sel);
   } else {
-    res.error = new Error('Selector didn\'t match:' + $.selector);
+    res.error = $.create(new Error('Selector didn\'t match:' + $.selector));
   }
 
   output(res);
-
 };

@@ -1,8 +1,6 @@
 on.input.child = function() {
-
   output( {
-    element: $.element,
-    out: $.element.appendChild($.child)
+    element: $.get('element'),
+    out: $.create($.element.appendChild($.child))
   } );
-
 }

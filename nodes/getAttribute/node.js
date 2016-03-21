@@ -1,6 +1,6 @@
 on.input.element = function() {
   output( {
-    element: $.element,
-    attribute: $.element.getAttribute($.attribute)
+    element: $.get('element'),
+    attribute: $.create($.element.getAttribute($.attribute))
   });
 }
