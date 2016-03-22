@@ -1,10 +1,10 @@
 module.exports = {
-  name: "show",
+  name: "getValue",
   ns: "dom",
   async: true,
-  description: "dom show",
+  description: "Take value from an input element",
   phrases: {
-    active: "Showing"
+    active: "Reading value from {input.element.name}"
   },
   ports: {
     input: {
@@ -14,9 +14,9 @@ module.exports = {
         async: true,
         fn: function __ELEMENT__(data, x, source, state, input, output) {
           var r = function() {
-            $.element.style.display = 'block';
             output({
-              element: $.get('element')
+              element: $.get('element'),
+              out: $.create($.element.value) // never ownProperty...
             });
           }.call(this);
           return {
@@ -30,6 +30,10 @@ module.exports = {
       element: {
         type: "HTMLElement",
         title: "Dom Element"
+      },
+      out: {
+        type: "string",
+        title: "Value"
       }
     }
   },

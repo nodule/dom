@@ -19,9 +19,9 @@ module.exports = {
         async: true,
         fn: function __HTML__(data, x, source, state, input, output) {
           var r = function() {
-            input.element.innerHTML = data;
+            $.element.innerHTML = $.html;
             output({
-              element: input.element
+              element: $.get('element')
             });
           }.call(this);
           return {

@@ -16,9 +16,9 @@ module.exports = {
         async: true,
         fn: function __ELEMENT__(data, x, source, state, input, output, document) {
           var r = function() {
-            data.setAttribute(input.attribute, input.value);
+            $.element.setAttribute($.attribute, $.value);
             output({
-              element: data
+              element: $.get('element')
             });
           }.call(this);
           return {

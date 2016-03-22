@@ -25,12 +25,12 @@ module.exports = {
       }
     }
   },
-  fn: function document(input, output, state, done, cb, on, win) {
+  fn: function document(input, $, output, state, done, cb, on, win) {
     var r = function() {
-      win = input.window || win;
+      win = $.window || win;
       output = {
-        document: win.document,
-        window: win
+        document: $.create(win.document),
+        window: $.create(win)
       }
     }.call(this);
     return {

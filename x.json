@@ -7,6 +7,7 @@
     "url": "https://github.com/nodule/dom.git"
   },
   "dependencies": {
+    "alert": "0.0.2",
     "discore-closest": "^0.2.0",
     "domify": "1.x.x",
     "domready": "1.x.x",
@@ -69,7 +70,7 @@
       "description": "Add Form Event Listener",
       "ns": "dom",
       "name": "addFormEvent",
-      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n"
+      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
       "ports": {
@@ -122,7 +123,7 @@
       "description": "Add Keyboard Event Listener",
       "ns": "dom",
       "name": "addKeyboardEvent",
-      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n"
+      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
       "ports": {
@@ -186,7 +187,7 @@
       "description": "Add Mouse Event Listener",
       "ns": "dom",
       "name": "addMouseEvent",
-      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n"
+      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
       "ports": {
@@ -243,7 +244,7 @@
       "description": "Add Mutation Event Listener",
       "ns": "dom",
       "name": "addMutationEvent",
-      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n"
+      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
       "ports": {
@@ -303,7 +304,7 @@
       "description": "Add Pointer Event Listener",
       "ns": "dom",
       "name": "addPointerEvent",
-      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n"
+      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
       "ports": {
@@ -328,7 +329,7 @@
       "async": true,
       "ns": "dom",
       "name": "addScript",
-      "fn": "on.input.url = function() {\n  load_script.load(data, function() {\n\n  });\n};\n"
+      "fn": "on.input.url = function() {\n  load_script.load($.url, function() {\n\n  });\n};\n"
     },
     {
       "ports": {
@@ -358,7 +359,7 @@
       "async": true,
       "ns": "dom",
       "name": "addStylesheet",
-      "fn": "on.input.url = function() {\n\n  var head = document.head || document.getElementsByTagName('head')[0];\n  var link = document.createElement('link');\n\n  link.rel  = 'stylesheet';\n  link.type = 'text/css';\n  link.href = data;\n  head.appendChild(link);\n\n  output({\n    head: head,\n    link: link\n  });\n\n};\n"
+      "fn": "on.input.url = function() {\n  var head = document.head || document.getElementsByTagName('head')[0];\n  var link = document.createElement('link');\n\n  link.rel  = 'stylesheet';\n  link.type = 'text/css';\n  link.href = $.url;\n  head.appendChild(link);\n\n  output({\n    head: $.create(head),\n    link: $.create(link)\n  });\n};\n"
     },
     {
       "ports": {
@@ -414,7 +415,7 @@
       "description": "Add Touch Event Listener",
       "ns": "dom",
       "name": "addTouchEvent",
-      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n"
+      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
       "ports": {
@@ -467,7 +468,7 @@
       "description": "Add UI Event Listener",
       "ns": "dom",
       "name": "addUIEvent",
-      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: state.in,\n    event: ev\n  });\n};\n\non.input.in = function() {\n  state.in = data;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = input.element;\n  state.event = input.event;\n  state.preventDefault = input.preventDefault;\n\n  state.el.addEventListener(input.event, state.clickHandler, false);\n  output({element: input.element});\n};\n"
+      "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
       "ports": {
@@ -486,7 +487,7 @@
       "title": "Alert",
       "ns": "dom",
       "name": "alert",
-      "fn": "on.input.message = function() {\n  alert(data);\n};\n"
+      "fn": "on.input.message = function() {\n  alert($.message);\n};\n"
     },
     {
       "ports": {
@@ -518,7 +519,7 @@
       "description": "dom appendChild",
       "ns": "dom",
       "name": "appendChild",
-      "fn": "on.input.child = function() {\n\n  output( {\n    element: input.element,\n    out: input.element.appendChild(data)\n  } );\n\n}\n"
+      "fn": "on.input.child = function() {\n  output( {\n    element: $.get('element'),\n    out: $.create($.element.appendChild($.child))\n  } );\n}\n"
     },
     {
       "ports": {
@@ -578,7 +579,7 @@
       "title": "Closest",
       "ns": "dom",
       "name": "closest",
-      "fn": "on.input.element = function(data) {\n  var sel = discore_closest(\n    data, input.selector, input.checkSelf,\n    input.within || document\n  );\n  var res = { element: data };\n  if (sel) {\n    res.selection = sel;\n  } else {\n    res.error = new Error('Selector didn\\'t match:' + input.selector);\n  }\n\n  output(res);\n\n};\n"
+      "fn": "on.input.element = function() {\n  var sel = discore_closest(\n    $.element, $.selector, $.checkSelf,\n    $.within || document\n  );\n  var res = { element: $.get('element')};\n  if (sel) {\n    res.selection = $.create(sel);\n  } else {\n    res.error = $.create(new Error('Selector didn\\'t match:' + $.selector));\n  }\n\n  output(res);\n};\n"
     },
     {
       "ports": {
@@ -612,7 +613,7 @@
       "title": "Confirm",
       "ns": "dom",
       "name": "confirm",
-      "fn": "var r = confirm(input.message);\nif (r) {\n  output.yes = input.in;\n} else {\n  output.no = input.in;\n}\n"
+      "fn": "var r = confirm($.message);\nif (r) {\n  output.yes = $.get('in');\n} else {\n  output.no = $.get('in');\n}\n"
     },
     {
       "ports": {
@@ -637,7 +638,7 @@
       "async": true,
       "ns": "dom",
       "name": "createElement",
-      "fn": "on.input.in = function() {\n  output( { out: document.createElement(data) });\n}\n"
+      "fn": "on.input.in = function() {\n  output( { out: $.write('in', document.createElement($.in)) });\n}\n"
     },
     {
       "ports": {
@@ -668,7 +669,7 @@
       "description": "dom document",
       "ns": "dom",
       "name": "document",
-      "fn": "win = input.window || win;\noutput = {\n  document: win.document,\n  window: win\n}\n"
+      "fn": "win = $.window || win;\noutput = {\n  document: $.create(win.document),\n  window: $.create(win)\n}\n"
     },
     {
       "dependencies": {
@@ -702,7 +703,7 @@
       "title": "Domify",
       "ns": "dom",
       "name": "domify",
-      "fn": "output.out = domify(input.in);\n"
+      "fn": "output.out = $.write('in', domify($.in));\n"
     },
     {
       "ports": {
@@ -738,7 +739,7 @@
       "title": "Get Attribute",
       "ns": "dom",
       "name": "getAttribute",
-      "fn": "on.input.element = function() {\n  output( {\n    element: data,\n    attribute: data.getAttribute(input.attribute)\n  });\n}\n"
+      "fn": "on.input.element = function() {\n  output( {\n    element: $.get('element'),\n    attribute: $.create($.element.getAttribute($.attribute))\n  });\n}\n"
     },
     {
       "ports": {
@@ -767,7 +768,7 @@
       "title": "getElementById",
       "ns": "dom",
       "name": "getElementById",
-      "fn": "on.input.id = function() {\n  output( { element: document.getElementById(data) } );\n}\n"
+      "fn": "on.input.id = function() {\n  output( { element: $.create(document.getElementById($.id)) } );\n}\n"
     },
     {
       "ports": {
@@ -798,7 +799,7 @@
       "async": true,
       "ns": "dom",
       "name": "getHtml",
-      "fn": "on.input.element = function() {\n  output( {\n    element: data,\n    html: data.innerHTML\n  } );\n}\n"
+      "fn": "on.input.element = function() {\n  output( {\n    element: $.get('element'),\n    html: $.create($.element.innerHTML)\n  } );\n}\n"
     },
     {
       "ports": {
@@ -828,7 +829,7 @@
       "async": true,
       "ns": "dom",
       "name": "getText",
-      "fn": "on.input.element = function() {\n  output( {\n    element: data,\n    text: data.innerText\n  } );\n}\n"
+      "fn": "on.input.element = function() {\n  output( {\n    element: $.get('element'),\n    text: $.create($.element.innerText)\n  } );\n}\n"
     },
     {
       "ports": {
@@ -857,7 +858,7 @@
       "async": true,
       "ns": "dom",
       "name": "getValue",
-      "fn": "on.input.element = function(data) {\n  output({\n    element: data,\n    out: data.value // never ownProperty...\n  });\n};\n"
+      "fn": "on.input.element = function() {\n  output({\n    element: $.get('element'),\n    out: $.create($.element.value) // never ownProperty...\n  });\n};\n"
     },
     {
       "ports": {
@@ -884,7 +885,7 @@
       "description": "dom height",
       "ns": "dom",
       "name": "height",
-      "fn": "output = {\n  element: input.element,\n  height: input.element.getBoundingClientRect().height\n};\n"
+      "fn": "output = {\n  element: $.get('element'),\n  height: $.create($.element.getBoundingClientRect().height)\n};\n"
     },
     {
       "ports": {
@@ -909,7 +910,7 @@
       "async": true,
       "ns": "dom",
       "name": "hide",
-      "fn": "on.input.element = function(data) {\n  data.style.display = 'none';\n  output({ element: data });\n};\n"
+      "fn": "on.input.element = function() {\n  $.element.style.display = 'none';\n  output({ element: $.get('element') });\n};\n"
     },
     {
       "ports": {
@@ -934,7 +935,7 @@
       "async": true,
       "ns": "dom",
       "name": "image",
-      "fn": "on.input.src = function() {\n  var img = new Image();\n  img.onload = function() {\n    output( { image: this } );\n  }.bind(img);\n  img.src = data;\n}\n"
+      "fn": "on.input.src = function() {\n  var img = new Image();\n  img.onload = function() {\n    output( { image: $.create(this) } );\n  }.bind(img);\n  img.src = $.src;\n}\n"
     },
     {
       "dependencies": {
@@ -982,7 +983,7 @@
       "description": "Gives the keyboard a first class identity, normalizes keyboard events across browsers, and allows binding to multiple keys.",
       "ns": "dom",
       "name": "keyboard",
-      "fn": "var kb = new keyboard(input.element);\n\n// todo: should be async, output is mixed now. see the docs.\noutput = [kb, 'on', input.in, input.filter];\n"
+      "fn": "var kb = new keyboard($.element);\n\n// todo: should be async, output is mixed now. see the docs.\noutput = [kb, 'on', $.in, $.filter];\n"
     },
     {
       "ports": {
@@ -1025,7 +1026,7 @@
       "description": "dom offset",
       "ns": "dom",
       "name": "offset",
-      "fn": "var rect = input.element.getBoundingClientRect();\noutput = {\n  element: input.element,\n  left: rect.left + input.win.pageXOffset,\n  top: rect.top + input.win.pageYOffset,\n  width: rect.width,\n  height: rect.height\n};\n"
+      "fn": "var rect = $.element.getBoundingClientRect();\noutput = {\n  element: $.get('element'),\n  left: $.create(rect.left + $.win.pageXOffset),\n  top: $.create(rect.top + $.win.pageYOffset),\n  width: $.create(rect.width),\n  height: $.create(rect.height)\n};\n"
     },
     {
       "ports": {
@@ -1065,7 +1066,7 @@
       "title": "querySelector",
       "ns": "dom",
       "name": "querySelector",
-      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\n\nvar selection = el.querySelector(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n"
+      "fn": "var el;\nif ($.element) {\n  el = $.element;\n  output = {\n    element: $.get('element') \n  };\n} else {\n  el = document;\n  output = {\n    element: $.create(el) \n  };\n}\n\nvar selection = el.querySelector($.selector);\nif(selection) {\n  output.selection = $.create(selection);\n} else {\n  output.error = $.create(Error('Selector ' + $.selector + ' did not match'));\n}\n"
     },
     {
       "ports": {
@@ -1107,7 +1108,7 @@
       "title": "querySelectorAll",
       "ns": "dom",
       "name": "querySelectorAll",
-      "fn": "var el = input.element ? input.element : document;\noutput = {\n  element: el\n};\nvar selection = el.querySelectorAll(input.selector);\nif(selection) {\n  output.selection = selection;\n} else {\n  output.error = Error('Selector ' + input.selector + ' did not match');\n}\n"
+      "fn": "var el;\nif ($.element) {\n  el = $.element\n  output = {\n    element: $.get('element')\n  };\n} else {\n  el = document\n  output = {\n    element: $.create(el)\n  };\n}\nvar selection = el.querySelectorAll($.selector);\nif(selection) {\n  output.selection = $.create(selection);\n} else {\n  output.error = $.create(Error('Selector ' + $.selector + ' did not match'));\n}\n"
     },
     {
       "dependencies": {
@@ -1131,7 +1132,7 @@
       "title": "Dom Ready",
       "ns": "dom",
       "name": "ready",
-      "fn": "output = function() {\n  domready(function() {\n    cb({ out: true });\n  });\n};\n"
+      "fn": "output = function() {\n  domready(function() {\n    cb({ out: $.create(true) });\n  });\n};\n"
     },
     {
       "dependencies": {
@@ -1164,7 +1165,7 @@
       "description": "Asyncronous JavaScript loader and dependency manager",
       "ns": "dom",
       "name": "script",
-      "fn": "output = function() {\n  scriptjs(input.in, function() {\n    cb({ out: true });\n  });\n};\n"
+      "fn": "output = function() {\n  scriptjs($.in, function() {\n    cb({ out: $.get('in') });\n  });\n};\n"
     },
     {
       "ports": {
@@ -1200,7 +1201,7 @@
       "title": "Set Attribute",
       "ns": "dom",
       "name": "setAttribute",
-      "fn": "on.input.element = function() {\n  data.setAttribute(input.attribute, input.value);\n  output( {\n    element: data\n  });\n}\n"
+      "fn": "on.input.element = function() {\n  $.element.setAttribute($.attribute, $.value);\n  output( {\n    element: $.get('element')\n  });\n}\n"
     },
     {
       "ports": {
@@ -1230,7 +1231,7 @@
       "description": "dom setHtml",
       "ns": "dom",
       "name": "setHtml",
-      "fn": "on.input.html = function(data) {\n  input.element.innerHTML = data;\n  output({ element: input.element });\n};\n"
+      "fn": "on.input.html = function() {\n  $.element.innerHTML = $.html;\n  output({ element: $.get('element') });\n};\n"
     },
     {
       "ports": {
@@ -1257,7 +1258,7 @@
       "description": "dom setText",
       "ns": "dom",
       "name": "setText",
-      "fn": "input.element.innerText = input.text;\noutput = { element: input.element };\n"
+      "fn": "$.element.innerText = $.text;\noutput = { element: $.get('element') };\n"
     },
     {
       "ports": {
@@ -1289,7 +1290,7 @@
       "description": "Set value of an input element",
       "ns": "dom",
       "name": "setValue",
-      "fn": "input.element.value = input.in\noutput.element = input.element\noutput.out = input.in\n"
+      "fn": "$.element.value = $.in\noutput.element = $.get('element')\noutput.out = $.get('in')\n"
     },
     {
       "ports": {
@@ -1314,7 +1315,7 @@
       "async": true,
       "ns": "dom",
       "name": "show",
-      "fn": "on.input.element = function(data) {\n  data.style.display = 'block';\n  output({ element: data });\n};\n"
+      "fn": "on.input.element = function() {\n  $.element.style.display = 'block';\n  output({ element: $.get('element') });\n};\n"
     },
     {
       "ports": {
@@ -1339,7 +1340,7 @@
       "async": true,
       "ns": "dom",
       "name": "toggle",
-      "fn": "on.input.element = function(data) {\n  data.style.display = data.style.display === 'none' ? 'block' : 'none';\n  output({ element: data });\n};\n"
+      "fn": "on.input.element = function() {\n  $.element.style.display = $.element.style.display === 'none' ? 'block' : 'none';\n  output({ element: $.get('element') });\n};\n"
     },
     {
       "ports": {
@@ -1368,7 +1369,7 @@
       "description": "dom warp",
       "ns": "dom",
       "name": "warp",
-      "fn": "output = {\n  window: document.querySelector(input.selector).contentWindow\n}\n"
+      "fn": "output = {\n  window: $.create(document.querySelector($.selector).contentWindow)\n}\n"
     },
     {
       "ports": {
@@ -1395,7 +1396,7 @@
       "description": "dom width",
       "ns": "dom",
       "name": "width",
-      "fn": "output = {\n  element: input.element,\n  width: input.element.getBoundingClientRect().width\n};\n"
+      "fn": "output = {\n  element: $.get('element'),\n  width: $.create($.element.getBoundingClientRect().width)\n};\n"
     }
   ],
   "twigs": []

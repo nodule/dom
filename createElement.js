@@ -16,7 +16,7 @@ module.exports = {
         fn: function __IN__(data, x, source, state, input, output) {
           var r = function() {
             output({
-              out: document.createElement(data)
+              out: $.write('in', document.createElement($.in))
             });
           }.call(this);
           return {

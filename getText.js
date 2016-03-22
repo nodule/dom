@@ -15,8 +15,8 @@ module.exports = {
         fn: function __ELEMENT__(data, x, source, state, input, output) {
           var r = function() {
             output({
-              element: data,
-              text: data.innerText
+              element: $.get('element'),
+              text: $.create($.element.innerText)
             });
           }.call(this);
           return {

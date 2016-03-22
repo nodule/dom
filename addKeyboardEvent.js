@@ -15,7 +15,7 @@ module.exports = {
         "default": null,
         fn: function __IN__(data, x, source, state, input, output) {
           var r = function() {
-            state.in = data;
+            state.in = $.in;
           }.call(this);
           return {
             state: state,
@@ -29,18 +29,18 @@ module.exports = {
         async: true,
         fn: function __ELEMENT__(data, x, source, state, input, output) {
           var r = function() {
-            if (!state.in) return false;
+            if (state.in === undefined) return false;
 
             if (state.el) {
               state.el.removeEventListener(state.event);
             }
-            state.el = input.element;
-            state.event = input.event;
-            state.preventDefault = input.preventDefault;
+            state.el = $.element;
+            state.event = $.event;
+            state.preventDefault = $.preventDefault;
 
-            state.el.addEventListener(input.event, state.clickHandler, false);
+            state.el.addEventListener($.event, state.clickHandler, false);
             output({
-              element: input.element
+              element: $.get('element')
             });
           }.call(this);
           return {
@@ -79,14 +79,14 @@ module.exports = {
     }
   },
   state: {
-    "in": null,
+    "in": undefined,
     event: null,
     preventDefault: null,
     clickHandler: function(ev) {
       if (state.preventDefault) ev.preventDefault();
       output({
-        out: state.in,
-        event: ev
+        out: $.clone('in', state.in),
+        event: $.create(ev)
       });
     }
   }

@@ -23,11 +23,11 @@ module.exports = {
       }
     }
   },
-  fn: function height(input, output, state, done, cb, on) {
+  fn: function height(input, $, output, state, done, cb, on) {
     var r = function() {
       output = {
-        element: input.element,
-        height: input.element.getBoundingClientRect().height
+        element: $.get('element'),
+        height: $.create($.element.getBoundingClientRect().height)
       };
     }.call(this);
     return {

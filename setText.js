@@ -23,11 +23,11 @@ module.exports = {
       }
     }
   },
-  fn: function setText(input, output, state, done, cb, on) {
+  fn: function setText(input, $, output, state, done, cb, on) {
     var r = function() {
-      input.element.innerText = input.text;
+      $.element.innerText = $.text;
       output = {
-        element: input.element
+        element: $.get('element')
       };
     }.call(this);
     return {

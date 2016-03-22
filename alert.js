@@ -14,7 +14,7 @@ module.exports = {
         required: "true",
         fn: function __MESSAGE__(data, x, source, state, input, output) {
           var r = function() {
-            alert(data);
+            alert($.message);
           }.call(this);
           return {
             state: state,

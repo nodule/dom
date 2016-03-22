@@ -23,16 +23,16 @@ module.exports = {
         fn: function __ELEMENT__(data, x, source, state, input, output, discore_closest, document) {
           var r = function() {
             var sel = discore_closest(
-              data, input.selector, input.checkSelf,
-              input.within || document
+              $.element, $.selector, $.checkSelf,
+              $.within || document
             );
             var res = {
-              element: data
+              element: $.get('element')
             };
             if (sel) {
-              res.selection = sel;
+              res.selection = $.create(sel);
             } else {
-              res.error = new Error('Selector didn\'t match:' + input.selector);
+              res.error = $.create(new Error('Selector didn\'t match:' + $.selector));
             }
 
             output(res);

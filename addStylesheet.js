@@ -20,12 +20,12 @@ module.exports = {
 
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = data;
+            link.href = $.url;
             head.appendChild(link);
 
             output({
-              head: head,
-              link: link
+              head: $.create(head),
+              link: $.create(link)
             });
           }.call(this);
           return {

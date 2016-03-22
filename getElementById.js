@@ -18,7 +18,7 @@ module.exports = {
         fn: function __ID__(data, x, source, state, input, output, document) {
           var r = function() {
             output({
-              element: document.getElementById(data)
+              element: $.create(document.getElementById($.id))
             });
           }.call(this);
           return {

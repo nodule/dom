@@ -14,9 +14,9 @@ module.exports = {
         async: true,
         fn: function __ELEMENT__(data, x, source, state, input, output) {
           var r = function() {
-            data.style.display = 'none';
+            $.element.style.display = 'none';
             output({
-              element: data
+              element: $.get('element')
             });
           }.call(this);
           return {

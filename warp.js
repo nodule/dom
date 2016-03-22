@@ -24,10 +24,10 @@ module.exports = {
       }
     }
   },
-  fn: function warp(input, output, state, done, cb, on, win, document) {
+  fn: function warp(input, $, output, state, done, cb, on, win, document) {
     var r = function() {
       output = {
-        window: document.querySelector(input.selector).contentWindow
+        window: $.create(document.querySelector($.selector).contentWindow)
       }
     }.call(this);
     return {

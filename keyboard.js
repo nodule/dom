@@ -43,11 +43,11 @@ module.exports = {
       keyboard: require('keyboard')
     }
   },
-  fn: function keyboard(input, output, state, done, cb, on, keyboard) {
+  fn: function keyboard(input, $, output, state, done, cb, on, keyboard) {
     var r = function() {
-      var kb = new keyboard(input.element)
+      var kb = new keyboard($.element)
 
-      // todo: should be async.keyboard( 'on', input.in, input.filter, function keyboardCallback(element,out) {cb({element: element, out: out});});
+      // todo: should be async.keyboard( 'on', $.in, $.filter, function keyboardCallback(element,out) {cb({element: element, out: out});});
     }.call(this);
     return {
       output: output,

@@ -30,13 +30,13 @@ module.exports = {
       }
     }
   },
-  fn: function confirm(input, output, state, done, cb, on) {
+  fn: function confirm(input, $, output, state, done, cb, on) {
     var r = function() {
-      var r = confirm(input.message);
+      var r = confirm($.message);
       if (r) {
-        output.yes = input.in;
+        output.yes = $.get('in');
       } else {
-        output.no = input.in;
+        output.no = $.get('in');
       }
     }.call(this);
     return {

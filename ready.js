@@ -20,11 +20,11 @@ module.exports = {
       domready: require('domready')
     }
   },
-  fn: function ready(input, output, state, done, cb, on, domready) {
+  fn: function ready(input, $, output, state, done, cb, on, domready) {
     var r = function() {
       domready(function() {
         output({
-          out: true
+          out: $.create(true)
         });
       });
     }.call(this);

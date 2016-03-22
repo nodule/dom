@@ -19,8 +19,8 @@ module.exports = {
         fn: function __CHILD__(data, x, source, state, input, output) {
           var r = function() {
             output({
-              element: input.element,
-              out: input.element.appendChild(data)
+              element: $.get('element'),
+              out: $.create($.element.appendChild($.child))
             });
           }.call(this);
           return {

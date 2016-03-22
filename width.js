@@ -23,11 +23,11 @@ module.exports = {
       }
     }
   },
-  fn: function width(input, output, state, done, cb, on) {
+  fn: function width(input, $, output, state, done, cb, on) {
     var r = function() {
       output = {
-        element: input.element,
-        width: input.element.getBoundingClientRect().width
+        element: $.get('element'),
+        width: $.create($.element.getBoundingClientRect().width)
       };
     }.call(this);
     return {

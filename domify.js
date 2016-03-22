@@ -29,9 +29,9 @@ module.exports = {
       domify: require('domify')
     }
   },
-  fn: function domify(input, output, state, done, cb, on, domify) {
+  fn: function domify(input, $, output, state, done, cb, on, domify) {
     var r = function() {
-      output.out = domify(input.in);
+      output.out = $.write('in', domify($.in));
     }.call(this);
     return {
       output: output,

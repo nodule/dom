@@ -17,10 +17,10 @@ module.exports = {
             var img = new Image();
             img.onload = function() {
               output({
-                image: this
+                image: $.create(this)
               });
             }.bind(img);
-            img.src = data;
+            img.src = $.src;
           }.call(this);
           return {
             state: state,

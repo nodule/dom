@@ -29,11 +29,11 @@ module.exports = {
       scriptjs: require('scriptjs')
     }
   },
-  fn: function script(input, output, state, done, cb, on, scriptjs) {
+  fn: function script(input, $, output, state, done, cb, on, scriptjs) {
     var r = function() {
-      scriptjs(input.in, function() {
+      scriptjs($.in, function() {
         output({
-          out: true
+          out: $.get('in')
         });
       });
     }.call(this);

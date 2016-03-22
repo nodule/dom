@@ -37,17 +37,25 @@ module.exports = {
       }
     }
   },
-  fn: function querySelectorAll(input, output, state, done, cb, on, win, document) {
+  fn: function querySelectorAll(input, $, output, state, done, cb, on, win, document) {
     var r = function() {
-      var el = input.element ? input.element : document;
-      output = {
-        element: el
-      };
-      var selection = el.querySelectorAll(input.selector);
-      if (selection) {
-        output.selection = selection;
+      var el;
+      if ($.element) {
+        el = $.element
+        output = {
+          element: $.get('element')
+        };
       } else {
-        output.error = Error('Selector ' + input.selector + ' did not match');
+        el = document
+        output = {
+          element: $.create(el)
+        };
+      }
+      var selection = el.querySelectorAll($.selector);
+      if (selection) {
+        output.selection = $.create(selection);
+      } else {
+        output.error = $.create(Error('Selector ' + $.selector + ' did not match'));
       }
     }.call(this);
     return {

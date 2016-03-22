@@ -34,18 +34,26 @@ module.exports = {
       }
     }
   },
-  fn: function querySelector(input, output, state, done, cb, on, document) {
+  fn: function querySelector(input, $, output, state, done, cb, on, document) {
     var r = function() {
-      var el = input.element ? input.element : document;
-      output = {
-        element: el
-      };
-
-      var selection = el.querySelector(input.selector);
-      if (selection) {
-        output.selection = selection;
+      var el;
+      if ($.element) {
+        el = $.element;
+        output = {
+          element: $.get('element')
+        };
       } else {
-        output.error = Error('Selector ' + input.selector + ' did not match');
+        el = document;
+        output = {
+          element: $.create(el)
+        };
+      }
+
+      var selection = el.querySelector($.selector);
+      if (selection) {
+        output.selection = $.create(selection);
+      } else {
+        output.error = $.create(Error('Selector ' + $.selector + ' did not match'));
       }
     }.call(this);
     return {
