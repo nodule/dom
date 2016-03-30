@@ -12,7 +12,7 @@ module.exports = {
         type: "string",
         async: true,
         title: "Source path",
-        fn: function __SRC__(data, x, source, state, input, output) {
+        fn: function __SRC__(data, source, state, input, $, output) {
           var r = function() {
             var img = new Image();
             img.onload = function() {

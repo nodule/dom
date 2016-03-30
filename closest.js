@@ -20,7 +20,7 @@ module.exports = {
         description: "will check this elements parents",
         type: "HTMLElement",
         async: true,
-        fn: function __ELEMENT__(data, x, source, state, input, output, discore_closest, document) {
+        fn: function __ELEMENT__(data, source, state, input, $, output, discore_closest) {
           var r = function() {
             var sel = discore_closest(
               $.element, $.selector, $.checkSelf,

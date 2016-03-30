@@ -14,7 +14,7 @@ module.exports = {
         title: "Element",
         type: "HTMLElement",
         async: true,
-        fn: function __ELEMENT__(data, x, source, state, input, output, document) {
+        fn: function __ELEMENT__(data, source, state, input, $, output) {
           var r = function() {
             $.element.setAttribute($.attribute, $.value);
             output({

@@ -17,7 +17,7 @@ module.exports = {
         format: "html",
         title: "html",
         async: true,
-        fn: function __HTML__(data, x, source, state, input, output) {
+        fn: function __HTML__(data, source, state, input, $, output) {
           var r = function() {
             $.element.innerHTML = $.html;
             output({

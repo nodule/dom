@@ -16,7 +16,7 @@ module.exports = {
         type: "HTMLElement",
         async: true,
         title: "Child Element",
-        fn: function __CHILD__(data, x, source, state, input, output) {
+        fn: function __CHILD__(data, source, state, input, $, output) {
           var r = function() {
             output({
               element: $.get('element'),

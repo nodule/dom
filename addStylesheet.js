@@ -13,7 +13,7 @@ module.exports = {
         async: true,
         format: "url",
         title: "Script Url",
-        fn: function __URL__(data, x, source, state, input, output) {
+        fn: function __URL__(data, source, state, input, $, output) {
           var r = function() {
             var head = document.head || document.getElementsByTagName('head')[0];
             var link = document.createElement('link');

@@ -15,7 +15,7 @@ module.exports = {
         type: "string",
         async: true,
         required: "true",
-        fn: function __ID__(data, x, source, state, input, output, document) {
+        fn: function __ID__(data, source, state, input, $, output) {
           var r = function() {
             output({
               element: $.create(document.getElementById($.id))

@@ -12,7 +12,7 @@ module.exports = {
         title: "Message",
         type: "any",
         required: "true",
-        fn: function __MESSAGE__(data, x, source, state, input, output) {
+        fn: function __MESSAGE__(data, source, state, input, $, output) {
           var r = function() {
             alert($.message);
           }.call(this);

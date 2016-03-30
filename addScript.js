@@ -17,7 +17,7 @@ module.exports = {
         type: "string",
         title: "Script Url",
         async: true,
-        fn: function __URL__(data, x, source, state, input, output, load_script) {
+        fn: function __URL__(data, source, state, input, $, output, load_script) {
           var r = function() {
             load_script.load($.url, function() {
 

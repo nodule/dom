@@ -13,7 +13,7 @@ module.exports = {
         type: "any",
         async: true,
         "default": null,
-        fn: function __IN__(data, x, source, state, input, output) {
+        fn: function __IN__(data, source, state, input, $, output) {
           var r = function() {
             state.in = $.in;
           }.call(this);
@@ -27,7 +27,7 @@ module.exports = {
         type: "HTMLElement",
         title: "Dom Element",
         async: true,
-        fn: function __ELEMENT__(data, x, source, state, input, output) {
+        fn: function __ELEMENT__(data, source, state, input, $, output) {
           var r = function() {
             if (state.in === undefined) return false;
 
