@@ -476,7 +476,7 @@
           "message": {
             "title": "Message",
             "type": "any",
-            "required": "true"
+            "required": true
           }
         }
       },
@@ -587,7 +587,7 @@
           "message": {
             "title": "Message",
             "type": "any",
-            "required": "true"
+            "required": true
           },
           "in": {
             "title": "Input",
@@ -683,7 +683,7 @@
             "title": "Html",
             "type": "string",
             "format": "html",
-            "required": "true"
+            "required": true
           }
         },
         "output": {
@@ -748,7 +748,7 @@
             "title": "ID",
             "type": "string",
             "async": true,
-            "required": "true"
+            "required": true
           }
         },
         "output": {

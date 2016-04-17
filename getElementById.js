@@ -14,7 +14,7 @@ module.exports = {
         title: "ID",
         type: "string",
         async: true,
-        required: "true",
+        required: true,
         fn: function __ID__(data, source, state, input, $, output) {
           var r = function() {
             output({

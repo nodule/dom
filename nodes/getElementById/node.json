@@ -16,7 +16,7 @@
         "title": "ID",
         "type": "string",
         "async": true,
-        "required": "true"
+        "required": true
       }
     },
     "output": {

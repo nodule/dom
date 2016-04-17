@@ -11,7 +11,7 @@ module.exports = {
       message: {
         title: "Message",
         type: "any",
-        required: "true",
+        required: true,
         fn: function __MESSAGE__(data, source, state, input, $, output) {
           var r = function() {
             alert($.message);

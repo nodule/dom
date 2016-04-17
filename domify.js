@@ -12,7 +12,7 @@ module.exports = {
         title: "Html",
         type: "string",
         format: "html",
-        required: "true"
+        required: true
       }
     },
     output: {

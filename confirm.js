@@ -11,7 +11,7 @@ module.exports = {
       message: {
         title: "Message",
         type: "any",
-        required: "true"
+        required: true
       },
       "in": {
         title: "Input",
