@@ -17,6 +17,13 @@
   },
   "nodes": [
     {
+      "name": "addFormEvent",
+      "ns": "dom",
+      "description": "Add Form Event Listener",
+      "async": true,
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
       "ports": {
         "input": {
           "in": {
@@ -63,16 +70,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding {{input.event}} handler"
-      },
-      "async": true,
-      "description": "Add Form Event Listener",
-      "ns": "dom",
-      "name": "addFormEvent",
       "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
+      "name": "addKeyboardEvent",
+      "ns": "dom",
+      "description": "Add Keyboard Event Listener",
+      "async": true,
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
       "ports": {
         "input": {
           "in": {
@@ -116,16 +123,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding {{input.event}} handler"
-      },
-      "async": true,
-      "description": "Add Keyboard Event Listener",
-      "ns": "dom",
-      "name": "addKeyboardEvent",
       "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
+      "name": "addMouseEvent",
+      "ns": "dom",
+      "description": "Add Mouse Event Listener",
+      "async": true,
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
       "ports": {
         "input": {
           "in": {
@@ -180,16 +187,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding {{input.event}} handler"
-      },
-      "async": true,
-      "description": "Add Mouse Event Listener",
-      "ns": "dom",
-      "name": "addMouseEvent",
       "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
+      "name": "addMutationEvent",
+      "ns": "dom",
+      "description": "Add Mutation Event Listener",
+      "async": true,
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
       "ports": {
         "input": {
           "in": {
@@ -237,16 +244,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding {{input.event}} handler"
-      },
-      "async": true,
-      "description": "Add Mutation Event Listener",
-      "ns": "dom",
-      "name": "addMutationEvent",
       "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
+      "name": "addPointerEvent",
+      "ns": "dom",
+      "description": "Add Pointer Event Listener",
+      "async": true,
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
       "ports": {
         "input": {
           "in": {
@@ -297,16 +304,21 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding {{input.event}} handler"
-      },
-      "async": true,
-      "description": "Add Pointer Event Listener",
-      "ns": "dom",
-      "name": "addPointerEvent",
       "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
+      "name": "addScript",
+      "ns": "dom",
+      "async": true,
+      "description": "Adds a script to the head of the HTML page",
+      "phrases": {
+        "active": "Attaching script {input.url}"
+      },
+      "dependencies": {
+        "npm": {
+          "load-script": "0.x.x"
+        }
+      },
       "ports": {
         "input": {
           "url": {
@@ -317,21 +329,16 @@
         },
         "output": {}
       },
-      "dependencies": {
-        "npm": {
-          "load-script": "0.x.x"
-        }
-      },
-      "phrases": {
-        "active": "Attaching script {input.url}"
-      },
-      "description": "Adds a script to the head of the HTML page",
-      "async": true,
-      "ns": "dom",
-      "name": "addScript",
       "fn": "on.input.url = function() {\n  load_script.load($.url, function() {\n\n  });\n};\n"
     },
     {
+      "name": "addStylesheet",
+      "ns": "dom",
+      "async": true,
+      "description": "Adds a stylesheet to the head of the HTML page",
+      "phrases": {
+        "active": "Attaching script {input.url}"
+      },
       "ports": {
         "input": {
           "url": {
@@ -352,16 +359,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Attaching script {input.url}"
-      },
-      "description": "Adds a stylesheet to the head of the HTML page",
-      "async": true,
-      "ns": "dom",
-      "name": "addStylesheet",
       "fn": "on.input.url = function() {\n  var head = document.head || document.getElementsByTagName('head')[0];\n  var link = document.createElement('link');\n\n  link.rel  = 'stylesheet';\n  link.type = 'text/css';\n  link.href = $.url;\n  head.appendChild(link);\n\n  output({\n    head: $.create(head),\n    link: $.create(link)\n  });\n};\n"
     },
     {
+      "name": "addTouchEvent",
+      "ns": "dom",
+      "description": "Add Touch Event Listener",
+      "async": true,
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
       "ports": {
         "input": {
           "in": {
@@ -408,16 +415,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding {{input.event}} handler"
-      },
-      "async": true,
-      "description": "Add Touch Event Listener",
-      "ns": "dom",
-      "name": "addTouchEvent",
       "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
+      "name": "addUIEvent",
+      "ns": "dom",
+      "description": "Add UI Event Listener",
+      "async": true,
+      "phrases": {
+        "active": "Adding {{input.event}} handler"
+      },
       "ports": {
         "input": {
           "in": {
@@ -461,16 +468,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding {{input.event}} handler"
-      },
-      "async": true,
-      "description": "Add UI Event Listener",
-      "ns": "dom",
-      "name": "addUIEvent",
       "fn": "state.in = undefined;\nstate.event = null;\nstate.preventDefault = null;\n\nstate.clickHandler = function(ev) {\n  if(state.preventDefault) ev.preventDefault();\n  output({\n    out: $.clone('in', state.in),\n    event: $.create(ev)\n  });\n};\n\non.input.in = function() {\n  state.in = $.in;\n};\n\non.input.element = function() {\n  if (state.in === undefined) return false;\n\n  if(state.el) {\n    state.el.removeEventListener(state.event);\n  }\n  state.el = $.element;\n  state.event = $.event;\n  state.preventDefault = $.preventDefault;\n\n  state.el.addEventListener($.event, state.clickHandler, false);\n  output({element: $.get('element')});\n};\n"
     },
     {
+      "name": "alert",
+      "ns": "dom",
+      "title": "Alert",
+      "description": "Alert",
+      "phrases": {
+        "active": "Showing alert"
+      },
       "ports": {
         "input": {
           "message": {
@@ -480,16 +487,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Showing alert"
-      },
-      "description": "Alert",
-      "title": "Alert",
-      "ns": "dom",
-      "name": "alert",
       "fn": "on.input.message = function() {\n  alert($.message);\n};\n"
     },
     {
+      "name": "appendChild",
+      "ns": "dom",
+      "description": "dom appendChild",
+      "async": true,
+      "phrases": {
+        "active": "Adding child node"
+      },
       "ports": {
         "input": {
           "element": {
@@ -512,16 +519,25 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding child node"
-      },
-      "async": true,
-      "description": "dom appendChild",
-      "ns": "dom",
-      "name": "appendChild",
       "fn": "on.input.child = function() {\n  output( {\n    element: $.get('element'),\n    out: $.create($.element.appendChild($.child))\n  } );\n}\n"
     },
     {
+      "name": "closest",
+      "ns": "dom",
+      "title": "Closest",
+      "async": true,
+      "description": " Finds the closest parent that matches a selector.",
+      "expose": [
+        "document"
+      ],
+      "dependencies": {
+        "npm": {
+          "discore-closest": "0.2.x"
+        }
+      },
+      "phrases": {
+        "active": "Finding closest parent: {{input.selector}}"
+      },
       "ports": {
         "input": {
           "element": {
@@ -563,25 +579,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Finding closest parent: {{input.selector}}"
-      },
-      "dependencies": {
-        "npm": {
-          "discore-closest": "0.2.x"
-        }
-      },
-      "expose": [
-        "document"
-      ],
-      "description": " Finds the closest parent that matches a selector.",
-      "async": true,
-      "title": "Closest",
-      "ns": "dom",
-      "name": "closest",
       "fn": "on.input.element = function() {\n  var sel = discore_closest(\n    $.element, $.selector, $.checkSelf,\n    $.within || document\n  );\n  var res = { element: $.get('element')};\n  if (sel) {\n    res.selection = $.create(sel);\n  } else {\n    res.error = $.create(new Error('Selector didn\\'t match:' + $.selector));\n  }\n\n  output(res);\n};\n"
     },
     {
+      "name": "confirm",
+      "ns": "dom",
+      "title": "Confirm",
+      "description": "Confirm whether this input is go or no go",
+      "phrases": {
+        "active": "Confirming yes/no"
+      },
       "ports": {
         "input": {
           "message": {
@@ -606,16 +613,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Confirming yes/no"
-      },
-      "description": "Confirm whether this input is go or no go",
-      "title": "Confirm",
-      "ns": "dom",
-      "name": "confirm",
       "fn": "var r = confirm($.message);\nif (r) {\n  output.yes = $.get('in');\n} else {\n  output.no = $.get('in');\n}\n"
     },
     {
+      "name": "createElement",
+      "ns": "dom",
+      "async": true,
+      "description": "dom createElement",
+      "phrases": {
+        "active": "Creating element"
+      },
       "ports": {
         "input": {
           "in": {
@@ -631,16 +638,18 @@
           }
         }
       },
-      "phrases": {
-        "active": "Creating element"
-      },
-      "description": "dom createElement",
-      "async": true,
-      "ns": "dom",
-      "name": "createElement",
       "fn": "on.input.in = function() {\n  output( { out: $.write('in', document.createElement($.in)) });\n}\n"
     },
     {
+      "name": "document",
+      "ns": "dom",
+      "description": "dom document",
+      "expose": [
+        "window"
+      ],
+      "phrases": {
+        "active": "Providing the dom document of the current window"
+      },
       "ports": {
         "input": {
           "window": {
@@ -660,22 +669,15 @@
           }
         }
       },
-      "phrases": {
-        "active": "Providing the dom document of the current window"
-      },
-      "expose": [
-        "window"
-      ],
-      "description": "dom document",
-      "ns": "dom",
-      "name": "document",
       "fn": "win = $.window || win;\noutput = {\n  document: $.create(win.document),\n  window: $.create(win)\n}\n"
     },
     {
-      "dependencies": {
-        "npm": {
-          "domify": "0.x.x"
-        }
+      "name": "domify",
+      "ns": "dom",
+      "title": "Domify",
+      "description": "Turn HTML into DOM elements x-browser",
+      "phrases": {
+        "active": "Domifying HTML"
       },
       "ports": {
         "input": {
@@ -696,16 +698,25 @@
           }
         }
       },
-      "phrases": {
-        "active": "Domifying HTML"
+      "dependencies": {
+        "npm": {
+          "domify": "0.x.x"
+        }
       },
-      "description": "Turn HTML into DOM elements x-browser",
-      "title": "Domify",
-      "ns": "dom",
-      "name": "domify",
       "fn": "output.out = $.write('in', domify($.in));\n"
     },
     {
+      "name": "getAttribute",
+      "ns": "dom",
+      "title": "Get Attribute",
+      "async": true,
+      "description": "Get attribute",
+      "expose": [
+        "document"
+      ],
+      "phrases": {
+        "active": "Getting attribute: {{input.attribute}}"
+      },
       "ports": {
         "input": {
           "element": {
@@ -728,20 +739,20 @@
           }
         }
       },
-      "phrases": {
-        "active": "Getting attribute: {{input.attribute}}"
-      },
-      "expose": [
-        "document"
-      ],
-      "description": "Get attribute",
-      "async": true,
-      "title": "Get Attribute",
-      "ns": "dom",
-      "name": "getAttribute",
       "fn": "on.input.element = function() {\n  output( {\n    element: $.get('element'),\n    attribute: $.create($.element.getAttribute($.attribute))\n  });\n}\n"
     },
     {
+      "name": "getElementById",
+      "ns": "dom",
+      "title": "getElementById",
+      "async": true,
+      "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
+      "expose": [
+        "document"
+      ],
+      "phrases": {
+        "active": "Getting element with id: {{input.id}}"
+      },
       "ports": {
         "input": {
           "id": {
@@ -757,20 +768,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Getting element with id: {{input.id}}"
-      },
-      "expose": [
-        "document"
-      ],
-      "description": "[Get element by ID](https://developer.mozilla.org/en-US/docs/Web/API/document.getElementById)",
-      "async": true,
-      "title": "getElementById",
-      "ns": "dom",
-      "name": "getElementById",
       "fn": "on.input.id = function() {\n  output( { element: $.create(document.getElementById($.id)) } );\n}\n"
     },
     {
+      "name": "getHtml",
+      "ns": "dom",
+      "async": true,
+      "description": "dom getHtml",
+      "phrases": {
+        "active": "Getting html"
+      },
       "ports": {
         "input": {
           "element": {
@@ -792,16 +799,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Getting html"
-      },
-      "description": "dom getHtml",
-      "async": true,
-      "ns": "dom",
-      "name": "getHtml",
       "fn": "on.input.element = function() {\n  output( {\n    element: $.get('element'),\n    html: $.create($.element.innerHTML)\n  } );\n}\n"
     },
     {
+      "name": "getText",
+      "ns": "dom",
+      "async": true,
+      "description": "dom getText",
+      "phrases": {
+        "active": "Getting text"
+      },
       "ports": {
         "input": {
           "element": {
@@ -822,16 +829,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Getting text"
-      },
-      "description": "dom getText",
-      "async": true,
-      "ns": "dom",
-      "name": "getText",
       "fn": "on.input.element = function() {\n  output( {\n    element: $.get('element'),\n    text: $.create($.element.innerText)\n  } );\n}\n"
     },
     {
+      "name": "getValue",
+      "ns": "dom",
+      "async": true,
+      "description": "Take value from an input element",
+      "phrases": {
+        "active": "Reading value from {input.element.name}"
+      },
       "ports": {
         "input": {
           "element": {
@@ -851,16 +858,15 @@
           }
         }
       },
-      "phrases": {
-        "active": "Reading value from {input.element.name}"
-      },
-      "description": "Take value from an input element",
-      "async": true,
-      "ns": "dom",
-      "name": "getValue",
       "fn": "on.input.element = function() {\n  output({\n    element: $.get('element'),\n    out: $.create($.element.value) // never ownProperty...\n  });\n};\n"
     },
     {
+      "name": "height",
+      "ns": "dom",
+      "description": "dom height",
+      "phrases": {
+        "active": "Calculating height"
+      },
       "ports": {
         "input": {
           "element": {
@@ -879,15 +885,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Calculating height"
-      },
-      "description": "dom height",
-      "ns": "dom",
-      "name": "height",
       "fn": "output = {\n  element: $.get('element'),\n  height: $.create($.element.getBoundingClientRect().height)\n};\n"
     },
     {
+      "name": "hide",
+      "ns": "dom",
+      "async": true,
+      "description": "dom hide",
+      "phrases": {
+        "active": "hideing"
+      },
       "ports": {
         "input": {
           "element": {
@@ -903,16 +910,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "hideing"
-      },
-      "description": "dom hide",
-      "async": true,
-      "ns": "dom",
-      "name": "hide",
       "fn": "on.input.element = function() {\n  $.element.style.display = 'none';\n  output({ element: $.get('element') });\n};\n"
     },
     {
+      "name": "image",
+      "ns": "dom",
+      "async": true,
+      "description": "Create an image",
+      "phrases": {
+        "active": "Creating Image"
+      },
       "ports": {
         "input": {
           "src": {
@@ -928,20 +935,14 @@
           }
         }
       },
-      "phrases": {
-        "active": "Creating Image"
-      },
-      "description": "Create an image",
-      "async": true,
-      "ns": "dom",
-      "name": "image",
       "fn": "on.input.src = function() {\n  var img = new Image();\n  img.onload = function() {\n    output( { image: $.create(this) } );\n  }.bind(img);\n  img.src = $.src;\n}\n"
     },
     {
-      "dependencies": {
-        "npm": {
-          "keyboard": "0.x.x"
-        }
+      "name": "keyboard",
+      "ns": "dom",
+      "description": "Gives the keyboard a first class identity, normalizes keyboard events across browsers, and allows binding to multiple keys.",
+      "phrases": {
+        "active": "Handling keyboard"
       },
       "ports": {
         "input": {
@@ -977,15 +978,20 @@
           }
         }
       },
-      "phrases": {
-        "active": "Handling keyboard"
+      "dependencies": {
+        "npm": {
+          "keyboard": "0.x.x"
+        }
       },
-      "description": "Gives the keyboard a first class identity, normalizes keyboard events across browsers, and allows binding to multiple keys.",
-      "ns": "dom",
-      "name": "keyboard",
       "fn": "var kb = new keyboard($.element);\n\n// todo: should be async, output is mixed now. see the docs.\noutput = [kb, 'on', $.in, $.filter];\n"
     },
     {
+      "name": "offset",
+      "ns": "dom",
+      "description": "dom offset",
+      "phrases": {
+        "active": "Calculating offset"
+      },
       "ports": {
         "input": {
           "window": {
@@ -1020,15 +1026,19 @@
           }
         }
       },
-      "phrases": {
-        "active": "Calculating offset"
-      },
-      "description": "dom offset",
-      "ns": "dom",
-      "name": "offset",
       "fn": "var rect = $.element.getBoundingClientRect();\noutput = {\n  element: $.get('element'),\n  left: $.create(rect.left + $.win.pageXOffset),\n  top: $.create(rect.top + $.win.pageYOffset),\n  width: $.create(rect.width),\n  height: $.create(rect.height)\n};\n"
     },
     {
+      "name": "querySelector",
+      "ns": "dom",
+      "title": "querySelector",
+      "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
+      "expose": [
+        "document"
+      ],
+      "phrases": {
+        "active": "Gathering elements matching criteria: {{input.selector}}"
+      },
       "ports": {
         "input": {
           "element": {
@@ -1056,19 +1066,20 @@
           }
         }
       },
-      "phrases": {
-        "active": "Gathering elements matching criteria: {{input.selector}}"
-      },
-      "expose": [
-        "document"
-      ],
-      "description": "[Document query selector](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector)",
-      "title": "querySelector",
-      "ns": "dom",
-      "name": "querySelector",
       "fn": "var el;\nif ($.element) {\n  el = $.element;\n  output = {\n    element: $.get('element') \n  };\n} else {\n  el = document;\n  output = {\n    element: $.create(el) \n  };\n}\n\nvar selection = el.querySelector($.selector);\nif(selection) {\n  output.selection = $.create(selection);\n} else {\n  output.error = $.create(Error('Selector ' + $.selector + ' did not match'));\n}\n"
     },
     {
+      "name": "querySelectorAll",
+      "ns": "dom",
+      "title": "querySelectorAll",
+      "expose": [
+        "window",
+        "document"
+      ],
+      "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
+      "phrases": {
+        "active": "Gathering all elements matching criteria: {{input.selector}}"
+      },
       "ports": {
         "input": {
           "element": {
@@ -1097,24 +1108,15 @@
           }
         }
       },
-      "phrases": {
-        "active": "Gathering all elements matching criteria: {{input.selector}}"
-      },
-      "description": "[Document querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/document.querySelectorAll)",
-      "expose": [
-        "window",
-        "document"
-      ],
-      "title": "querySelectorAll",
-      "ns": "dom",
-      "name": "querySelectorAll",
       "fn": "var el;\nif ($.element) {\n  el = $.element\n  output = {\n    element: $.get('element')\n  };\n} else {\n  el = document\n  output = {\n    element: $.create(el)\n  };\n}\nvar selection = el.querySelectorAll($.selector);\nif(selection) {\n  output.selection = $.create(selection);\n} else {\n  output.error = $.create(Error('Selector ' + $.selector + ' did not match'));\n}\n"
     },
     {
-      "dependencies": {
-        "npm": {
-          "domready": "1.x.x"
-        }
+      "name": "ready",
+      "ns": "dom",
+      "title": "Dom Ready",
+      "description": "Let's you know when the dom is ready",
+      "phrases": {
+        "active": "Waiting until dom is ready..."
       },
       "ports": {
         "input": {},
@@ -1125,20 +1127,19 @@
           }
         }
       },
-      "phrases": {
-        "active": "Waiting until dom is ready..."
+      "dependencies": {
+        "npm": {
+          "domready": "1.x.x"
+        }
       },
-      "description": "Let's you know when the dom is ready",
-      "title": "Dom Ready",
-      "ns": "dom",
-      "name": "ready",
       "fn": "output = function() {\n  domready(function() {\n    cb({ out: $.create(true) });\n  });\n};\n"
     },
     {
-      "dependencies": {
-        "npm": {
-          "scriptjs": "1.x.x"
-        }
+      "name": "script",
+      "ns": "dom",
+      "description": "Asyncronous JavaScript loader and dependency manager",
+      "phrases": {
+        "active": "Loading script(s)"
       },
       "ports": {
         "input": {
@@ -1159,15 +1160,25 @@
           }
         }
       },
-      "phrases": {
-        "active": "Loading script(s)"
+      "dependencies": {
+        "npm": {
+          "scriptjs": "1.x.x"
+        }
       },
-      "description": "Asyncronous JavaScript loader and dependency manager",
-      "ns": "dom",
-      "name": "script",
       "fn": "output = function() {\n  scriptjs($.in, function() {\n    cb({ out: $.get('in') });\n  });\n};\n"
     },
     {
+      "name": "setAttribute",
+      "ns": "dom",
+      "title": "Set Attribute",
+      "async": true,
+      "description": "Adds a new attribute or changes the value of an existing attribute on the specified element.",
+      "expose": [
+        "document"
+      ],
+      "phrases": {
+        "active": "Setting attribute: {{input.attribute}}"
+      },
       "ports": {
         "input": {
           "element": {
@@ -1190,20 +1201,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Setting attribute: {{input.attribute}}"
-      },
-      "expose": [
-        "document"
-      ],
-      "description": "Adds a new attribute or changes the value of an existing attribute on the specified element.",
-      "async": true,
-      "title": "Set Attribute",
-      "ns": "dom",
-      "name": "setAttribute",
       "fn": "on.input.element = function() {\n  $.element.setAttribute($.attribute, $.value);\n  output( {\n    element: $.get('element')\n  });\n}\n"
     },
     {
+      "name": "setHtml",
+      "ns": "dom",
+      "description": "dom setHtml",
+      "async": true,
+      "phrases": {
+        "active": "Adding html"
+      },
       "ports": {
         "input": {
           "element": {
@@ -1224,16 +1231,15 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding html"
-      },
-      "async": true,
-      "description": "dom setHtml",
-      "ns": "dom",
-      "name": "setHtml",
       "fn": "on.input.html = function() {\n  $.element.innerHTML = $.html;\n  output({ element: $.get('element') });\n};\n"
     },
     {
+      "name": "setText",
+      "ns": "dom",
+      "description": "dom setText",
+      "phrases": {
+        "active": "Adding text"
+      },
       "ports": {
         "input": {
           "element": {
@@ -1252,15 +1258,15 @@
           }
         }
       },
-      "phrases": {
-        "active": "Adding text"
-      },
-      "description": "dom setText",
-      "ns": "dom",
-      "name": "setText",
       "fn": "$.element.innerText = $.text;\noutput = { element: $.get('element') };\n"
     },
     {
+      "name": "setValue",
+      "ns": "dom",
+      "description": "Set value of an input element",
+      "phrases": {
+        "active": "Setting value for {input.element.name}"
+      },
       "ports": {
         "input": {
           "in": {
@@ -1284,40 +1290,16 @@
           }
         }
       },
-      "phrases": {
-        "active": "Setting value for {input.element.name}"
-      },
-      "description": "Set value of an input element",
-      "ns": "dom",
-      "name": "setValue",
       "fn": "$.element.value = $.in\noutput.element = $.get('element')\noutput.out = $.get('in')\n"
     },
     {
-      "ports": {
-        "input": {
-          "element": {
-            "type": "HTMLElement",
-            "title": "Dom Element",
-            "async": true
-          }
-        },
-        "output": {
-          "element": {
-            "type": "HTMLElement",
-            "title": "Dom Element"
-          }
-        }
-      },
+      "name": "show",
+      "ns": "dom",
+      "async": true,
+      "description": "dom show",
       "phrases": {
         "active": "Showing"
       },
-      "description": "dom show",
-      "async": true,
-      "ns": "dom",
-      "name": "show",
-      "fn": "on.input.element = function() {\n  $.element.style.display = 'block';\n  output({ element: $.get('element') });\n};\n"
-    },
-    {
       "ports": {
         "input": {
           "element": {
@@ -1333,16 +1315,44 @@
           }
         }
       },
+      "fn": "on.input.element = function() {\n  $.element.style.display = 'block';\n  output({ element: $.get('element') });\n};\n"
+    },
+    {
+      "name": "toggle",
+      "ns": "dom",
+      "async": true,
+      "description": "dom toggle",
       "phrases": {
         "active": "toggling"
       },
-      "description": "dom toggle",
-      "async": true,
-      "ns": "dom",
-      "name": "toggle",
+      "ports": {
+        "input": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element",
+            "async": true
+          }
+        },
+        "output": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Dom Element"
+          }
+        }
+      },
       "fn": "on.input.element = function() {\n  $.element.style.display = $.element.style.display === 'none' ? 'block' : 'none';\n  output({ element: $.get('element') });\n};\n"
     },
     {
+      "name": "warp",
+      "ns": "dom",
+      "description": "dom warp",
+      "expose": [
+        "window",
+        "document"
+      ],
+      "phrases": {
+        "active": "Warping to frame {{input.selector}}"
+      },
       "ports": {
         "input": {
           "selector": {
@@ -1359,19 +1369,15 @@
           }
         }
       },
-      "phrases": {
-        "active": "Warping to frame {{input.selector}}"
-      },
-      "expose": [
-        "window",
-        "document"
-      ],
-      "description": "dom warp",
-      "ns": "dom",
-      "name": "warp",
       "fn": "output = {\n  window: $.create(document.querySelector($.selector).contentWindow)\n}\n"
     },
     {
+      "name": "width",
+      "ns": "dom",
+      "description": "dom width",
+      "phrases": {
+        "active": "Calculating width"
+      },
       "ports": {
         "input": {
           "element": {
@@ -1390,14 +1396,7 @@
           }
         }
       },
-      "phrases": {
-        "active": "Calculating width"
-      },
-      "description": "dom width",
-      "ns": "dom",
-      "name": "width",
       "fn": "output = {\n  element: $.get('element'),\n  width: $.create($.element.getBoundingClientRect().width)\n};\n"
     }
-  ],
-  "twigs": []
+  ]
 }
