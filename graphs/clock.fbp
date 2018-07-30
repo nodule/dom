@@ -1,6 +1,11 @@
 title:	Clock
+ns: clock
+name: example
 id: ClockExample
-DomImage(dom/image),DomQuerySelector(dom/querySelector),DomSetHtml(dom/setHtml),CanvasGetContext(canvas/getContext),CanvasDrawImage(canvas/drawImage),DomQuerySelector2(dom/querySelector),MathDegreesToRadians(math/degreesToRadians),DateCreate(date/create),DateGetSeconds(date/getSeconds),CanvasBeginPath(canvas/beginPath),CanvasMoveTo(canvas/moveTo),CanvasLineTo(canvas/lineTo),CanvasLineTo2(canvas/lineTo),CanvasLineTo3(canvas/lineTo),CanvasLineTo4(canvas/lineTo),CanvasStroke(canvas/stroke),MathMultiply(math/multiply),CanvasRotate(canvas/rotate),CanvasSetAttributes(canvas/setAttributes),CanvasFill(canvas/fill),CanvasTranslate(canvas/translate),UtilWait(util/wait),ConsoleLog(console/log),CanvasStrokeText(canvas/strokeText),CanvasSave(canvas/save),ConsoleLog2(console/log),DomAddMouseEvent(dom/addMouseEvent),DomAlert(dom/alert),DateCreate2(date/create),CanvasRestore(canvas/restore),CanvasSetAttributes2(canvas/setAttributes)
+
+provider https://api.chix.io/v1/nodes/rhalff/{ns}/{name}
+
+DomImage(dom/image),DomQuerySelector(dom/querySelector),DomSetHtml(dom/setHtml),CanvasGetContext(canvas/getContext),CanvasDrawImage(canvas/drawImage),DomQuerySelector2(dom/querySelector),MathDegreesToRadians(math/degreesToRadians),DateCreate(date/create),DateGetSeconds(date/getSeconds),CanvasBeginPath(canvas/beginPath),CanvasMoveTo(canvas/moveTo),CanvasLineTo(canvas/lineTo),CanvasLineTo2(canvas/lineTo),CanvasLineTo3(canvas/lineTo),CanvasLineTo4(canvas/lineTo),CanvasStroke(canvas/stroke),MathMultiply(math/multiply),CanvasRotate(canvas/rotate),CanvasSetAttributes(canvas/setAttributes),CanvasFill(canvas/fill),CanvasTranslate(canvas/translate),UtilWait(utils/wait),ConsoleLog(console/log),CanvasStrokeText(canvas/strokeText),CanvasSave(canvas/save),ConsoleLog2(console/log),DomAddMouseEvent(dom/addMouseEvent),DomAlert(dom/alert),DateCreate2(date/create),CanvasRestore(canvas/restore),CanvasSetAttributes2(canvas/setAttributes)
 
 #,SoundAlert(sound/alert)
 
@@ -17,7 +22,7 @@ DomImage(dom/image),DomQuerySelector(dom/querySelector),DomSetHtml(dom/setHtml),
   "dy": -225,
   "dw": 450,
   "dh": 450
-} -> @in CanvasDrawImage
+} -> @args CanvasDrawImage
 
 "canvas" -> ^selector DomQuerySelector2
 
@@ -92,10 +97,10 @@ true -> @preventDefault DomAddMouseEvent
 #0.1 -> @volume SoundAlert
 
 DomQuerySelector selection -> element DomSetHtml
-DomImage image -> ^element CanvasDrawImage
+DomImage image -> ^image CanvasDrawImage
 DomSetHtml element -> element DomQuerySelector2
 DomQuerySelector2 selection -> canvas CanvasGetContext
-DateCreate out -> date DateGetSeconds
+DateCreate out -> in DateGetSeconds
 CanvasMoveTo context -> context CanvasLineTo
 CanvasLineTo context -> context CanvasLineTo2
 CanvasLineTo2 context -> context CanvasLineTo3
@@ -114,7 +119,7 @@ DomAddMouseEvent event -> msg ConsoleLog2
 DomAddMouseEvent event -> message DomAlert
 DateGetSeconds out -> in UtilWait
 UtilWait out -> :start DateCreate2
-DateCreate2 out -> date DateGetSeconds
+DateCreate2 out -> in DateGetSeconds
 DateCreate2 out -> :start DateGetSeconds
 DateCreate out -> :start DateGetSeconds
 CanvasBeginPath context -> context CanvasRotate

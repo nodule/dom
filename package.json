@@ -24,6 +24,7 @@
     ]
   },
   "devDependencies": {
+    "@chix/flow": "^2.7.4",
     "chit": "0.x.x",
     "gh-pages-deploy": "^0.4.0",
     "rimraf": "^2.5.0"
